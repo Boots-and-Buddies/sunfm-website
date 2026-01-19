@@ -9,6 +9,8 @@ export default function ComingSoonPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
   const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -37,16 +39,24 @@ export default function ComingSoonPage() {
     }
   };
 
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setEmailSubmitted(true);
+      // In the future, this could send to a backend/email service
+    }
+  };
+
   return (
-    <main className="min-h-screen bg-[#EEEADA] flex flex-col items-center justify-center px-4">
+    <main className="min-h-screen bg-[#EEEADA] flex flex-col items-center justify-center px-4 py-12">
       <div className="max-w-2xl mx-auto text-center">
         {/* Logo */}
         <Image
-          src="/images/logo.png"
+          src="/images/full-logo.png"
           alt="SunFM - Sun Functional Movement"
-          width={300}
-          height={113}
-          className="mx-auto mb-12 h-24 w-auto"
+          width={400}
+          height={150}
+          className="mx-auto mb-12 h-auto w-auto max-w-[280px] md:max-w-[350px]"
           priority
         />
 
@@ -65,14 +75,14 @@ export default function ComingSoonPage() {
               d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          Coming May 2025
+          Coming May 2026
         </div>
 
         {/* Main Headline */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6">
           New Private Gym
           <br />
-          <span className="text-[#CB4538]">Opening in San Jose</span>
+          <span className="text-[#FFD140]">Opening in San Jose</span>
         </h1>
 
         {/* Subheadline */}
@@ -81,14 +91,62 @@ export default function ComingSoonPage() {
           and health longevity. Serving the South Bay Area.
         </p>
 
+        {/* Email Signup */}
+        <div className="mb-10 max-w-md mx-auto">
+          {!emailSubmitted ? (
+            <form onSubmit={handleEmailSubmit} className="space-y-3">
+              <p className="text-gray-600 text-sm mb-3">
+                Be the first to know when we open
+              </p>
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="flex-1 px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="px-6 py-3 rounded-xl bg-[#FFD140] text-black font-bold hover:bg-[#e6bc39] transition-colors"
+                >
+                  Notify Me
+                </button>
+              </div>
+            </form>
+          ) : (
+            <div className="bg-white rounded-xl px-6 py-4 shadow-sm">
+              <div className="flex items-center justify-center gap-2 text-green-600">
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                <span className="font-medium">
+                  Thanks! We&apos;ll notify you when we open.
+                </span>
+              </div>
+            </div>
+          )}
+        </div>
+
         {/* Location Card */}
         <a
           href="https://maps.app.goo.gl/19dXxEMB8WddyoyJ6"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 bg-white rounded-xl px-6 py-4 shadow-md hover:shadow-lg transition-shadow mb-12"
+          className="inline-flex items-center gap-3 bg-white rounded-xl px-6 py-4 shadow-md hover:shadow-lg transition-shadow mb-10"
         >
-          <div className="w-12 h-12 bg-[#CB4538] rounded-full flex items-center justify-center text-white flex-shrink-0">
+          <div className="w-12 h-12 bg-[#FFD140] rounded-full flex items-center justify-center text-black flex-shrink-0">
             <svg
               className="w-6 h-6"
               fill="none"
@@ -129,12 +187,12 @@ export default function ComingSoonPage() {
         </a>
 
         {/* Social Links */}
-        <div className="flex items-center justify-center gap-4 mb-16">
+        <div className="flex items-center justify-center gap-4 mb-12">
           <a
             href="https://www.instagram.com/jeffsunfitness/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:bg-[#CB4538] transition-colors"
+            className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:bg-[#FFD140] hover:text-black transition-colors"
             aria-label="Instagram"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -145,7 +203,7 @@ export default function ComingSoonPage() {
             href="https://www.yelp.com/biz/jeff-sun-fitness-sunnyvale"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:bg-[#CB4538] transition-colors"
+            className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:bg-[#FFD140] hover:text-black transition-colors"
             aria-label="Yelp"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -156,7 +214,7 @@ export default function ComingSoonPage() {
             href="https://maps.app.goo.gl/19dXxEMB8WddyoyJ6"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:bg-[#CB4538] transition-colors"
+            className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:bg-[#FFD140] hover:text-black transition-colors"
             aria-label="Google Maps"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -213,7 +271,7 @@ export default function ComingSoonPage() {
       </div>
 
       {/* Footer */}
-      <footer className="absolute bottom-4 text-center">
+      <footer className="mt-auto pt-8 text-center">
         <p className="text-gray-500 text-sm">
           &copy; {new Date().getFullYear()} Sun Functional Movement
         </p>
