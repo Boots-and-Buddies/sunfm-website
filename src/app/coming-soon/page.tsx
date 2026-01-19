@@ -1,0 +1,223 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+
+export default function ComingSoonPage() {
+  const [showLogin, setShowLogin] = useState(false);
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/admin-login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+
+      if (response.ok) {
+        // Set a cookie/session to remember admin access
+        document.cookie = "admin_access=true; path=/; max-age=86400"; // 24 hours
+        router.push("/home");
+      } else {
+        setError("Invalid password");
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <main className="min-h-screen bg-[#EEEADA] flex flex-col items-center justify-center px-4">
+      <div className="max-w-2xl mx-auto text-center">
+        {/* Logo */}
+        <Image
+          src="/images/logo.png"
+          alt="SunFM - Sun Functional Movement"
+          width={300}
+          height={113}
+          className="mx-auto mb-12 h-24 w-auto"
+          priority
+        />
+
+        {/* Coming Soon Badge */}
+        <div className="inline-flex items-center gap-2 bg-[#FFD140] text-black px-4 py-2 rounded-full text-sm font-bold mb-8">
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          Coming May 2025
+        </div>
+
+        {/* Main Headline */}
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6">
+          New Private Gym
+          <br />
+          <span className="text-[#CB4538]">Opening in San Jose</span>
+        </h1>
+
+        {/* Subheadline */}
+        <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-xl mx-auto">
+          A personal training studio focused on functional movement, mobility,
+          and health longevity. Serving the South Bay Area.
+        </p>
+
+        {/* Location Card */}
+        <a
+          href="https://maps.app.goo.gl/19dXxEMB8WddyoyJ6"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 bg-white rounded-xl px-6 py-4 shadow-md hover:shadow-lg transition-shadow mb-12"
+        >
+          <div className="w-12 h-12 bg-[#CB4538] rounded-full flex items-center justify-center text-white flex-shrink-0">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </div>
+          <div className="text-left">
+            <p className="font-bold text-black">1401 Parkmoor Ave</p>
+            <p className="text-gray-600">San Jose, CA 95126</p>
+          </div>
+          <svg
+            className="w-5 h-5 text-gray-400 ml-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            />
+          </svg>
+        </a>
+
+        {/* Social Links */}
+        <div className="flex items-center justify-center gap-4 mb-16">
+          <a
+            href="https://www.instagram.com/jeffsunfitness/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:bg-[#CB4538] transition-colors"
+            aria-label="Instagram"
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a
+            href="https://www.yelp.com/biz/jeff-sun-fitness-sunnyvale"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:bg-[#CB4538] transition-colors"
+            aria-label="Yelp"
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.16 12.594l-4.995 1.433c-.96.276-1.94-.8-1.665-1.76l1.433-4.995c.276-.96 1.665-1.093 2.206-.211l2.82 4.612c.54.88-.14 1.796-1.8.921zM12.594 3.84l1.433 4.995c.276.96-.8 1.94-1.76 1.665l-4.995-1.433c-.96-.276-1.093-1.665-.211-2.206l4.612-2.82c.88-.54 1.796.14.921 1.8zM3.84 11.406l4.995-1.433c.96-.276 1.94.8 1.665 1.76l-1.433 4.995c-.276.96-1.665 1.093-2.206.211l-2.82-4.612c-.54-.88.14-1.796 1.8-.921zM11.406 20.16l-1.433-4.995c-.276-.96.8-1.94 1.76-1.665l4.995 1.433c.96.276 1.093 1.665.211 2.206l-4.612 2.82c-.88.54-1.796-.14-.921-1.8z" />
+            </svg>
+          </a>
+          <a
+            href="https://maps.app.goo.gl/19dXxEMB8WddyoyJ6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:bg-[#CB4538] transition-colors"
+            aria-label="Google Maps"
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+          </a>
+        </div>
+
+        {/* Admin Login Toggle */}
+        {!showLogin ? (
+          <button
+            onClick={() => setShowLogin(true)}
+            className="text-gray-400 text-sm hover:text-gray-600 transition-colors"
+          >
+            Admin Access
+          </button>
+        ) : (
+          <div className="max-w-sm mx-auto">
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter admin password"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent"
+                  autoFocus
+                />
+              </div>
+              {error && <p className="text-red-500 text-sm">{error}</p>}
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowLogin(false);
+                    setPassword("");
+                    setError("");
+                  }}
+                  className="flex-1 px-4 py-3 rounded-xl border border-gray-300 text-gray-600 hover:bg-gray-100 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="flex-1 px-4 py-3 rounded-xl bg-black text-white font-medium hover:bg-gray-800 transition-colors disabled:opacity-50"
+                >
+                  {isLoading ? "..." : "Login"}
+                </button>
+              </div>
+            </form>
+          </div>
+        )}
+      </div>
+
+      {/* Footer */}
+      <footer className="absolute bottom-4 text-center">
+        <p className="text-gray-500 text-sm">
+          &copy; {new Date().getFullYear()} Sun Functional Movement
+        </p>
+      </footer>
+    </main>
+  );
+}
