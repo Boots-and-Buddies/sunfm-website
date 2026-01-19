@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* SunFM Brand Colors */
+  --color-sunshine-yellow: #FFD140;
+  --color-cherry-red: #CB4538;
+  --color-vintage-grey: #EEEADA;
+
+  /* Font families */
+  --font-work-sans: "Work Sans", sans-serif;
+  --font-cooper: "Cooper Black", serif;
+}
+
+body {
+  font-family: var(--font-work-sans);
+  background-color: var(--color-vintage-grey);
+  color: #000000;
+}
+
+/* Cooper Black fallback - using a similar chunky serif */
+.font-cooper {
+  font-family: "Cooper Black", "Rockwell Extra Bold", "Palatino Linotype", serif;
+  font-weight: 900;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom button styles */
+.btn-primary {
+  background-color: var(--color-sunshine-yellow);
+  color: #000000;
+  padding: 0.875rem 2rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 209, 64, 0.4);
+}
+
+/* Section padding */
+.section-padding {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 6rem 2rem;
+  }
+}
+
+/* Highlight text with yellow background */
+.highlight {
+  background-color: var(--color-sunshine-yellow);
+  padding: 0 0.25rem;
+}
