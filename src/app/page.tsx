@@ -82,7 +82,7 @@ export default function ComingSoonPage() {
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6">
           New Private Gym
           <br />
-          <span className="text-[#FFD140]">Opening in San Jose</span>
+          <span className="text-[#CB4538]">Opening in San Jose</span>
         </h1>
 
         {/* Subheadline */}
