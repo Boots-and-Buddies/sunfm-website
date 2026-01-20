@@ -46,9 +46,9 @@ export default function Hero() {
 
             {/* Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight mb-6">
-              <span className="highlight">Move Better.</span> Feel Stronger.
+              <span className="highlight">Move Better.</span>
               <br />
-              Live Longer.
+              Feel Stronger. Live Longer.
             </h1>
 
             {/* Subheadline */}
