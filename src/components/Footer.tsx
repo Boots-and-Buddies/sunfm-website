@@ -125,7 +125,7 @@ export default function Footer() {
                     />
                   </svg>
                   <span>
-                    1401 Parkmoor Ave
+                    1401 Parkmoor Ave, Suite 100
                     <br />
                     San Jose, CA 95126
                   </span>

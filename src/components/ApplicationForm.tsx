@@ -8,6 +8,7 @@ interface FormData {
   phone: string;
   age: string;
   goal: string;
+  goalDetails: string;
   experience: string;
   currentRoutine: string;
   motivation: string;
@@ -24,6 +25,7 @@ export default function ApplicationForm() {
     phone: "",
     age: "",
     goal: "",
+    goalDetails: "",
     experience: "",
     currentRoutine: "",
     motivation: "",
@@ -64,6 +66,7 @@ export default function ApplicationForm() {
           phone: "",
           age: "",
           goal: "",
+          goalDetails: "",
           experience: "",
           currentRoutine: "",
           motivation: "",
@@ -275,6 +278,17 @@ export default function ApplicationForm() {
                   </option>
                 ))}
               </select>
+              {formData.goal === "Other" && (
+                <input
+                  type="text"
+                  id="goalDetails"
+                  name="goalDetails"
+                  value={formData.goalDetails}
+                  onChange={handleChange}
+                  className="w-full mt-3 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent"
+                  placeholder="Please describe your primary goal"
+                />
+              )}
             </div>
 
             {/* Experience level */}

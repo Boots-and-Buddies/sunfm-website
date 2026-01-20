@@ -47,7 +47,7 @@ export default function PainPoints() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
-      title: "Wanting to feel athletic and capable in your body again",
+      title: "Wanting to feel strong and capable in your body again",
     },
   ];
 

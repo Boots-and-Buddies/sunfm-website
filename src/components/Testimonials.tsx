@@ -46,7 +46,7 @@ export default function Testimonials() {
           </h2>
           <div className="w-16 h-1 bg-[#FFD140] mx-auto mt-4"></div>
           <p className="text-gray-600 mt-6 max-w-2xl mx-auto text-lg">
-            Real results from real people who committed to their health.
+            Real results from real people who are committed to their health.
           </p>
         </div>
 

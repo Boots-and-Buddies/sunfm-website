@@ -168,7 +168,7 @@ export default function ComingSoonPage() {
             </svg>
           </div>
           <div className="text-left">
-            <p className="font-bold text-black">1401 Parkmoor Ave</p>
+            <p className="font-bold text-black">1401 Parkmoor Ave, Suite 100</p>
             <p className="text-gray-600">San Jose, CA 95126</p>
           </div>
           <svg
