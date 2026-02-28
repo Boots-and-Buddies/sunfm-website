@@ -10,7 +10,6 @@ export default function Header() {
     { name: "Testimonials", href: "#testimonials" },
     { name: "How It Works", href: "#how-it-works" },
     { name: "About", href: "#about" },
-    { name: "Our Team", href: "/team", isExternal: true },
   ];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

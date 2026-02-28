@@ -120,25 +120,15 @@ export default function Hero() {
 
           {/* Right content - Image */}
           <div className="order-1 md:order-2 flex justify-center">
-            <div className="relative">
-              {/* Character mascot */}
+            <div className="relative w-64 md:w-80 lg:w-96">
               <Image
-                src="/images/character.png"
-                alt="SunFM Character"
-                width={400}
-                height={400}
-                className="w-64 md:w-80 lg:w-96 h-auto"
-                priority
-              />
-              {/* You can replace this with Jeffrey's photo later */}
-              {/* <Image
                 src="/images/jeffrey-hero.jpg"
                 alt="Jeffrey Sun - Personal Trainer"
                 width={500}
                 height={600}
-                className="rounded-2xl shadow-xl"
+                className="rounded-2xl shadow-xl w-full h-auto object-cover"
                 priority
-              /> */}
+              />
             </div>
           </div>
         </div>

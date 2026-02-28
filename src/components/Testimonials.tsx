@@ -1,40 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
+
+const R2_BASE = "https://pub-46d372e7b4b84eaf8efe9f21cab9b2ba.r2.dev";
+
+const videoTestimonials = [
+  {
+    videoUrl: `${R2_BASE}/Marshall.mp4`,
+    name: "Marshall",
+    role: "",
+    result: "Pain Free & Functional Strength",
+    quote:
+      "I originally only planned to do sessions for a few months, and now it's been 4 years. Sessions with Jeff are really great and I'd recommend them to anyone.",
+  },
+  {
+    videoUrl: `${R2_BASE}/Cristina.mov`,
+    name: "Cristina",
+    role: "",
+    result: "Achieved Dream Weight",
+    quote:
+      "He made things seem doable rather than overwhelming. Jeff is incredibly easy to work with and he's truly become a friend. With his help, I've achieved my goal weight and I'm still going strong.",
+  },
+  {
+    videoUrl: `${R2_BASE}/Josh.mov`,
+    name: "Josh",
+    role: "",
+    result: "Consistency and Health Longevity",
+    quote:
+      "Working with Jeff completely changed the way that I train. His programs have helped me stay consistent for over 3 years. I would highly recommend working with Jeff.",
+  },
+];
 
 export default function Testimonials() {
-  const testimonials = [
-    {
-      name: "Client Name",
-      role: "Software Engineer",
-      quote:
-        "I used to have constant neck and back pain from sitting at my desk all day. After working with Jeffrey for 3 months, I'm pain-free and stronger than I've ever been.",
-      result: "Pain-free after 3 months",
-    },
-    {
-      name: "Client Name",
-      role: "Product Manager",
-      quote:
-        "Jeffrey's approach is different. He doesn't just tell you what to do - he teaches you WHY. I finally understand how my body works and how to take care of it.",
-      result: "Built sustainable habits",
-    },
-    {
-      name: "Client Name",
-      role: "Startup Founder",
-      quote:
-        "As someone who travels a lot, I needed a trainer who could work with my schedule. The online sessions are just as effective as in-person, and the app keeps me accountable.",
-      result: "Consistent progress despite travel",
-    },
-    {
-      name: "Client Name",
-      role: "Healthcare Professional",
-      quote:
-        "I've worked with several trainers before, but Jeffrey is the first one who actually fixed my movement patterns. My squat has never felt better.",
-      result: "Fixed movement patterns",
-    },
-  ];
-
-  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section id="testimonials" className="section-padding bg-white">
@@ -50,58 +47,62 @@ export default function Testimonials() {
           </p>
         </div>
 
-        {/* Testimonials grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className={`bg-[#EEEADA] rounded-2xl p-8 transition-all duration-300 ${
-                activeIndex === index ? "ring-2 ring-[#FFD140]" : ""
-              }`}
-              onMouseEnter={() => setActiveIndex(index)}
-            >
-              {/* Quote */}
-              <div className="mb-6">
-                <svg
-                  className="w-10 h-10 text-[#FFD140] mb-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <p className="text-gray-700 text-lg italic">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
-              </div>
-
-              {/* Result badge */}
-              <div className="inline-block bg-[#FFD140] text-black px-3 py-1 rounded-full text-sm font-semibold mb-4">
-                {testimonial.result}
-              </div>
-
-              {/* Author */}
-              <div className="flex items-center gap-4">
-                {/* Placeholder avatar */}
-                <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 text-gray-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+        {/* Video testimonials */}
+        {videoTestimonials.length > 0 && (
+          <div className="flex flex-col gap-10 mb-16">
+            {videoTestimonials.map((t, index) => (
+              <div
+                key={index}
+                className="flex flex-col sm:flex-row items-center gap-6 max-w-3xl mx-auto w-full"
+              >
+                <div className="w-[200px] shrink-0">
+                  <video
+                    src={t.videoUrl}
+                    controls
+                    playsInline
+                    className="w-full aspect-[9/16] rounded-2xl shadow-lg object-cover bg-black"
+                  />
                 </div>
-                <div>
-                  <p className="font-bold text-black">{testimonial.name}</p>
-                  <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                <div className="flex-1 min-w-0">
+                  <div className="bg-[#EEEADA] rounded-2xl p-8 h-full flex flex-col">
+                    {/* Quote icon + badge */}
+                    <div className="flex items-center justify-between mb-4">
+                      <svg className="w-10 h-10 text-[#FFD140]" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                      </svg>
+                      {t.result && (
+                        <div className="bg-[#FFD140] text-black px-3 py-1 rounded-full text-sm font-semibold">
+                          {t.result}
+                        </div>
+                      )}
+                    </div>
+                    {/* Quote */}
+                    <p className="text-gray-700 text-lg italic mb-6">&ldquo;{t.quote}&rdquo;</p>
+                    {/* Author */}
+                    <div className="mt-auto">
+                      <p className="font-bold text-black">{t.name}</p>
+                      {t.role && <p className="text-gray-600 text-sm">{t.role}</p>}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        )}
+
+        {/* Community photo */}
+        <div className="relative rounded-2xl overflow-hidden mb-12 h-64 md:h-80">
+          <Image
+            src="/images/group.jpg"
+            alt="SunFM community - clients trained by Jeffrey Sun"
+            fill
+            className="object-cover [object-position:50%_33%]"
+          />
+          <div className="absolute inset-0 bg-black/45 flex items-center justify-center">
+            <p className="text-white text-2xl md:text-3xl font-bold text-center px-4">
+              107+ Clients Trained. Join Our Community.
+            </p>
+          </div>
         </div>
 
         {/* Social proof */}

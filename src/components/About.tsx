@@ -38,20 +38,13 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left - Image and credentials card */}
           <div className="relative pb-8 pr-8">
-            {/* Placeholder for Jeffrey's photo */}
-            <div className="bg-gradient-to-br from-[#CB4538] to-[#8B2E25] rounded-2xl overflow-hidden aspect-[4/5] flex items-center justify-center">
-              <div className="text-center text-white p-8">
-                <Image
-                  src="/images/character.png"
-                  alt="Jeffrey Sun"
-                  width={200}
-                  height={200}
-                  className="mx-auto mb-4"
-                />
-                <p className="text-sm opacity-75">
-                  Replace with Jeffrey&apos;s professional photo
-                </p>
-              </div>
+            <div className="rounded-2xl overflow-hidden aspect-[4/5] relative">
+              <Image
+                src="/images/jeffrey-hero.jpg"
+                alt="Jeffrey Sun - Personal Trainer"
+                fill
+                className="object-cover"
+              />
             </div>
 
             {/* Floating credentials card */}
