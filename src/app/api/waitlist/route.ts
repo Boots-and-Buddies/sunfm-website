@@ -111,10 +111,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // Fire and forget - don't await
-    processSignup(firstName, lastName, email);
+    await processSignup(firstName, lastName, email);
 
-    // Return immediately
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.error("Waitlist signup error:", error);
