@@ -65,8 +65,9 @@ async function processSignup(firstName: string, lastName: string, email: string)
 
     // Step 4: Append to Google Sheet
     if (process.env.GOOGLE_SHEETS_WEBHOOK_URL) {
-      await fetch(process.env.GOOGLE_SHEETS_WEBHOOK_URL, {
+      const sheetsRes = await fetch(process.env.GOOGLE_SHEETS_WEBHOOK_URL, {
         method: "POST",
+        redirect: "follow",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           fullName: `${firstName} ${lastName}`,
@@ -74,6 +75,7 @@ async function processSignup(firstName: string, lastName: string, email: string)
           updatedAt: new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" }),
         }),
       });
+      console.log(`Google Sheets response: ${sheetsRes.status} ${await sheetsRes.text()}`);
     }
 
     // Step 5: Send email notification
