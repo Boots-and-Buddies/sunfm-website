@@ -90,7 +90,7 @@ async function processSignup(firstName: string, lastName: string, email: string)
           <h2>New Waitlist Signup</h2>
           <p><strong>Name:</strong> ${firstName} ${lastName}</p>
           <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
+          <p><strong>Time:</strong> ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })} PST</p>
         `,
       });
       console.log("Notification email sent successfully");
