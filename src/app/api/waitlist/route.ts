@@ -63,7 +63,20 @@ async function processSignup(firstName: string, lastName: string, email: string)
       groupId,
     });
 
-    // Step 4: Send email notification
+    // Step 4: Append to Google Sheet
+    if (process.env.GOOGLE_SHEETS_WEBHOOK_URL) {
+      await fetch(process.env.GOOGLE_SHEETS_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: `${firstName} ${lastName}`,
+          email,
+          updatedAt: new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" }),
+        }),
+      });
+    }
+
+    // Step 5: Send email notification
     if (process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD) {
       const recipients = process.env.NOTIFICATION_EMAILS || process.env.GMAIL_USER;
       console.log(`Sending notification email to: ${recipients}`);
