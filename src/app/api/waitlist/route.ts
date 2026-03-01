@@ -67,7 +67,7 @@ async function processSignup(firstName: string, lastName: string, email: string)
     if (process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD) {
       await transporter.sendMail({
         from: process.env.GMAIL_USER,
-        to: process.env.NOTIFICATION_EMAIL || process.env.GMAIL_USER,
+        to: process.env.NOTIFICATION_EMAILS || process.env.GMAIL_USER,
         subject: `New Waitlist Signup: ${firstName} ${lastName}`,
         html: `
           <h2>New Waitlist Signup</h2>
