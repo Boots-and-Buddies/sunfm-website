@@ -65,9 +65,11 @@ async function processSignup(firstName: string, lastName: string, email: string)
 
     // Step 4: Send email notification
     if (process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD) {
+      const recipients = process.env.NOTIFICATION_EMAILS || process.env.GMAIL_USER;
+      console.log(`Sending notification email to: ${recipients}`);
       await transporter.sendMail({
         from: process.env.GMAIL_USER,
-        to: process.env.NOTIFICATION_EMAILS || process.env.GMAIL_USER,
+        to: recipients,
         subject: `New Waitlist Signup: ${firstName} ${lastName}`,
         html: `
           <h2>New Waitlist Signup</h2>
@@ -76,6 +78,9 @@ async function processSignup(firstName: string, lastName: string, email: string)
           <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
         `,
       });
+      console.log("Notification email sent successfully");
+    } else {
+      console.warn("Email not sent: GMAIL_USER or GMAIL_APP_PASSWORD not set");
     }
   } catch (error) {
     console.error("Background waitlist signup error:", error);
