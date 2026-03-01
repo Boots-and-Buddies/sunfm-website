@@ -9,6 +9,7 @@ export default function About() {
     "Hypertrophy",
     "Athletic Performance",
     "Functional Strength",
+    "Weight Loss",
   ];
 
   const education = [

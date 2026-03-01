@@ -1,26 +1,36 @@
 import { NextResponse } from "next/server";
-
-// Google Sheets API integration
-// You'll need to set up these environment variables:
-// GOOGLE_SHEETS_ID - The ID of your Google Sheet
-// GOOGLE_SERVICE_ACCOUNT_EMAIL - Your service account email
-// GOOGLE_PRIVATE_KEY - Your service account private key
+import nodemailer from "nodemailer";
 
 interface FormData {
   name: string;
   email: string;
   phone: string;
+  age: string;
   goal: string;
+  goalDetails: string;
+  experience: string;
+  currentRoutine: string;
+  motivation: string;
   injuries: string;
   referral: string;
+  referralDetails: string;
   contactMethod: string;
 }
+
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+});
 
 export async function POST(request: Request) {
   try {
     const data: FormData = await request.json();
 
-    // Validate required fields
     if (!data.name || !data.email || !data.phone || !data.goal || !data.referral) {
       return NextResponse.json(
         { error: "Missing required fields" },
@@ -28,49 +38,30 @@ export async function POST(request: Request) {
       );
     }
 
-    // For now, we'll log the data and return success
-    // In production, this would send to Google Sheets
-    console.log("Form submission received:", data);
+    const recipients = process.env.NOTIFICATION_EMAILS || "";
 
-    // Google Sheets integration
-    // Uncomment and configure when ready:
-    /*
-    const { google } = require('googleapis');
+    await transporter.sendMail({
+      from: `"SunFM Notifications" <${process.env.GMAIL_USER}>`,
+      to: recipients,
+      subject: `New Consultation Request: ${data.name}`,
+      text: `
+New consultation request from ${data.name}
 
-    const auth = new google.auth.GoogleAuth({
-      credentials: {
-        client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-      },
-      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone}
+Age: ${data.age || "Not provided"}
+Preferred Contact: ${data.contactMethod}
+
+Goal: ${data.goal}${data.goalDetails ? ` — ${data.goalDetails}` : ""}
+Experience: ${data.experience}
+Current Routine: ${data.currentRoutine || "Not provided"}
+Motivation: ${data.motivation || "Not provided"}
+Injuries/Pain: ${data.injuries || "None"}
+
+How they heard about SunFM: ${data.referral}${data.referralDetails ? ` — ${data.referralDetails}` : ""}
+      `.trim(),
     });
-
-    const sheets = google.sheets({ version: 'v4', auth });
-
-    const timestamp = new Date().toISOString();
-
-    await sheets.spreadsheets.values.append({
-      spreadsheetId: process.env.GOOGLE_SHEETS_ID,
-      range: 'Sheet1!A:H',
-      valueInputOption: 'USER_ENTERED',
-      requestBody: {
-        values: [[
-          timestamp,
-          data.name,
-          data.email,
-          data.phone,
-          data.goal,
-          data.injuries || 'None specified',
-          data.referral,
-          data.contactMethod,
-        ]],
-      },
-    });
-    */
-
-    // For development/demo, simulate success
-    // Remove this and uncomment above for production
-    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     return NextResponse.json(
       { message: "Form submitted successfully" },
