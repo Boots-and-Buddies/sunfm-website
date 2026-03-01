@@ -38,6 +38,28 @@ export async function POST(request: Request) {
       );
     }
 
+    if (process.env.CONSULTATION_SHEETS_WEBHOOK_URL) {
+      await fetch(process.env.CONSULTATION_SHEETS_WEBHOOK_URL, {
+        method: "POST",
+        redirect: "follow",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          age: data.age || "",
+          preferredContact: data.contactMethod,
+          goal: data.goal + (data.goalDetails ? ` — ${data.goalDetails}` : ""),
+          experience: data.experience,
+          currentRoutine: data.currentRoutine || "",
+          motivation: data.motivation || "",
+          injuries: data.injuries || "",
+          howTheyHeard: data.referral + (data.referralDetails ? ` — ${data.referralDetails}` : ""),
+          submittedAt: new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" }),
+        }),
+      });
+    }
+
     const recipients = process.env.NOTIFICATION_EMAILS || "";
 
     await transporter.sendMail({
