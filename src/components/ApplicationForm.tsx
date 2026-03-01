@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface FormData {
   name: string;
@@ -36,6 +36,13 @@ export default function ApplicationForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const successRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (submitStatus === "success" && successRef.current) {
+      successRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [submitStatus]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -133,7 +140,7 @@ export default function ApplicationForm() {
 
         {/* Success message */}
         {submitStatus === "success" && (
-          <div className="bg-green-500/20 border border-green-500 rounded-xl p-6 mb-8 text-center">
+          <div ref={successRef} className="bg-green-500/20 border border-green-500 rounded-xl p-6 mb-8 text-center">
             <svg
               className="w-12 h-12 text-green-500 mx-auto mb-4"
               fill="none"
