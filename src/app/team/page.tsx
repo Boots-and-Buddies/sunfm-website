@@ -28,19 +28,34 @@ export default function TeamPage() {
         "Former Youth Gymnastics and Soccer Coach",
         "Former Emergency Medical Technician",
       ],
-      image: "/images/character.png",
-      placeholder: true,
+      image: "/images/jeffrey-hero.jpg",
+      placeholder: false,
     },
     {
       name: "Crystal Sun",
       title: "Coach",
-      credentials: "Coming Soon",
-      bio: "More details coming soon.",
-      specialties: [],
-      education: [],
-      experience: [],
-      image: "/images/character.png",
-      placeholder: true,
+      credentials: "B.S. Neurobiology, Physiology & Behavior — UC Davis",
+      bio: "My journey into fitness began through competitive gymnastics, and my degree in Neurobiology, Physiology, and Behavior from UC Davis gives me a strong foundation in how the body and mind work together. I apply that science practically — building programs that support physical progress and overall well-being, not just short-term results.\n\nHaving trained in a Division I athletic performance program, I understand what it takes to build for performance, resilience, and long-term health. Whether you're just starting out, returning after time away, or pushing your performance further, my goal is to create an environment where you feel supported and challenged.",
+      specialties: [
+        "Functional Strength",
+        "Mobility & Flexibility",
+        "Athletic Performance",
+        "Mind-Body Connection",
+        "Beginner-Friendly Training",
+        "Stress Management & Well-Being",
+      ],
+      education: [
+        "B.S. Neurobiology, Physiology & Behavior — UC Davis",
+        "Division I Athletic Performance Program",
+        "Competitive Gymnastics Background",
+      ],
+      experience: [
+        "Clients of all ages and fitness levels",
+        "Strength & conditioning under Division I coaches",
+        "Background in competitive gymnastics",
+      ],
+      image: "/images/Crystal_Hero.jpg",
+      placeholder: false,
     },
   ];
 
@@ -108,8 +123,8 @@ export default function TeamPage() {
             >
               {/* Image */}
               <div className={`${index % 2 === 1 ? "md:order-2" : ""}`}>
-                <div className="relative">
-                  <div className="bg-gradient-to-br from-[#CB4538] to-[#8B2E25] rounded-2xl overflow-hidden aspect-[4/5] flex items-center justify-center">
+                <div>
+                  <div className="relative bg-gradient-to-br from-[#CB4538] to-[#8B2E25] rounded-2xl overflow-hidden aspect-[4/5] flex items-center justify-center">
                     {member.placeholder ? (
                       <div className="text-center text-white p-8">
                         <Image
@@ -147,9 +162,11 @@ export default function TeamPage() {
                   {member.credentials}
                 </p>
 
-                <p className="text-gray-700 mb-8 text-lg leading-relaxed">
-                  {member.bio}
-                </p>
+                <div className="text-gray-700 mb-8 text-lg leading-relaxed space-y-4">
+                  {member.bio.split("\n\n").map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
 
                 {member.specialties.length > 0 && (
                   <div className="mb-8">
@@ -238,7 +255,7 @@ export default function TeamPage() {
             href="/#apply"
             className="btn-primary inline-flex items-center gap-2 text-lg"
           >
-            Book Free Consultation
+            Book Your Free Consultation
             <svg
               className="w-5 h-5"
               fill="none"

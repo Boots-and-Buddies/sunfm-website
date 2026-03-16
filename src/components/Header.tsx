@@ -72,7 +72,7 @@ export default function Header() {
               onClick={(e) => scrollToSection(e, "#apply")}
               className="btn-primary inline-flex items-center gap-2"
             >
-              Book Free Consultation
+              Book Your Free Consultation
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -165,7 +165,7 @@ export default function Header() {
                   setMobileMenuOpen(false);
                 }}
               >
-                Book Free Consultation
+                Book Your Free Consultation
                 <svg
                   className="w-4 h-4"
                   fill="none"

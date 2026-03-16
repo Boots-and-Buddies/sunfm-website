@@ -105,7 +105,7 @@ export default function FAQ() {
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-4">Still have questions?</p>
           <a
-            href="mailto:jeff@jeffsunfitness.com"
+            href="mailto:jeff@sunfm.fitness"
             className="text-[#CB4538] font-semibold hover:underline"
           >
             Email me directly

@@ -169,8 +169,8 @@ export default function ApplicationForm() {
           <div className="bg-red-500/20 border border-red-500 rounded-xl p-6 mb-8 text-center">
             <p className="text-red-400">
               Something went wrong. Please try again or contact me directly at{" "}
-              <a href="mailto:jeff@sunfm.com" className="underline">
-                jeff@sunfm.com
+              <a href="mailto:jeff@sunfm.fitness" className="underline">
+                jeff@sunfm.fitness
               </a>
             </p>
           </div>
@@ -476,7 +476,7 @@ export default function ApplicationForm() {
                 </>
               ) : (
                 <>
-                  Submit Application
+                  Book My Free Consultation
                   <svg
                     className="w-5 h-5"
                     fill="none"
