@@ -2,7 +2,7 @@ const R2_BASE = "https://pub-46d372e7b4b84eaf8efe9f21cab9b2ba.r2.dev";
 
 const videoTestimonials = [
   {
-    videoUrl: `${R2_BASE}/Cristina.mov`,
+    videoUrl: `${R2_BASE}/Cristina_Edited.mp4`,
     name: "Cristina",
     title: "",
     description: "",

@@ -6,7 +6,15 @@ const R2_BASE = "https://pub-46d372e7b4b84eaf8efe9f21cab9b2ba.r2.dev";
 
 const videoTestimonials = [
   {
-    videoUrl: `${R2_BASE}/Marshall.mp4`,
+    videoUrl: `${R2_BASE}/Sneha_Edited.mp4`,
+    name: "Sneha",
+    role: "",
+    result: "Improved Structured and General Pain",
+    quote:
+      "My body feels like a well-oiled machine and I feel stronger than ever before. Jeff makes the entire journey very enjoyable. He has been the best investment in my fitness journey and I highly recommend him.",
+  },
+  {
+    videoUrl: `${R2_BASE}/Marshall_Edited.mp4`,
     name: "Marshall",
     role: "",
     result: "Pain Free & Functional Strength",
@@ -14,7 +22,7 @@ const videoTestimonials = [
       "I originally only planned to do sessions for a few months, and now it's been 4 years. Sessions with Jeff are really great and I'd recommend them to anyone.",
   },
   {
-    videoUrl: `${R2_BASE}/Cristina.mov`,
+    videoUrl: `${R2_BASE}/Cristina_Edited.mp4`,
     name: "Cristina",
     role: "",
     result: "Achieved Dream Weight",
@@ -22,12 +30,44 @@ const videoTestimonials = [
       "He made things seem doable rather than overwhelming. Jeff is incredibly easy to work with and he's truly become a friend. With his help, I've achieved my goal weight and I'm still going strong.",
   },
   {
-    videoUrl: `${R2_BASE}/Josh.mov`,
+    videoUrl: `${R2_BASE}/Kanth_Edited.mp4`,
+    name: "Kanth",
+    role: "",
+    result: "Discipline and Strength Building",
+    quote:
+      "Before working with Jeff, I was never disciplined. Now, it has changed significantly for my workouts and diet. Thank you Jeff, thank you for everything.",
+  },
+  {
+    videoUrl: `${R2_BASE}/Josh_Edited.mp4`,
     name: "Josh",
     role: "",
     result: "Consistency and Health Longevity",
     quote:
       "Working with Jeff completely changed the way that I train. His programs have helped me stay consistent for over 3 years. I would highly recommend working with Jeff.",
+  },
+  {
+    videoUrl: `${R2_BASE}/Chen_Edited.mp4`,
+    name: "Chen",
+    role: "",
+    result: "Cured Neck and Low Back Pain",
+    quote:
+      "Jeff helps me move out of my comfort zone. He really understands what I would like to achieve.",
+  },
+  {
+    videoUrl: `${R2_BASE}/Curtis_Edited.mp4`,
+    name: "Curtis",
+    role: "",
+    result: "Improved Flexibility and Muscle Imbalance",
+    quote:
+      "Jeff is very detail oriented. The workouts were much more fun and I saw a lot of results. He was able to balance out my body and keep me consistent.",
+  },
+  {
+    videoUrl: `${R2_BASE}/Karson_Edited.mp4`,
+    name: "Karson",
+    role: "",
+    result: "Improved Functional Strength in his life",
+    quote:
+      "Before Jeff, I went to the gym once a week. After, I consistently go to the gym twice a week. My strength has gotten a lot better and my body has gotten a lot more toned.",
   },
 ];
 
