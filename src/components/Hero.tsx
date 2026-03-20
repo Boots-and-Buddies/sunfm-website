@@ -25,7 +25,7 @@ export default function Hero() {
           {/* Left content */}
           <div>
             {/* Credentials badges */}
-            <div className="flex flex-wrap gap-4 mb-8">
+            <div className="hidden md:flex flex-wrap gap-4 mb-8">
               {credentials.map((cred, index) => (
                 <div
                   key={index}
