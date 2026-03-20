@@ -124,7 +124,7 @@ export default function ComingSoonPage() {
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                       placeholder="First name"
-                      className="flex-1 px-4 py-2.5 rounded-xl bg-white border border-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent text-sm"
+                      className="flex-1 px-4 py-2.5 rounded-xl bg-white border border-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent text-base"
                       required
                     />
                     <input
@@ -132,7 +132,7 @@ export default function ComingSoonPage() {
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                       placeholder="Last name"
-                      className="flex-1 px-4 py-2.5 rounded-xl bg-white border border-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent text-sm"
+                      className="flex-1 px-4 py-2.5 rounded-xl bg-white border border-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent text-base"
                       required
                     />
                   </div>
@@ -142,7 +142,7 @@ export default function ComingSoonPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Email address"
-                      className="flex-1 px-4 py-2.5 rounded-xl bg-white border border-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent text-sm"
+                      className="flex-1 px-4 py-2.5 rounded-xl bg-white border border-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent text-base"
                       required
                     />
                     <button
@@ -227,7 +227,7 @@ export default function ComingSoonPage() {
           </a>
 
           {/* Social Links - softer gray to reduce visual weight */}
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex items-center justify-center gap-3 mb-6">
             <a
               href="https://www.instagram.com/jeffsunfitness/"
               target="_blank"
@@ -301,6 +301,11 @@ export default function ComingSoonPage() {
               </form>
             </div>
           )}
+
+          {/* Copyright */}
+          <p className="text-gray-500 text-xs">
+            &copy; {new Date().getFullYear()} Sun Functional Movement
+          </p>
       </div>
 
       {/* Admin Login Toggle - fixed position outside content */}
@@ -312,13 +317,6 @@ export default function ComingSoonPage() {
           Admin
         </button>
       )}
-
-      {/* Footer */}
-      <footer className="absolute bottom-4 left-0 right-0 text-center">
-        <p className="text-gray-500 text-xs">
-          &copy; {new Date().getFullYear()} Sun Functional Movement
-        </p>
-      </footer>
     </main>
   );
 }
