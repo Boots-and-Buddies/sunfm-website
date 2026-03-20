@@ -1,5 +1,14 @@
 import { NextResponse } from "next/server";
+import { SquareClient, SquareEnvironment } from "square";
 import nodemailer from "nodemailer";
+
+const squareClient = new SquareClient({
+  token: process.env.SQUARE_ACCESS_TOKEN,
+  environment:
+    process.env.SQUARE_ENVIRONMENT === "sandbox"
+      ? SquareEnvironment.Sandbox
+      : SquareEnvironment.Production,
+});
 
 interface FormData {
   name: string;
@@ -58,6 +67,37 @@ export async function POST(request: Request) {
           submittedAt: new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" }),
         }),
       });
+    }
+
+    // Add customer to Square "Lead - Consultation" group
+    try {
+      const [firstName, ...rest] = data.name.trim().split(" ");
+      const lastName = rest.join(" ");
+
+      const searchResult = await squareClient.customers.search({
+        query: { filter: { emailAddress: { exact: data.email } } },
+      });
+
+      let customerId: string;
+      if (searchResult.customers && searchResult.customers.length > 0) {
+        customerId = searchResult.customers[0].id!;
+      } else {
+        const createResult = await squareClient.customers.create({
+          givenName: firstName,
+          familyName: lastName,
+          emailAddress: data.email,
+          phoneNumber: data.phone,
+          note: "Submitted consultation form via website",
+        });
+        customerId = createResult.customer!.id!;
+      }
+
+      await squareClient.customers.groups.add({
+        customerId,
+        groupId: process.env.SQUARE_CONSULTATION_GROUP_ID!,
+      });
+    } catch (squareError) {
+      console.error("Square customer error:", squareError);
     }
 
     const recipients = process.env.NOTIFICATION_EMAILS || "";

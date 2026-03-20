@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 
 const R2_BASE = "https://pub-46d372e7b4b84eaf8efe9f21cab9b2ba.r2.dev";
@@ -72,6 +73,13 @@ const videoTestimonials = [
 ];
 
 export default function Testimonials() {
+  const scrollToApply = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.querySelector("#apply");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section id="testimonials" className="section-padding bg-white">
@@ -91,41 +99,56 @@ export default function Testimonials() {
         {videoTestimonials.length > 0 && (
           <div className="flex flex-col gap-10 mb-16">
             {videoTestimonials.map((t, index) => (
-              <div
-                key={index}
-                className="flex flex-col sm:flex-row items-center gap-6 max-w-3xl mx-auto w-full"
-              >
-                <div className="w-full sm:w-[200px] shrink-0">
-                  <video
-                    src={t.videoUrl}
-                    controls
-                    playsInline
-                    className="w-full aspect-[9/16] rounded-2xl shadow-lg object-cover bg-black"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="bg-[#EEEADA] rounded-2xl p-5 sm:p-8 h-full flex flex-col">
-                    {/* Quote icon + badge */}
-                    <div className="flex items-center justify-between mb-4">
-                      <svg className="w-10 h-10 text-[#FFD140]" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                      </svg>
-                      {t.result && (
-                        <div className="bg-[#FFD140] text-black px-3 py-1 rounded-full text-sm font-semibold">
-                          {t.result}
-                        </div>
-                      )}
-                    </div>
-                    {/* Quote */}
-                    <p className="text-gray-700 text-lg italic mb-6">&ldquo;{t.quote}&rdquo;</p>
-                    {/* Author */}
-                    <div className="mt-auto">
-                      <p className="font-bold text-black">{t.name}</p>
-                      {t.role && <p className="text-gray-600 text-sm">{t.role}</p>}
+              <React.Fragment key={index}>
+                <div className="flex flex-col sm:flex-row items-center gap-6 max-w-3xl mx-auto w-full">
+                  <div className="w-full sm:w-[200px] shrink-0">
+                    <video
+                      src={t.videoUrl}
+                      controls
+                      playsInline
+                      className="w-full aspect-[9/16] rounded-2xl shadow-lg object-cover bg-black"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="bg-[#EEEADA] rounded-2xl p-5 sm:p-8 h-full flex flex-col">
+                      {/* Quote icon + badge */}
+                      <div className="flex items-center justify-between mb-4">
+                        <svg className="w-10 h-10 text-[#FFD140]" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                        </svg>
+                        {t.result && (
+                          <div className="bg-[#FFD140] text-black px-3 py-1 rounded-full text-sm font-semibold">
+                            {t.result}
+                          </div>
+                        )}
+                      </div>
+                      {/* Quote */}
+                      <p className="text-gray-700 text-lg italic mb-6">&ldquo;{t.quote}&rdquo;</p>
+                      {/* Author */}
+                      <div className="mt-auto">
+                        <p className="font-bold text-black">{t.name}</p>
+                        {t.role && <p className="text-gray-600 text-sm">{t.role}</p>}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+
+                {/* Mid-list CTA after 4th testimonial */}
+                {index === 3 && (
+                  <div className="text-center py-2">
+                    <a
+                      href="#apply"
+                      onClick={scrollToApply}
+                      className="btn-primary inline-flex items-center gap-2"
+                    >
+                      Book Your Free Consultation
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                  </div>
+                )}
+              </React.Fragment>
             ))}
           </div>
         )}

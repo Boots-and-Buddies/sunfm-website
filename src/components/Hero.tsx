@@ -21,9 +21,9 @@ export default function Hero() {
   return (
     <section className="pt-28 pb-16 md:pt-32 md:pb-24 bg-[#EEEADA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left content */}
-          <div className="order-2 md:order-1">
+          <div>
             {/* Credentials badges */}
             <div className="flex flex-wrap gap-4 mb-8">
               {credentials.map((cred, index) => (
@@ -45,7 +45,7 @@ export default function Hero() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight mb-6">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-black leading-tight mb-6">
               <span className="highlight">Move Better.</span>
               <br />
               Feel Stronger. Live Longer.
@@ -119,7 +119,7 @@ export default function Hero() {
           </div>
 
           {/* Right content - Image */}
-          <div className="order-1 md:order-2 flex justify-center">
+          <div className="flex justify-center">
             <div className="relative w-64 sm:w-72 md:w-80 lg:w-96 aspect-[3/4] overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/images/jeffrey-headshot.JPG"

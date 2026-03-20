@@ -67,7 +67,7 @@ export default function ComingSoonPage() {
   };
 
   return (
-    <main className="h-screen overflow-hidden bg-[#EEEADA] flex flex-col items-center justify-center px-4 -mt-8">
+    <main className="min-h-screen overflow-x-hidden bg-[#EEEADA] flex flex-col items-center justify-center px-4 py-8">
       <div className="max-w-2xl mx-auto text-center">
         {/* Logo */}
         <Image
@@ -118,7 +118,7 @@ export default function ComingSoonPage() {
                   Join the waitlist for early access
                 </p>
                 <div className="flex flex-col gap-2">
-                  <div className="flex gap-2">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <input
                       type="text"
                       value={firstName}
@@ -136,7 +136,7 @@ export default function ComingSoonPage() {
                       required
                     />
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <input
                       type="email"
                       value={email}
@@ -148,7 +148,7 @@ export default function ComingSoonPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="px-5 py-2.5 rounded-xl bg-[#FFD140] text-black font-bold hover:bg-[#e6bc39] transition-colors text-sm disabled:opacity-50"
+                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#FFD140] text-black font-bold hover:bg-[#e6bc39] transition-colors text-sm disabled:opacity-50"
                     >
                       {isSubmitting ? "..." : "Join Waitlist"}
                     </button>
