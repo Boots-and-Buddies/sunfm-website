@@ -31,7 +31,7 @@ export default function WhoIsThisFor() {
   return (
     <section className="section-padding bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {/* This IS for you */}
           <div>
             <div className="flex items-center gap-3 mb-6">

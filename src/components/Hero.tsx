@@ -120,7 +120,7 @@ export default function Hero() {
 
           {/* Right content - Image */}
           <div className="order-1 md:order-2 flex justify-center">
-            <div className="relative w-64 md:w-80 lg:w-96 aspect-[3/4] overflow-hidden rounded-2xl shadow-xl">
+            <div className="relative w-64 sm:w-72 md:w-80 lg:w-96 aspect-[3/4] overflow-hidden rounded-2xl shadow-xl">
               <Image
                 src="/images/jeffrey-headshot.JPG"
                 alt="Jeffrey Sun - Personal Trainer"

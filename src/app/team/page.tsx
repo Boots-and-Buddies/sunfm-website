@@ -113,7 +113,7 @@ export default function TeamPage() {
         </div>
 
         {/* Team Members */}
-        <div className="space-y-24">
+        <div className="space-y-16 md:space-y-24">
           {teamMembers.map((member, index) => (
             <div
               key={member.name}
@@ -243,7 +243,7 @@ export default function TeamPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-24 text-center bg-[#3D3D3D] rounded-2xl p-12">
+        <div className="mt-16 md:mt-24 text-center bg-[#3D3D3D] rounded-2xl p-8 md:p-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Start Your Journey?
           </h2>

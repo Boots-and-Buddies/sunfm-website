@@ -95,7 +95,7 @@ export default function Testimonials() {
                 key={index}
                 className="flex flex-col sm:flex-row items-center gap-6 max-w-3xl mx-auto w-full"
               >
-                <div className="w-[200px] shrink-0">
+                <div className="w-full sm:w-[200px] shrink-0">
                   <video
                     src={t.videoUrl}
                     controls
@@ -104,7 +104,7 @@ export default function Testimonials() {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="bg-[#EEEADA] rounded-2xl p-8 h-full flex flex-col">
+                  <div className="bg-[#EEEADA] rounded-2xl p-5 sm:p-8 h-full flex flex-col">
                     {/* Quote icon + badge */}
                     <div className="flex items-center justify-between mb-4">
                       <svg className="w-10 h-10 text-[#FFD140]" fill="currentColor" viewBox="0 0 24 24">

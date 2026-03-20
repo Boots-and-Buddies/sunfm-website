@@ -38,7 +38,7 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left - Image and credentials card */}
-          <div className="relative pb-8 pr-8">
+          <div className="relative pb-0 pr-0 md:pb-8 md:pr-8">
             <div className="rounded-2xl overflow-hidden aspect-[4/5] relative">
               <Image
                 src="/images/jeffrey-hero.jpg"
@@ -49,7 +49,7 @@ export default function About() {
             </div>
 
             {/* Floating credentials card */}
-            <div className="absolute bottom-0 right-0 bg-white rounded-xl shadow-lg p-4 max-w-[200px]">
+            <div className="md:absolute md:bottom-0 md:right-0 mt-4 md:mt-0 bg-white rounded-xl shadow-lg p-4 max-w-[200px]">
               <p className="text-2xl font-bold text-black">12,000+</p>
               <p className="text-gray-600 text-sm">Sessions Delivered</p>
               <div className="mt-2 flex items-center gap-1">
