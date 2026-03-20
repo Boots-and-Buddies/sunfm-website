@@ -38,6 +38,7 @@ export default function VideoTestimonials() {
                   src={t.videoUrl}
                   controls
                   playsInline
+                  preload="metadata"
                   className="w-full aspect-[9/16] rounded-2xl shadow-lg object-cover bg-black"
                 />
               </div>

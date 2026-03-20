@@ -4,15 +4,36 @@ import { useState, useEffect } from "react";
 
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
+  const [inputFocused, setInputFocused] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show after scrolling past the hero section (roughly 600px)
-      setIsVisible(window.scrollY > 600);
+      const applySection = document.querySelector("#apply");
+      if (applySection) {
+        const rect = applySection.getBoundingClientRect();
+        const inApplySection = rect.top < window.innerHeight && rect.bottom > 0;
+        setIsVisible(window.scrollY > 600 && !inApplySection);
+      } else {
+        setIsVisible(window.scrollY > 600);
+      }
     };
 
+    const handleFocusIn = (e: FocusEvent) => {
+      const tag = (e.target as HTMLElement).tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") {
+        setInputFocused(true);
+      }
+    };
+    const handleFocusOut = () => setInputFocused(false);
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    document.addEventListener("focusin", handleFocusIn);
+    document.addEventListener("focusout", handleFocusOut);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("focusin", handleFocusIn);
+      document.removeEventListener("focusout", handleFocusOut);
+    };
   }, []);
 
   const scrollToApply = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -23,7 +44,7 @@ export default function StickyCTA() {
     }
   };
 
-  if (!isVisible) return null;
+  if (!isVisible || inputFocused) return null;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#FFD140] shadow-[0_-4px_20px_rgba(0,0,0,0.15)] transform transition-transform duration-300 md:hidden">
