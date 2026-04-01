@@ -38,7 +38,7 @@ export default function Footer() {
     { name: "About", href: "#about" },
     { name: "How It Works", href: "#how-it-works" },
     { name: "Testimonials", href: "#testimonials" },
-    { name: "Apply Now", href: "#apply" },
+    { name: "Book Now", href: "#apply" },
   ];
 
   return (

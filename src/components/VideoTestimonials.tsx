@@ -40,6 +40,9 @@ export default function VideoTestimonials() {
                   playsInline
                   preload="metadata"
                   className="w-full aspect-[9/16] rounded-2xl shadow-lg object-cover bg-black"
+                  onLoadedMetadata={(e) => {
+                    e.currentTarget.currentTime = 0.5;
+                  }}
                 />
               </div>
 
