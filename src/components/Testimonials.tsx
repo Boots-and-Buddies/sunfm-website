@@ -53,22 +53,22 @@ const videoTestimonials = [
     quote:
       "Jeff helps me move out of my comfort zone. He really understands what I would like to achieve.",
   },
-  {
-    videoUrl: `${R2_BASE}/Curtis_Edited.mp4`,
-    name: "Curtis",
-    role: "",
-    result: "Improved Flexibility and Muscle Imbalance",
-    quote:
-      "Jeff is very detail oriented. The workouts were much more fun and I saw a lot of results. He was able to balance out my body and keep me consistent.",
-  },
-  {
-    videoUrl: `${R2_BASE}/Karson_Edited.mp4`,
-    name: "Karson",
-    role: "",
-    result: "Improved Functional Strength in his life",
-    quote:
-      "Before Jeff, I went to the gym once a week. After, I consistently go to the gym twice a week. My strength has gotten a lot better and my body has gotten a lot more toned.",
-  },
+  // {
+  //   videoUrl: `${R2_BASE}/Curtis_Edited.mp4`,
+  //   name: "Curtis",
+  //   role: "",
+  //   result: "Improved Flexibility and Muscle Imbalance",
+  //   quote:
+  //     "Jeff is very detail oriented. The workouts were much more fun and I saw a lot of results. He was able to balance out my body and keep me consistent.",
+  // },
+  // {
+  //   videoUrl: `${R2_BASE}/Karson_Edited.mp4`,
+  //   name: "Karson",
+  //   role: "",
+  //   result: "Improved Functional Strength in his life",
+  //   quote:
+  //     "Before Jeff, I went to the gym once a week. After, I consistently go to the gym twice a week. My strength has gotten a lot better and my body has gotten a lot more toned.",
+  // },
 ];
 
 export default function Testimonials() {
