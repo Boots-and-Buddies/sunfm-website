@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import MeetTeamLink from "@/components/MeetTeamLink";
 
 export default function About() {
   const specialties = [
@@ -155,27 +155,7 @@ export default function About() {
             </div>
 
             {/* Meet the team link */}
-            <Link
-              href="/team"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[#CB4538] font-semibold hover:underline"
-            >
-              Meet the full team
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </Link>
+            <MeetTeamLink />
           </div>
         </div>
       </div>

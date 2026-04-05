@@ -1,5 +1,7 @@
 "use client";
 
+import { trackEvent } from "@/lib/analytics";
+
 export default function PainPoints() {
   const scrollToApply = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -92,7 +94,10 @@ export default function PainPoints() {
           </p>
           <a
             href="#apply"
-            onClick={scrollToApply}
+            onClick={(e) => {
+              scrollToApply(e);
+              trackEvent("cta_click", { button_text: "Start Your Transformation", section: "pain_points" });
+            }}
             className="btn-primary inline-flex items-center gap-2"
           >
             Start Your Transformation

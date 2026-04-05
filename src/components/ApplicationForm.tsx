@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 interface FormData {
   name: string;
@@ -37,6 +38,28 @@ export default function ApplicationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const successRef = useRef<HTMLDivElement>(null);
+  const hasStarted = useRef(false);
+
+  const handleFieldFocus = (fieldName: string) => {
+    if (!hasStarted.current) {
+      hasStarted.current = true;
+      trackEvent("form_start", { first_field: fieldName });
+    }
+  };
+
+  const handleFieldBlur = (fieldName: string, value: string) => {
+    if (value.trim()) {
+      trackEvent("form_field_complete", { field_name: fieldName });
+    } else {
+      trackEvent("form_field_abandon", { field_name: fieldName });
+    }
+  };
+
+  const handleDropdownChange = (fieldName: string, value: string) => {
+    if (value) {
+      trackEvent("form_dropdown_select", { field_name: fieldName, value });
+    }
+  };
 
   useEffect(() => {
     if (submitStatus === "success" && successRef.current) {
@@ -56,6 +79,9 @@ export default function ApplicationForm() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
+    const fieldsCompleted = Object.values(formData).filter((v) => v.trim()).length;
+    trackEvent("form_submit_attempt", { fields_completed: fieldsCompleted });
+
     try {
       const response = await fetch("/api/submit-form", {
         method: "POST",
@@ -66,6 +92,7 @@ export default function ApplicationForm() {
       });
 
       if (response.ok) {
+        trackEvent("form_submit_success");
         setSubmitStatus("success");
         setFormData({
           name: "",
@@ -83,9 +110,11 @@ export default function ApplicationForm() {
           contactMethod: "email",
         });
       } else {
+        trackEvent("form_submit_error", { error_type: `http_${response.status}` });
         setSubmitStatus("error");
       }
     } catch {
+      trackEvent("form_submit_error", { error_type: "network_error" });
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -194,6 +223,8 @@ export default function ApplicationForm() {
                 required
                 value={formData.name}
                 onChange={handleChange}
+                onFocus={() => handleFieldFocus("name")}
+                onBlur={(e) => handleFieldBlur("name", e.target.value)}
                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent"
                 placeholder="John Smith"
               />
@@ -215,6 +246,8 @@ export default function ApplicationForm() {
                   required
                   value={formData.email}
                   onChange={handleChange}
+                  onFocus={() => handleFieldFocus("email")}
+                  onBlur={(e) => handleFieldBlur("email", e.target.value)}
                   className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent"
                   placeholder="john@example.com"
                 />
@@ -233,6 +266,8 @@ export default function ApplicationForm() {
                   required
                   value={formData.phone}
                   onChange={handleChange}
+                  onFocus={() => handleFieldFocus("phone")}
+                  onBlur={(e) => handleFieldBlur("phone", e.target.value)}
                   className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent"
                   placeholder="(555) 123-4567"
                 />
@@ -253,6 +288,8 @@ export default function ApplicationForm() {
                 name="age"
                 value={formData.age}
                 onChange={handleChange}
+                onFocus={() => handleFieldFocus("age")}
+                onBlur={(e) => handleFieldBlur("age", e.target.value)}
                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent"
                 placeholder="30"
                 min="16"
@@ -273,7 +310,11 @@ export default function ApplicationForm() {
                 name="goal"
                 required
                 value={formData.goal}
-                onChange={handleChange}
+                onChange={(e) => {
+                  handleChange(e);
+                  handleDropdownChange("goal", e.target.value);
+                }}
+                onFocus={() => handleFieldFocus("goal")}
                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent"
               >
                 <option value="" className="bg-[#3D3D3D]">
@@ -311,7 +352,11 @@ export default function ApplicationForm() {
                 name="experience"
                 required
                 value={formData.experience}
-                onChange={handleChange}
+                onChange={(e) => {
+                  handleChange(e);
+                  handleDropdownChange("experience", e.target.value);
+                }}
+                onFocus={() => handleFieldFocus("experience")}
                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent"
               >
                 <option value="" className="bg-[#3D3D3D]">
@@ -338,6 +383,8 @@ export default function ApplicationForm() {
                 name="currentRoutine"
                 value={formData.currentRoutine}
                 onChange={handleChange}
+                onFocus={() => handleFieldFocus("currentRoutine")}
+                onBlur={(e) => handleFieldBlur("currentRoutine", e.target.value)}
                 rows={2}
                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent resize-none"
                 placeholder="e.g., Go to the gym 2x/week, run occasionally, no current routine, etc."
@@ -357,6 +404,8 @@ export default function ApplicationForm() {
                 name="motivation"
                 value={formData.motivation}
                 onChange={handleChange}
+                onFocus={() => handleFieldFocus("motivation")}
+                onBlur={(e) => handleFieldBlur("motivation", e.target.value)}
                 rows={3}
                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent resize-none"
                 placeholder="e.g., Want to get stronger, tired of back pain, preparing for a goal, etc."
@@ -376,6 +425,8 @@ export default function ApplicationForm() {
                 name="injuries"
                 value={formData.injuries}
                 onChange={handleChange}
+                onFocus={() => handleFieldFocus("injuries")}
+                onBlur={(e) => handleFieldBlur("injuries", e.target.value)}
                 rows={3}
                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent resize-none"
                 placeholder="e.g., Lower back pain, old shoulder injury, etc."
@@ -395,7 +446,11 @@ export default function ApplicationForm() {
                 name="referral"
                 required
                 value={formData.referral}
-                onChange={handleChange}
+                onChange={(e) => {
+                  handleChange(e);
+                  handleDropdownChange("referral", e.target.value);
+                }}
+                onFocus={() => handleFieldFocus("referral")}
                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-[#FFD140] focus:border-transparent"
               >
                 <option value="" className="bg-[#3D3D3D]">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
@@ -51,7 +52,10 @@ export default function StickyCTA() {
       <div className="px-4 py-3">
         <a
           href="#apply"
-          onClick={scrollToApply}
+          onClick={(e) => {
+            scrollToApply(e);
+            trackEvent("cta_click", { button_text: "Book Free Consultation", section: "sticky_cta" });
+          }}
           className="flex items-center justify-center gap-2 w-full bg-black text-white font-bold py-3 px-6 rounded-full"
         >
           Book Free Consultation

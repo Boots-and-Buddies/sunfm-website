@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export default function FAQ() {
   const faqs = [
@@ -72,7 +73,13 @@ export default function FAQ() {
               className="bg-white rounded-xl overflow-hidden shadow-sm"
             >
               <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                onClick={() => {
+                  const isOpening = openIndex !== index;
+                  setOpenIndex(openIndex === index ? null : index);
+                  if (isOpening) {
+                    trackEvent("faq_toggle", { question: faq.question.slice(0, 50) });
+                  }
+                }}
                 className="w-full px-6 py-4 flex items-center justify-between text-left"
               >
                 <span className="font-bold text-black pr-4">{faq.question}</span>
@@ -107,6 +114,7 @@ export default function FAQ() {
           <a
             href="mailto:jeff@sunfm.fitness"
             className="text-[#CB4538] font-semibold hover:underline"
+            onClick={() => trackEvent("external_link_click", { platform: "email", section: "faq" })}
           >
             Email me directly
           </a>

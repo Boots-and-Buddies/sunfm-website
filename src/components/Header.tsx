@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -60,7 +61,10 @@ export default function Header() {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={(e) => scrollToSection(e, link.href)}
+                  onClick={(e) => {
+                    scrollToSection(e, link.href);
+                    trackEvent("nav_click", { link_text: link.name, target_section: link.href, device: "desktop" });
+                  }}
                   className="text-black font-medium hover:text-[#CB4538] transition-colors"
                 >
                   {link.name}
@@ -69,7 +73,10 @@ export default function Header() {
             ))}
             <a
               href="#apply"
-              onClick={(e) => scrollToSection(e, "#apply")}
+              onClick={(e) => {
+                scrollToSection(e, "#apply");
+                trackEvent("cta_click", { button_text: "Book Your Free Consultation", section: "header" });
+              }}
               className="btn-primary inline-flex items-center gap-2"
             >
               Book Your Free Consultation
@@ -92,7 +99,11 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             className="md:hidden p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => {
+              const newState = !mobileMenuOpen;
+              setMobileMenuOpen(newState);
+              trackEvent("mobile_menu_toggle", { action: newState ? "open" : "close" });
+            }}
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -151,6 +162,7 @@ export default function Header() {
                     onClick={(e) => {
                       scrollToSection(e, link.href);
                       setMobileMenuOpen(false);
+                      trackEvent("nav_click", { link_text: link.name, target_section: link.href, device: "mobile" });
                     }}
                   >
                     {link.name}
@@ -163,6 +175,7 @@ export default function Header() {
                 onClick={(e) => {
                   scrollToSection(e, "#apply");
                   setMobileMenuOpen(false);
+                  trackEvent("cta_click", { button_text: "Book Your Free Consultation", section: "header" });
                 }}
               >
                 Book Your Free Consultation

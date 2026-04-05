@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Hero() {
   const scrollToApply = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -62,7 +63,10 @@ export default function Hero() {
             {/* CTA Button */}
             <a
               href="#apply"
-              onClick={scrollToApply}
+              onClick={(e) => {
+                scrollToApply(e);
+                trackEvent("cta_click", { button_text: "Book Your Free Consultation", section: "hero" });
+              }}
               className="btn-primary inline-flex items-center gap-2 text-lg"
             >
               Book Your Free Consultation
@@ -102,6 +106,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold underline hover:text-[#CB4538] transition-colors"
+                  onClick={() => trackEvent("external_link_click", { platform: "google_maps", section: "hero" })}
                 >
                   Google
                 </a>
@@ -111,6 +116,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold underline hover:text-[#CB4538] transition-colors"
+                  onClick={() => trackEvent("external_link_click", { platform: "yelp", section: "hero" })}
                 >
                   Yelp
                 </a>

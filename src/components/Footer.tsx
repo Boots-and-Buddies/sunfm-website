@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import TrackedLink from "@/components/TrackedLink";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -63,16 +64,18 @@ export default function Footer() {
             {/* Social links */}
             <div className="flex gap-4">
               {socialLinks.map((social) => (
-                <a
+                <TrackedLink
                   key={social.name}
                   href={social.href}
+                  platform={social.name === "Google" ? "google_maps" : social.name.toLowerCase()}
+                  section="footer"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#FFD140] hover:text-black transition-colors"
                   aria-label={social.name}
                 >
                   {social.icon}
-                </a>
+                </TrackedLink>
               ))}
             </div>
           </div>
@@ -99,8 +102,10 @@ export default function Footer() {
             <h3 className="font-bold text-lg mb-4">Contact</h3>
             <ul className="space-y-3 text-gray-400">
               <li className="flex items-start gap-2">
-                <a
+                <TrackedLink
                   href="https://maps.app.goo.gl/19dXxEMB8WddyoyJ6"
+                  platform="google_maps"
+                  section="footer"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-2 hover:text-[#FFD140] transition-colors"
@@ -129,11 +134,13 @@ export default function Footer() {
                     <br />
                     San Jose, CA 95126
                   </span>
-                </a>
+                </TrackedLink>
               </li>
               <li>
-                <a
+                <TrackedLink
                   href="mailto:jeff@sunfm.fitness"
+                  platform="email"
+                  section="footer"
                   className="flex items-center gap-2 hover:text-[#FFD140] transition-colors"
                 >
                   <svg
@@ -150,7 +157,7 @@ export default function Footer() {
                     />
                   </svg>
                   jeff@sunfm.fitness
-                </a>
+                </TrackedLink>
               </li>
             </ul>
           </div>
