@@ -155,7 +155,7 @@ export default function ApplicationForm() {
     <section id="apply" className="bg-[#0f0f0f] relative overflow-hidden">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2" ref={revealRef}>
         {/* Left - display text */}
-        <div className="section-padding flex flex-col justify-center px-6 md:px-12 lg:px-16 reveal">
+        <div className="pt-12 pb-6 md:py-20 lg:py-28 flex flex-col justify-center px-6 md:px-12 lg:px-16 reveal">
           <p className="text-xs tracking-[0.2em] uppercase text-[#FFD140] mb-6">Get started</p>
           <h2 className="text-display text-white mb-6">
             Book Your{" "}
@@ -172,7 +172,7 @@ export default function ApplicationForm() {
         </div>
 
         {/* Right - form */}
-        <div className="section-padding px-6 md:px-12 lg:px-16 bg-white/[0.03] reveal reveal-delay-2">
+        <div className="pt-6 pb-12 md:py-20 lg:py-28 px-6 md:px-12 lg:px-16 bg-white/[0.03] reveal reveal-delay-2">
           {/* Success message */}
           {submitStatus === "success" && (
             <div ref={successRef} className="border border-green-500/30 rounded-xl p-8 text-center">
