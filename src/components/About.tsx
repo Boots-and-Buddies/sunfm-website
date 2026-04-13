@@ -26,19 +26,19 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="section-padding bg-[#EEEADA] overflow-hidden">
+    <section id="about" className="section-padding bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black">
+        {/* Header */}
+        <div className="mb-20">
+          <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4">About</p>
+          <h2 className="text-display text-[#1a1a1a]">
             Meet Your Coach
           </h2>
-          <div className="w-16 h-1 bg-[#FFD140] mx-auto mt-4"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Left - Image and credentials card */}
-          <div className="relative pb-0 pr-0 md:pb-8 md:pr-8">
+        <div className="grid md:grid-cols-[1fr_1.1fr] gap-12 md:gap-20 items-start">
+          {/* Left - Image with overlaid stat */}
+          <div className="relative">
             <div className="rounded-2xl overflow-hidden aspect-[4/5] relative">
               <Image
                 src="/images/jeffrey-hero.jpg"
@@ -47,44 +47,31 @@ export default function About() {
                 className="object-cover"
               />
             </div>
-
-            {/* Floating credentials card */}
-            <div className="md:absolute md:bottom-0 md:right-0 mt-4 md:mt-0 bg-white rounded-xl shadow-lg p-4 max-w-[200px]">
-              <p className="text-2xl font-bold text-black">12,000+</p>
-              <p className="text-gray-600 text-sm">Sessions Delivered</p>
-              <div className="mt-2 flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <svg
-                    key={i}
-                    className="w-4 h-4 text-[#FFD140]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
+            {/* Stat callout */}
+            <div className="absolute -bottom-6 -right-4 md:-right-8 bg-[#FFD140] rounded-xl px-6 py-4 shadow-lg">
+              <p className="text-3xl md:text-4xl font-display text-[#1a1a1a]">12,000+</p>
+              <p className="text-sm text-black/60">sessions delivered</p>
             </div>
           </div>
 
-          {/* Right - Bio and details */}
+          {/* Right - Bio */}
           <div>
-            <h3 className="text-2xl md:text-3xl font-bold text-black mb-4">
+            <h3 className="font-display text-3xl md:text-4xl text-[#1a1a1a] mb-2 tracking-tight">
               Jeffrey Sun
             </h3>
-            <p className="text-[#CB4538] font-semibold mb-6">
+            <p className="text-[#CB4538] text-sm font-medium mb-8 tracking-wide">
               ACE Certified Personal Trainer | B.S. Human Biology
             </p>
 
-            <p className="text-gray-700 mb-6 text-lg">
+            <p className="text-gray-600 mb-6 text-lg leading-relaxed">
               As a certified personal trainer with a degree in Human Biology, I
               specialize in helping busy professionals in their 20s and 30s
               build bodies that last. My approach is rooted in physiology and
-              focused on <strong>health longevity</strong> - not crash diets or
+              focused on <strong className="text-[#1a1a1a]">health longevity</strong> - not crash diets or
               unsustainable programs.
             </p>
 
-            <p className="text-gray-700 mb-8">
+            <p className="text-gray-500 mb-12 leading-relaxed">
               With my background as an EMT and athletic trainer, I understand
               the body at a deeper level. I&apos;ve seen what happens when
               people neglect their health, and I&apos;m here to make sure that
@@ -94,13 +81,13 @@ export default function About() {
             </p>
 
             {/* Specialties */}
-            <div className="mb-8">
-              <h4 className="font-bold text-black mb-3">Specialties:</h4>
+            <div className="mb-10">
+              <h4 className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4 font-medium">Specialties</h4>
               <div className="flex flex-wrap gap-2">
                 {specialties.map((specialty, index) => (
                   <span
                     key={index}
-                    className="bg-[#FFD140] text-black px-3 py-1 rounded-full text-sm font-medium"
+                    className="border border-black/15 text-[#1a1a1a] px-4 py-1.5 rounded-full text-sm"
                   >
                     {specialty}
                   </span>
@@ -108,54 +95,33 @@ export default function About() {
               </div>
             </div>
 
-            {/* Education */}
-            <div className="mb-8">
-              <h4 className="font-bold text-black mb-3">Education:</h4>
-              <ul className="space-y-2">
-                {education.map((item, index) => (
-                  <li key={index} className="flex items-center gap-2 text-gray-700">
-                    <svg
-                      className="w-5 h-5 text-[#CB4538] flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            {/* Education & Experience in columns */}
+            <div className="grid grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4 font-medium">Education</h4>
+                <ul className="space-y-3">
+                  {education.map((item, index) => (
+                    <li key={index} className="text-gray-600 text-sm leading-relaxed">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4 font-medium">Experience</h4>
+                <ul className="space-y-3">
+                  {experience.map((item, index) => (
+                    <li key={index} className="text-gray-600 text-sm leading-relaxed">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            {/* Experience */}
-            <div className="mb-8">
-              <h4 className="font-bold text-black mb-3">Experience:</h4>
-              <ul className="space-y-2">
-                {experience.map((item, index) => (
-                  <li key={index} className="flex items-center gap-2 text-gray-700">
-                    <svg
-                      className="w-5 h-5 text-[#CB4538] flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div className="mt-10">
+              <MeetTeamLink />
             </div>
-
-            {/* Meet the team link */}
-            <MeetTeamLink />
           </div>
         </div>
       </div>

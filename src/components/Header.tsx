@@ -22,7 +22,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#EEEADA]/95 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#F5F2ED]/95 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -53,7 +53,7 @@ export default function Header() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black font-medium hover:text-[#CB4538] transition-colors"
+                  className="text-[#1a1a1a] text-sm font-medium hover:text-[#CB4538] transition-colors"
                 >
                   {link.name}
                 </a>
@@ -65,7 +65,7 @@ export default function Header() {
                     scrollToSection(e, link.href);
                     trackEvent("nav_click", { link_text: link.name, target_section: link.href, device: "desktop" });
                   }}
-                  className="text-black font-medium hover:text-[#CB4538] transition-colors"
+                  className="text-[#1a1a1a] text-sm font-medium hover:text-[#CB4538] transition-colors"
                 >
                   {link.name}
                 </a>
@@ -77,22 +77,9 @@ export default function Header() {
                 scrollToSection(e, "#apply");
                 trackEvent("cta_click", { button_text: "Book Your Free Consultation", section: "header" });
               }}
-              className="btn-primary inline-flex items-center gap-2"
+              className="btn-primary text-sm"
             >
               Book Your Free Consultation
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
             </a>
           </nav>
 
@@ -149,7 +136,7 @@ export default function Header() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-black font-medium py-2"
+                    className="text-[#1a1a1a] font-medium py-2"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.name}
@@ -158,7 +145,7 @@ export default function Header() {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-black font-medium py-2"
+                    className="text-[#1a1a1a] font-medium py-2"
                     onClick={(e) => {
                       scrollToSection(e, link.href);
                       setMobileMenuOpen(false);
@@ -171,7 +158,7 @@ export default function Header() {
               ))}
               <a
                 href="#apply"
-                className="btn-primary inline-flex items-center justify-center gap-2 mt-2"
+                className="btn-primary text-center mt-2"
                 onClick={(e) => {
                   scrollToSection(e, "#apply");
                   setMobileMenuOpen(false);
@@ -179,19 +166,6 @@ export default function Header() {
                 }}
               >
                 Book Your Free Consultation
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
               </a>
             </nav>
           </div>

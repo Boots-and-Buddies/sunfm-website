@@ -44,8 +44,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#2D2D2D] text-white pb-20 md:pb-0">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="bg-[#0f0f0f] text-white pb-20 md:pb-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        {/* Top - large brand statement */}
+        <div className="mb-16 pb-16 border-b border-white/10">
+          <p className="font-display text-3xl md:text-4xl lg:text-5xl text-white/90 max-w-3xl tracking-tight leading-tight">
+            Personal trainer in San Jose serving the South Bay Area.
+          </p>
+        </div>
+
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
@@ -54,16 +61,14 @@ export default function Footer() {
               alt="SunFM"
               width={160}
               height={60}
-              className="h-12 w-auto mb-4"
+              className="h-10 w-auto mb-6"
             />
-            <p className="text-gray-400 mb-4 max-w-md">
-              Personal trainer in San Jose serving the South Bay Area -
+            <p className="text-white/40 mb-6 max-w-md text-sm leading-relaxed">
               Sunnyvale, Cupertino, Santa Clara, Mountain View & online.
               Helping busy professionals move better, feel stronger, and train
               for health longevity. ACE Certified with 12,000+ sessions delivered.
             </p>
-            {/* Social links */}
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <TrackedLink
                   key={social.name}
@@ -72,7 +77,7 @@ export default function Footer() {
                   section="footer"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#FFD140] hover:text-black transition-colors"
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[#FFD140] hover:text-[#FFD140] transition-all text-white/50"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -83,13 +88,13 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="text-xs tracking-[0.2em] uppercase text-white/30 mb-6">Links</h3>
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-[#FFD140] transition-colors"
+                    className="text-white/50 hover:text-white transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -100,41 +105,20 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Contact</h3>
-            <ul className="space-y-3 text-gray-400">
-              <li className="flex items-start gap-2">
+            <h3 className="text-xs tracking-[0.2em] uppercase text-white/30 mb-6">Contact</h3>
+            <ul className="space-y-4 text-white/50 text-sm">
+              <li>
                 <TrackedLink
                   href="https://maps.app.goo.gl/19dXxEMB8WddyoyJ6"
                   platform="google_maps"
                   section="footer"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-2 hover:text-[#FFD140] transition-colors"
+                  className="hover:text-white transition-colors leading-relaxed"
                 >
-                  <svg
-                    className="w-5 h-5 text-[#FFD140] flex-shrink-0 mt-0.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                  <span>
-                    1401 Parkmoor Ave, Suite 100
-                    <br />
-                    San Jose, CA 95126
-                  </span>
+                  1401 Parkmoor Ave, Suite 100
+                  <br />
+                  San Jose, CA 95126
                 </TrackedLink>
               </li>
               <li>
@@ -142,21 +126,8 @@ export default function Footer() {
                   href="mailto:jeff@sunfm.fitness"
                   platform="email"
                   section="footer"
-                  className="flex items-center gap-2 hover:text-[#FFD140] transition-colors"
+                  className="hover:text-white transition-colors"
                 >
-                  <svg
-                    className="w-5 h-5 text-[#FFD140]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
                   jeff@sunfm.fitness
                 </TrackedLink>
               </li>
@@ -165,8 +136,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10 mt-12 pt-8 text-center">
-          <p className="text-gray-500 text-sm">
+        <div className="border-t border-white/5 mt-16 pt-8">
+          <p className="text-white/20 text-xs">
             &copy; {currentYear} Sun Functional Movement. All rights reserved.
           </p>
         </div>

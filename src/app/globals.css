@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=DM+Serif+Display:ital@0;1&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -9,20 +9,29 @@
   --color-vintage-grey: #EEEADA;
 
   /* Font families */
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
   --font-work-sans: "Work Sans", sans-serif;
   --font-cooper: "Cooper Black", serif;
 }
 
 body {
-  font-family: var(--font-work-sans);
-  background-color: var(--color-vintage-grey);
-  color: #000000;
+  font-family: var(--font-body);
+  background-color: #F5F2ED;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Cooper Black fallback - using a similar chunky serif */
+/* Cooper Black fallback */
 .font-cooper {
   font-family: "Cooper Black", "Rockwell Extra Bold", "Palatino Linotype", serif;
   font-weight: 900;
+}
+
+/* Display serif for headlines */
+.font-display {
+  font-family: var(--font-display);
 }
 
 /* Smooth scrolling */
@@ -32,32 +41,110 @@ html {
 
 /* Custom button styles */
 .btn-primary {
-  background-color: var(--color-sunshine-yellow);
-  color: #000000;
-  padding: 0.875rem 2rem;
-  border-radius: 9999px;
-  font-weight: 700;
-  transition: all 0.2s ease;
+  display: inline-block;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 1rem 2.25rem;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: -0.01em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 209, 64, 0.4);
+  background-color: #CB4538;
+  transform: translateY(-1px);
+}
+
+/* Secondary button style */
+.btn-secondary {
+  display: inline-block;
+  background-color: var(--color-sunshine-yellow);
+  color: #1a1a1a;
+  padding: 1rem 2.25rem;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: -0.01em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-secondary:hover {
+  background-color: #f0c430;
+  transform: translateY(-1px);
 }
 
 /* Section padding */
 .section-padding {
-  padding: 5rem 1.5rem;
+  padding: 6rem 1.5rem;
 }
 
 @media (min-width: 768px) {
   .section-padding {
-    padding: 6rem 2rem;
+    padding: 8rem 2rem;
   }
 }
 
-/* Highlight text with yellow background */
+/* Highlight text */
 .highlight {
-  background-color: var(--color-sunshine-yellow);
-  padding: 0 0.25rem;
+  color: #CB4538;
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
+/* Scroll-triggered reveal animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Staggered delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+
+/* Horizontal scroll container */
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-item {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Large display text sizing */
+.text-display {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.text-display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
 }
