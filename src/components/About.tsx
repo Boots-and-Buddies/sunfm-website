@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import MeetTeamLink from "@/components/MeetTeamLink";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import { useReveal } from "@/hooks/useReveal";
 
 export default function About() {
@@ -37,7 +38,7 @@ export default function About() {
         {/* Header */}
         <div className="mb-20 reveal">
           <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4">About</p>
-          <h2 className="text-display text-[#1a1a1a]">
+          <h2 className="text-display scroll-skew text-[#1a1a1a]">
             Meet Your Coach
           </h2>
         </div>
@@ -59,7 +60,9 @@ export default function About() {
               className="mt-4 md:mt-0 md:absolute md:-bottom-6 md:-right-8 bg-[#FFD140] rounded-xl px-6 py-4 shadow-lg reveal-scale inline-block"
               style={{ transitionDelay: '400ms' }}
             >
-              <p className="text-3xl md:text-4xl font-display text-[#1a1a1a]">12,000+</p>
+              <p className="text-3xl md:text-4xl font-display text-[#1a1a1a]">
+                <AnimatedCounter target={12000} duration={1400} />
+              </p>
               <p className="text-sm text-black/60">sessions delivered</p>
             </div>
           </div>

@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import Image from "next/image";
 import TrackedVideo from "@/components/TrackedVideo";
 import TrackedLink from "@/components/TrackedLink";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import { useReveal } from "@/hooks/useReveal";
 
 const R2_BASE = "https://pub-46d372e7b4b84eaf8efe9f21cab9b2ba.r2.dev";
@@ -130,7 +131,7 @@ export default function Testimonials() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 px-4 sm:px-0 reveal">
           <div>
             <p className="text-xs tracking-[0.2em] uppercase text-gray-500 mb-4">Testimonials</p>
-            <h2 className="text-display text-white">
+            <h2 className="text-display scroll-skew text-white">
               What Clients Say
             </h2>
           </div>
@@ -211,7 +212,9 @@ export default function Testimonials() {
           </div>
           <div className="px-4 sm:px-0">
             <div className="inline-block bg-[#FFD140] rounded-xl px-6 py-3 mb-6">
-              <p className="text-4xl md:text-5xl font-display text-[#1a1a1a]">107+</p>
+              <p className="text-4xl md:text-5xl font-display text-[#1a1a1a]">
+                <AnimatedCounter target={107} duration={1000} />
+              </p>
               <p className="text-sm text-black/60">clients trained</p>
             </div>
             <p className="text-gray-400 text-lg mb-6">

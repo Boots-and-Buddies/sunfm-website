@@ -44,7 +44,7 @@ export default function HowItWorks() {
         <div className="grid md:grid-cols-2 gap-6 mb-20 reveal">
           <div>
             <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4">Process</p>
-            <h2 className="text-display text-[#1a1a1a]">
+            <h2 className="text-display scroll-skew text-[#1a1a1a]">
               How It Works
             </h2>
           </div>
