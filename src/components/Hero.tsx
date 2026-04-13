@@ -25,10 +25,10 @@ export default function Hero() {
           priority
         />
         {/* Mobile: dark overlay for white text. Desktop: beige fade from left */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30 md:bg-none md:bg-gradient-to-r md:from-[#F5F2ED] md:via-transparent md:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/40 md:bg-none md:bg-gradient-to-r md:from-[#F5F2ED] md:via-transparent md:to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 md:pb-24 pt-32 md:pt-40">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 md:pb-24 pt-24 md:pt-40">
         <div className="max-w-2xl">
           {/* Credential line */}
           <p className="hero-enter hero-enter-1 text-xs md:text-sm text-white/70 md:text-gray-500 tracking-[0.15em] uppercase mb-6 md:mb-8 font-medium">
