@@ -48,15 +48,15 @@ export default function StickyCTA() {
   if (!isVisible || inputFocused) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-t border-gray-200 transform transition-transform duration-300 md:hidden">
-      <div className="px-4 py-3">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#1a1a1a] transform transition-transform duration-300 md:hidden safe-area-bottom">
+      <div className="px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
         <a
           href="#apply"
           onClick={(e) => {
             scrollToApply(e);
             trackEvent("cta_click", { button_text: "Book Free Consultation", section: "sticky_cta" });
           }}
-          className="flex items-center justify-center w-full btn-primary py-3"
+          className="flex items-center justify-center w-full btn-secondary py-3"
         >
           Book Free Consultation
         </a>
