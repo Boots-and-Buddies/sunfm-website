@@ -25,12 +25,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${label} Articles | Sun Functional Movement Blog`,
     description: `Read expert ${label.toLowerCase()} articles from personal trainer Jeffrey Sun. Practical tips for busy professionals in San Jose and the Bay Area.`,
     alternates: {
-      canonical: `https://sunfm.fitness/${category}`,
+      canonical: `https://www.sunfm.fitness/${category}`,
     },
     openGraph: {
       title: `${label} Articles | Sun Functional Movement Blog`,
       description: `Expert ${label.toLowerCase()} articles for busy professionals.`,
       type: "website",
+      images: [{ url: "https://www.sunfm.fitness/images/jeffrey-headshot-final.jpg" }],
     },
   };
 }

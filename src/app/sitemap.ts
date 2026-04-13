@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllPosts, getAllCategories } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://sunfm.fitness";
+  const baseUrl = "https://www.sunfm.fitness";
 
   const posts = getAllPosts();
   const categories = getAllCategories();

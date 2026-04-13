@@ -10,13 +10,14 @@ export const metadata: Metadata = {
   description:
     "Expert articles on functional movement training, nutrition, and wellness from personal trainer Jeffrey Sun in San Jose. Practical tips for busy professionals.",
   alternates: {
-    canonical: "https://sunfm.fitness/blog",
+    canonical: "https://www.sunfm.fitness/blog",
   },
   openGraph: {
     title: "Blog | Sun Functional Movement",
     description:
       "Expert articles on functional movement training, nutrition, and wellness.",
     type: "website",
+    images: [{ url: "https://www.sunfm.fitness/images/jeffrey-headshot-final.jpg" }],
   },
 };
 

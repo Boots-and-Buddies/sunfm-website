@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
+const siteUrl = "https://www.sunfm.fitness";
+
 export const metadata: Metadata = {
-  title: "Personal Trainer San Jose | Sun Functional Movement Personal Training",
+  metadataBase: new URL(siteUrl),
+  title: "Personal Trainer San Jose | Sun Functional Movement",
   description:
-    "Looking for a personal trainer in San Jose or the South Bay Area? Jeffrey Sun helps busy professionals eliminate pain, build functional strength, and train for health longevity. Serving Sunnyvale, Cupertino, Santa Clara, Mountain View & online.",
+    "Personal trainer in San Jose & South Bay Area. Jeffrey Sun helps busy professionals eliminate pain, build functional strength, and train for health longevity.",
   keywords: [
     "personal trainer San Jose",
     "personal trainer South Bay",
@@ -18,11 +21,30 @@ export const metadata: Metadata = {
     "strength training San Jose",
     "fitness trainer South Bay",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Personal Trainer San Jose | Sun Functional Movement Personal Training",
+    title: "Personal Trainer San Jose | Sun Functional Movement",
     description:
-      "Personal trainer in San Jose & South Bay Area. 10,000+ sessions delivered. Free consultation available.",
+      "Personal trainer in San Jose & South Bay Area. 12,000+ sessions delivered. Free consultation available.",
     type: "website",
+    url: siteUrl,
+    images: [
+      {
+        url: `${siteUrl}/images/jeffrey-headshot-final.jpg`,
+        width: 1200,
+        height: 900,
+        alt: "Jeffrey Sun - Personal Trainer in San Jose",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Personal Trainer San Jose | Sun Functional Movement",
+    description:
+      "Personal trainer in San Jose & South Bay Area. 12,000+ sessions delivered. Free consultation available.",
+    images: [`${siteUrl}/images/jeffrey-headshot-final.jpg`],
   },
 };
 

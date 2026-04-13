@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(category, slug);
   if (!post) return {};
 
-  const canonicalUrl = `https://sunfm.fitness/${category}/${slug}`;
+  const canonicalUrl = `https://www.sunfm.fitness/${category}/${slug}`;
 
   return {
     title: `${post.title} | Sun Functional Movement Blog`,
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: post.image
         ? [
             {
-              url: `https://sunfm.fitness${post.image}`,
+              url: `https://www.sunfm.fitness${post.image}`,
               width: 1200,
               height: 630,
               alt: post.title,
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: post.image ? [`https://sunfm.fitness${post.image}`] : [],
+      images: post.image ? [`https://www.sunfm.fitness${post.image}`] : [],
     },
   };
 }
@@ -94,13 +94,13 @@ export default async function ArticlePage({ params }: Props) {
     wordCount,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://sunfm.fitness/${category}/${slug}`,
+      "@id": `https://www.sunfm.fitness/${category}/${slug}`,
     },
-    image: post.image ? `https://sunfm.fitness${post.image}` : undefined,
+    image: post.image ? `https://www.sunfm.fitness${post.image}` : undefined,
     author: {
       "@type": "Person",
       name: post.author,
-      url: "https://sunfm.fitness",
+      url: "https://www.sunfm.fitness",
       jobTitle: "ACE-Certified Personal Trainer",
     },
     publisher: {
@@ -108,7 +108,7 @@ export default async function ArticlePage({ params }: Props) {
       name: "Sun Functional Movement",
       logo: {
         "@type": "ImageObject",
-        url: "https://sunfm.fitness/images/logo.png",
+        url: "https://www.sunfm.fitness/images/logo.png",
       },
     },
   };

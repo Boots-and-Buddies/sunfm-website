@@ -1,5 +1,22 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Our Team | Sun Functional Movement",
+  description:
+    "Meet the coaches at Sun Functional Movement. ACE certified personal trainers in San Jose helping busy professionals build functional strength and longevity.",
+  alternates: {
+    canonical: "https://www.sunfm.fitness/team",
+  },
+  openGraph: {
+    title: "Our Team | Sun Functional Movement",
+    description:
+      "Meet the coaches at Sun Functional Movement in San Jose.",
+    type: "website",
+    images: [{ url: "https://www.sunfm.fitness/images/jeffrey-hero.jpg" }],
+  },
+};
 
 export default function TeamPage() {
   const teamMembers = [
