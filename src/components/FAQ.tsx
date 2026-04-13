@@ -63,7 +63,7 @@ export default function FAQ() {
           {/* Left - sticky header */}
           <div className="md:sticky md:top-32 md:self-start reveal">
             <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4">FAQ</p>
-            <h2 className="text-display scroll-skew text-[#1a1a1a] mb-6">
+            <h2 className="text-display text-[#1a1a1a] mb-6">
               Common Questions
             </h2>
             <p className="text-gray-500 mb-6 leading-relaxed">

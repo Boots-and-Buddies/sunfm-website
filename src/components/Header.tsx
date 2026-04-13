@@ -3,12 +3,10 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { trackEvent } from "@/lib/analytics";
-import { useScrollSkew } from "@/hooks/useScrollSkew";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
-  useScrollSkew();
 
   useEffect(() => {
     const checkDarkSections = () => {

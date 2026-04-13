@@ -1,13 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { trackEvent } from "@/lib/analytics";
 
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
-
   const scrollToApply = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const element = document.querySelector("#apply");
@@ -16,45 +12,20 @@ export default function Hero() {
     }
   };
 
-  // Parallax zoom on desktop: image subtly scales and shifts as you scroll
-  useEffect(() => {
-    const isMobile = window.innerWidth < 768;
-    if (isMobile) return;
-
-    const handleScroll = () => {
-      const section = sectionRef.current;
-      const image = imageRef.current;
-      if (!section || !image) return;
-
-      const rect = section.getBoundingClientRect();
-      const sectionHeight = section.offsetHeight;
-      const progress = Math.max(0, Math.min(1, -rect.top / sectionHeight));
-
-      const scale = 1.1 + progress * 0.08;
-      const translateY = progress * 20;
-      image.style.transform = `scale(${scale}) translateY(${translateY}px)`;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <section ref={sectionRef} className="min-h-screen flex items-center md:items-end relative bg-[#F5F2ED] overflow-hidden">
+    <section className="min-h-screen flex items-center md:items-end relative bg-[#F5F2ED] overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-y-0 right-0 w-full md:w-[45%] z-0">
-        <div ref={imageRef} className="absolute inset-0 will-change-transform">
-          <Image
-            src="/images/jeffrey-headshot-final.jpg"
-            alt="Jeffrey Sun - Personal Trainer"
-            fill
-            className="object-cover"
-            style={{ objectPosition: '65% 15%' }}
-            priority
-          />
-        </div>
+        <Image
+          src="/images/jeffrey-headshot-final.jpg"
+          alt="Jeffrey Sun - Personal Trainer"
+          fill
+          className="object-cover hero-image-settle"
+          style={{ objectPosition: '65% 15%' }}
+          priority
+        />
         {/* Mobile: dark overlay for white text. Desktop: beige fade from left */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/65 to-black/45 md:bg-none md:bg-gradient-to-r md:from-[#F5F2ED] md:via-transparent md:to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/65 to-black/45 md:bg-none md:bg-gradient-to-r md:from-[#F5F2ED] md:via-transparent md:to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 md:pb-24 pt-20 md:pt-40">

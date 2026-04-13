@@ -41,7 +41,7 @@ export default function WhoIsThisFor() {
           {/* This IS for you */}
           <div className="reveal">
             <p className="text-xs tracking-[0.2em] uppercase text-[#CB4538] mb-4 font-medium">Good fit</p>
-            <h2 className="text-display scroll-skew text-[#1a1a1a] mb-12">
+            <h2 className="text-display text-[#1a1a1a] mb-12">
               This Is For You If&hellip;
             </h2>
 

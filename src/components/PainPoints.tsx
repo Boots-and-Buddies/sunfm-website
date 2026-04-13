@@ -28,7 +28,7 @@ export default function PainPoints() {
         {/* Section header */}
         <div className="mb-16 reveal" style={{ transitionDelay: '0ms' }}>
           <p className="text-[#CB4538] font-semibold text-xs tracking-[0.2em] uppercase mb-4">Sound familiar?</p>
-          <h2 className="text-display scroll-skew text-[#1a1a1a]">
+          <h2 className="text-display text-[#1a1a1a]">
             Are You Tired Of&hellip;
           </h2>
         </div>
