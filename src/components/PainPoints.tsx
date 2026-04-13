@@ -1,6 +1,7 @@
 "use client";
 
 import { trackEvent } from "@/lib/analytics";
+import { useReveal } from "@/hooks/useReveal";
 
 export default function PainPoints() {
   const scrollToApply = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -10,6 +11,9 @@ export default function PainPoints() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const revealRef = useReveal<HTMLDivElement>();
+
   const painPoints = [
     "Constant neck and upper back tightness from desk jobs",
     "Low back pain from a sedentary lifestyle",
@@ -20,9 +24,9 @@ export default function PainPoints() {
 
   return (
     <section className="section-padding bg-[#F5F2ED]">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto" ref={revealRef}>
         {/* Section header */}
-        <div className="mb-16">
+        <div className="mb-16 reveal" style={{ transitionDelay: '0ms' }}>
           <p className="text-[#CB4538] font-semibold text-xs tracking-[0.2em] uppercase mb-4">Sound familiar?</p>
           <h2 className="text-display text-[#1a1a1a]">
             Are You Tired Of&hellip;
@@ -34,9 +38,9 @@ export default function PainPoints() {
           {painPoints.map((point, index) => (
             <div
               key={index}
-              className="group border-b border-black/10 py-6 md:py-8 flex items-baseline gap-4 md:gap-6"
+              className={`pain-row group border-b border-black/10 py-6 md:py-8 flex items-baseline gap-4 md:gap-6 cursor-default reveal reveal-delay-${Math.min(index + 1, 5)}`}
             >
-              <span className="text-[#CB4538] font-display text-lg md:text-xl shrink-0 opacity-40">
+              <span className="pain-number text-[#CB4538] font-display text-lg md:text-xl shrink-0 opacity-40 transition-all duration-300">
                 {String(index + 1).padStart(2, '0')}
               </span>
               <p className="text-xl md:text-2xl lg:text-3xl text-[#1a1a1a] font-display tracking-tight leading-tight">
@@ -47,7 +51,7 @@ export default function PainPoints() {
         </div>
 
         {/* Transition text */}
-        <div className="max-w-2xl">
+        <div className="max-w-2xl reveal reveal-delay-3">
           <p className="text-xl md:text-2xl text-gray-600 mb-6 leading-relaxed font-display">
             What might sound too good to be true is{" "}
             <strong className="text-[#1a1a1a]">totally achievable with the right system.</strong>

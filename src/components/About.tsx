@@ -1,7 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import MeetTeamLink from "@/components/MeetTeamLink";
+import { useReveal } from "@/hooks/useReveal";
 
 export default function About() {
+  const revealRef = useReveal<HTMLDivElement>();
+  const badgeRef = useReveal<HTMLDivElement>(0.3);
+
   const specialties = [
     "Mobility & Flexibility",
     "Movement Pattern Correction",
@@ -27,9 +33,9 @@ export default function About() {
 
   return (
     <section id="about" className="section-padding bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto" ref={revealRef}>
         {/* Header */}
-        <div className="mb-20">
+        <div className="mb-20 reveal">
           <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4">About</p>
           <h2 className="text-display text-[#1a1a1a]">
             Meet Your Coach
@@ -38,7 +44,7 @@ export default function About() {
 
         <div className="grid md:grid-cols-[1fr_1.1fr] gap-12 md:gap-20 items-start">
           {/* Left - Image with overlaid stat */}
-          <div className="relative">
+          <div className="relative reveal reveal-delay-1">
             <div className="rounded-2xl overflow-hidden aspect-[4/5] relative">
               <Image
                 src="/images/jeffrey-hero.jpg"
@@ -48,14 +54,18 @@ export default function About() {
               />
             </div>
             {/* Stat callout */}
-            <div className="absolute -bottom-6 -right-4 md:-right-8 bg-[#FFD140] rounded-xl px-6 py-4 shadow-lg">
+            <div
+              ref={badgeRef}
+              className="mt-4 md:mt-0 md:absolute md:-bottom-6 md:-right-8 bg-[#FFD140] rounded-xl px-6 py-4 shadow-lg reveal-scale inline-block"
+              style={{ transitionDelay: '400ms' }}
+            >
               <p className="text-3xl md:text-4xl font-display text-[#1a1a1a]">12,000+</p>
               <p className="text-sm text-black/60">sessions delivered</p>
             </div>
           </div>
 
           {/* Right - Bio */}
-          <div>
+          <div className="reveal reveal-delay-2">
             <h3 className="font-display text-3xl md:text-4xl text-[#1a1a1a] mb-2 tracking-tight">
               Jeffrey Sun
             </h3>
@@ -96,12 +106,12 @@ export default function About() {
             </div>
 
             {/* Education & Experience in columns */}
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div>
                 <h4 className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4 font-medium">Education</h4>
                 <ul className="space-y-3">
                   {education.map((item, index) => (
-                    <li key={index} className="text-gray-600 text-sm leading-relaxed">
+                    <li key={index} className="text-gray-600 leading-relaxed">
                       {item}
                     </li>
                   ))}
@@ -111,7 +121,7 @@ export default function About() {
                 <h4 className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4 font-medium">Experience</h4>
                 <ul className="space-y-3">
                   {experience.map((item, index) => (
-                    <li key={index} className="text-gray-600 text-sm leading-relaxed">
+                    <li key={index} className="text-gray-600 leading-relaxed">
                       {item}
                     </li>
                   ))}

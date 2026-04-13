@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import Image from "next/image";
 import TrackedVideo from "@/components/TrackedVideo";
 import TrackedLink from "@/components/TrackedLink";
+import { useReveal } from "@/hooks/useReveal";
 
 const R2_BASE = "https://pub-46d372e7b4b84eaf8efe9f21cab9b2ba.r2.dev";
 
@@ -84,6 +85,22 @@ const videoTestimonials = [
 
 export default function Testimonials() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const revealRef = useReveal<HTMLDivElement>(0.1);
+  const hasNudged = useRef(false);
+
+  // Auto-scroll hint: nudge right then back after 3s
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || hasNudged.current) return;
+    const timer = setTimeout(() => {
+      if (el.scrollLeft === 0) {
+        hasNudged.current = true;
+        el.scrollTo({ left: 60, behavior: "smooth" });
+        setTimeout(() => el.scrollTo({ left: 0, behavior: "smooth" }), 600);
+      }
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
@@ -108,9 +125,9 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="section-padding bg-[#1a1a1a] text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto" ref={revealRef}>
         {/* Section header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 px-4 sm:px-0">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 px-4 sm:px-0 reveal">
           <div>
             <p className="text-xs tracking-[0.2em] uppercase text-gray-500 mb-4">Testimonials</p>
             <h2 className="text-display text-white">
@@ -148,12 +165,12 @@ export default function Testimonials() {
         {/* Horizontal scroll testimonials */}
         <div
           ref={scrollRef}
-          className="scroll-container gap-5 pb-4 px-4 sm:px-0 -mx-4 sm:mx-0"
+          className="scroll-container gap-5 pb-4 px-4 sm:px-0"
         >
           {videoTestimonials.map((t, index) => (
             <div
               key={index}
-              className="scroll-item w-[300px] md:w-[320px] flex flex-col"
+              className="scroll-item w-[260px] sm:w-[300px] md:w-[320px] flex flex-col"
             >
               {/* Video */}
               <div className="mb-4">
@@ -172,7 +189,7 @@ export default function Testimonials() {
                 <p className="text-[#FFD140] text-xs font-semibold tracking-[0.1em] uppercase mb-2">
                   {t.result}
                 </p>
-                <p className="text-white/70 text-sm leading-relaxed mb-3">
+                <p className="text-white/90 text-sm leading-relaxed mb-3">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <p className="text-white font-semibold text-sm">{t.name}</p>
@@ -183,7 +200,7 @@ export default function Testimonials() {
         </div>
 
         {/* Community + Social proof */}
-        <div className="mt-16 grid md:grid-cols-2 gap-8 items-center">
+        <div className="mt-16 grid md:grid-cols-2 gap-8 items-center reveal reveal-delay-2">
           <div className="relative rounded-xl overflow-hidden aspect-[16/9]">
             <Image
               src="/images/group.jpg"
@@ -193,9 +210,12 @@ export default function Testimonials() {
             />
           </div>
           <div className="px-4 sm:px-0">
-            <p className="text-display text-white mb-4">107+</p>
+            <div className="inline-block bg-[#FFD140] rounded-xl px-6 py-3 mb-6">
+              <p className="text-4xl md:text-5xl font-display text-[#1a1a1a]">107+</p>
+              <p className="text-sm text-black/60">clients trained</p>
+            </div>
             <p className="text-gray-400 text-lg mb-6">
-              Clients trained and counting. Join our community.
+              And counting. Join our community.
             </p>
             <div className="flex items-center gap-6 text-sm">
               <span className="text-gray-500">See reviews on</span>

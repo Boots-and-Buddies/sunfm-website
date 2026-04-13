@@ -1,4 +1,9 @@
+"use client";
+
+import { useReveal } from "@/hooks/useReveal";
+
 export default function WhoIsThisFor() {
+  const revealRef = useReveal<HTMLDivElement>();
   const idealClients = [
     {
       title: "Working professionals in their 20s and 30s",
@@ -30,11 +35,11 @@ export default function WhoIsThisFor() {
 
   return (
     <section className="section-padding bg-[#F5F2ED]">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto" ref={revealRef}>
         {/* Two-column asymmetric layout */}
         <div className="grid md:grid-cols-[1.2fr_1fr] gap-16 md:gap-24">
           {/* This IS for you */}
-          <div>
+          <div className="reveal">
             <p className="text-xs tracking-[0.2em] uppercase text-[#CB4538] mb-4 font-medium">Good fit</p>
             <h2 className="text-display text-[#1a1a1a] mb-12">
               This Is For You If&hellip;
@@ -54,7 +59,7 @@ export default function WhoIsThisFor() {
           </div>
 
           {/* This is NOT for you */}
-          <div className="md:pt-24">
+          <div className="md:pt-24 reveal reveal-delay-2">
             <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4 font-medium">Not a fit</p>
             <h2 className="font-display text-2xl md:text-3xl text-[#1a1a1a] mb-8 tracking-tight">
               This Is NOT For You If&hellip;

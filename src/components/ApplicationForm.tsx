@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { useReveal } from "@/hooks/useReveal";
 
 interface FormData {
   name: string;
@@ -39,6 +40,7 @@ export default function ApplicationForm() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const successRef = useRef<HTMLDivElement>(null);
   const hasStarted = useRef(false);
+  const revealRef = useReveal<HTMLDivElement>(0.1);
 
   const handleFieldFocus = (fieldName: string) => {
     if (!hasStarted.current) {
@@ -147,13 +149,13 @@ export default function ApplicationForm() {
   ];
 
   const inputClasses = "w-full px-0 py-4 bg-transparent border-0 border-b border-white/20 text-white placeholder-white/30 focus:outline-none focus:border-[#FFD140] transition-colors text-base";
-  const selectClasses = "w-full px-0 py-4 bg-transparent border-0 border-b border-white/20 text-white focus:outline-none focus:border-[#FFD140] transition-colors text-base appearance-none";
+  const selectClasses = "w-full px-0 py-4 bg-transparent border-0 border-b border-white/20 text-white focus:outline-none focus:border-[#FFD140] transition-colors text-base appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%23999%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_0_center]";
 
   return (
     <section id="apply" className="bg-[#0f0f0f] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2" ref={revealRef}>
         {/* Left - display text */}
-        <div className="section-padding flex flex-col justify-center px-6 md:px-12 lg:px-16">
+        <div className="section-padding flex flex-col justify-center px-6 md:px-12 lg:px-16 reveal">
           <p className="text-xs tracking-[0.2em] uppercase text-[#FFD140] mb-6">Get started</p>
           <h2 className="text-display text-white mb-6">
             Book Your{" "}
@@ -170,7 +172,7 @@ export default function ApplicationForm() {
         </div>
 
         {/* Right - form */}
-        <div className="section-padding px-6 md:px-12 lg:px-16 bg-white/[0.03]">
+        <div className="section-padding px-6 md:px-12 lg:px-16 bg-white/[0.03] reveal reveal-delay-2">
           {/* Success message */}
           {submitStatus === "success" && (
             <div ref={successRef} className="border border-green-500/30 rounded-xl p-8 text-center">

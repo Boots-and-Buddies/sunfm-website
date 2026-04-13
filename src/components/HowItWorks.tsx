@@ -1,6 +1,7 @@
 "use client";
 
 import { trackEvent } from "@/lib/analytics";
+import { useReveal } from "@/hooks/useReveal";
 
 export default function HowItWorks() {
   const scrollToApply = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -10,6 +11,9 @@ export default function HowItWorks() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const revealRef = useReveal<HTMLDivElement>();
+
   const steps = [
     {
       title: "Free Consultation",
@@ -35,9 +39,9 @@ export default function HowItWorks() {
 
   return (
     <section id="how-it-works" className="section-padding bg-white">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto" ref={revealRef}>
         {/* Section header */}
-        <div className="grid md:grid-cols-2 gap-6 mb-20">
+        <div className="grid md:grid-cols-2 gap-6 mb-20 reveal">
           <div>
             <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4">Process</p>
             <h2 className="text-display text-[#1a1a1a]">
@@ -57,14 +61,14 @@ export default function HowItWorks() {
           {steps.map((step, index) => (
             <div
               key={index}
-              className={`py-10 md:py-14 border-t border-black/10 ${index % 2 === 1 ? 'md:mt-20' : ''}`}
+              className={`py-10 md:py-14 border-t border-black/10 reveal reveal-delay-${Math.min(index + 1, 5)} ${index % 2 === 1 ? 'md:mt-20' : ''}`}
             >
               <div className="flex items-baseline gap-4 mb-4">
-                <span className="text-7xl md:text-8xl font-display text-[#F5F2ED] leading-none select-none">
+                <span className="text-5xl md:text-8xl font-display text-gray-200 leading-none select-none">
                   {index + 1}
                 </span>
               </div>
-              <h3 className="text-2xl md:text-3xl font-display text-[#1a1a1a] mb-4 -mt-6 md:-mt-8 relative z-10">
+              <h3 className="text-xl md:text-3xl font-display text-[#1a1a1a] mb-4 -mt-4 md:-mt-8 relative z-10">
                 {step.title}
               </h3>
               <p className="text-gray-500 leading-relaxed">{step.description}</p>
@@ -73,7 +77,7 @@ export default function HowItWorks() {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 text-center md:text-left">
+        <div className="mt-16 text-center md:text-left reveal reveal-delay-3">
           <a
             href="#apply"
             onClick={(e) => {

@@ -20,31 +20,31 @@ export default function Hero() {
           src="/images/jeffrey-headshot-final.jpg"
           alt="Jeffrey Sun - Personal Trainer"
           fill
-          className="object-cover scale-110"
+          className="object-cover hero-image-settle"
           style={{ objectPosition: '65% 15%' }}
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F5F2ED] via-[#F5F2ED]/60 to-transparent md:from-[#F5F2ED] md:via-transparent md:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F5F2ED] via-[#F5F2ED]/80 to-[#F5F2ED]/40 md:from-[#F5F2ED] md:via-transparent md:to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 md:pb-24 pt-32 md:pt-40">
         <div className="max-w-2xl">
           {/* Credential line */}
-          <p className="text-xs md:text-sm text-gray-500 tracking-[0.15em] uppercase mb-8 font-medium">
+          <p className="hero-enter hero-enter-1 text-xs md:text-sm text-gray-500 tracking-[0.15em] uppercase mb-8 font-medium">
             12,000+ Sessions &bull; 107+ Clients &bull; South Bay Area
           </p>
 
           {/* Headline - massive display type */}
           <h1 className="text-display-lg text-[#1a1a1a] mb-8">
-            <span className="highlight">Move Better.</span>
+            <span className="hero-enter hero-enter-2 inline-block highlight">Move Better.</span>
             <br />
-            Feel Stronger.
+            <span className="hero-enter hero-enter-3 inline-block">Feel Stronger.</span>
             <br />
-            Live Longer.
+            <span className="hero-enter hero-enter-4 inline-block">Live Longer.</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-gray-500 mb-10 max-w-lg leading-relaxed">
+          <p className="hero-enter hero-enter-4 text-lg md:text-xl text-gray-500 mb-10 max-w-lg leading-relaxed">
             Hi, I&apos;m Jeffrey Sun, a personal trainer in San Jose serving
             the South Bay Area. I help busy professionals eliminate pain,
             build functional strength, and train for health longevity - not
@@ -52,7 +52,7 @@ export default function Hero() {
           </p>
 
           {/* CTA + social proof row */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <div className="hero-enter hero-enter-5 flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <a
               href="#apply"
               onClick={(e) => {

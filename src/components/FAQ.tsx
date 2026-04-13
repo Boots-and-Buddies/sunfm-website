@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { useReveal } from "@/hooks/useReveal";
 
 export default function FAQ() {
   const faqs = [
@@ -53,13 +54,14 @@ export default function FAQ() {
   ];
 
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const revealRef = useReveal<HTMLDivElement>();
 
   return (
     <section className="section-padding bg-[#F5F2ED]">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto" ref={revealRef}>
         <div className="grid md:grid-cols-[1fr_1.5fr] gap-12 md:gap-20">
           {/* Left - sticky header */}
-          <div className="md:sticky md:top-32 md:self-start">
+          <div className="md:sticky md:top-32 md:self-start reveal">
             <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4">FAQ</p>
             <h2 className="text-display text-[#1a1a1a] mb-6">
               Common Questions
@@ -80,7 +82,7 @@ export default function FAQ() {
           </div>
 
           {/* Right - accordion */}
-          <div className="border-t border-black/10">
+          <div className="border-t border-black/10 reveal reveal-delay-2">
             {faqs.map((faq, index) => (
               <div
                 key={index}
@@ -104,7 +106,7 @@ export default function FAQ() {
                   </span>
                 </button>
                 {openIndex === index && (
-                  <div className="pb-6 pr-12">
+                  <div className="pb-6 pr-0 md:pr-12">
                     <p className="text-gray-500 leading-relaxed">{faq.answer}</p>
                   </div>
                 )}

@@ -94,7 +94,7 @@ html {
   font-family: var(--font-display);
 }
 
-/* Scroll-triggered reveal animation */
+/* ─── Scroll-triggered reveal system ─── */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -106,15 +106,151 @@ html {
   }
 }
 
-.animate-fade-up {
-  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Staggered delays */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes settleScale {
+  from { transform: scale(1.15); }
+  to { transform: scale(1.1); }
+}
+
+/* Reveal base: invisible until triggered */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children delays */
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+.reveal-delay-5 { transition-delay: 500ms; }
+
+/* Hero entrance (CSS animation, no observer needed) */
+.hero-enter {
+  animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-enter-1 { animation-delay: 0ms; }
+.hero-enter-2 { animation-delay: 120ms; }
+.hero-enter-3 { animation-delay: 240ms; }
+.hero-enter-4 { animation-delay: 400ms; }
+.hero-enter-5 { animation-delay: 550ms; }
+
+.hero-image-settle {
+  animation: settleScale 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* Scale-in variant for badges/callouts */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9) translateY(10px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* ─── Nav link hover underline ─── */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: #CB4538;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ─── Form input animated focus border ─── */
+.form-input-animated {
+  position: relative;
+}
+
+.form-input-animated::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #FFD140;
+  transform: scaleX(0) translateX(-50%);
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.form-input-animated:focus-within::after {
+  transform: scaleX(1) translateX(-50%);
+}
+
+/* ─── Pain point row hover ─── */
+.pain-row {
+  transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.3s ease;
+}
+
+.pain-row:hover {
+  padding-left: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.pain-row:hover .pain-number {
+  color: #CB4538;
+  opacity: 1;
+}
+
+/* ─── Mobile menu animation ─── */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-menu-enter {
+  animation: slideDown 0.25s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
 
 /* Horizontal scroll container */
 .scroll-container {
