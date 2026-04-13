@@ -90,7 +90,7 @@ export default function Hero() {
                 </a>
                 {" & "}
                 <a
-                  href="https://www.yelp.com/biz/jeff-sun-fitness-sunnyvale"
+                  href="https://www.yelp.com/biz/sun-functional-movement-san-jose"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline underline-offset-2 hover:text-[#CB4538] transition-colors"

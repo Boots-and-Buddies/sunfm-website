@@ -220,7 +220,7 @@ export default function Testimonials() {
             <div className="flex items-center gap-6 text-sm">
               <span className="text-gray-500">See reviews on</span>
               <TrackedLink
-                href="https://www.yelp.com/biz/jeff-sun-fitness-sunnyvale"
+                href="https://www.yelp.com/biz/sun-functional-movement-san-jose"
                 platform="yelp"
                 section="testimonials"
                 target="_blank"
