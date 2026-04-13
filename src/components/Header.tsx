@@ -1,11 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { trackEvent } from "@/lib/analytics";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkDarkSections = () => {
+      const darkSections = document.querySelectorAll("#testimonials, #apply");
+      const headerBottom = 80; // header height
+      let overDark = false;
+
+      darkSections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < headerBottom && rect.bottom > 0) {
+          overDark = true;
+        }
+      });
+
+      setIsDark(overDark);
+    };
+
+    window.addEventListener("scroll", checkDarkSections, { passive: true });
+    return () => window.removeEventListener("scroll", checkDarkSections);
+  }, []);
 
   const navLinks = [
     { name: "Testimonials", href: "#testimonials" },
@@ -22,7 +43,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#EEEADA]/95 backdrop-blur-sm">
+    <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm transition-colors duration-300 ${isDark ? 'bg-[#1a1a1a]/95' : 'bg-[#F5F2ED]/95'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -35,7 +56,7 @@ export default function Header() {
             className="flex items-center cursor-pointer"
           >
             <Image
-              src="/images/logo.png"
+              src={isDark ? "/images/logo-white.png" : "/images/logo.png"}
               alt="SunFM"
               width={240}
               height={90}
@@ -53,7 +74,7 @@ export default function Header() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black font-medium hover:text-[#CB4538] transition-colors"
+                  className={`nav-link text-sm font-medium transition-colors ${isDark ? 'text-white/80 hover:text-white' : 'text-[#1a1a1a]'}`}
                 >
                   {link.name}
                 </a>
@@ -65,7 +86,7 @@ export default function Header() {
                     scrollToSection(e, link.href);
                     trackEvent("nav_click", { link_text: link.name, target_section: link.href, device: "desktop" });
                   }}
-                  className="text-black font-medium hover:text-[#CB4538] transition-colors"
+                  className={`nav-link text-sm font-medium transition-colors ${isDark ? 'text-white/80 hover:text-white' : 'text-[#1a1a1a]'}`}
                 >
                   {link.name}
                 </a>
@@ -77,28 +98,15 @@ export default function Header() {
                 scrollToSection(e, "#apply");
                 trackEvent("cta_click", { button_text: "Book Your Free Consultation", section: "header" });
               }}
-              className="btn-primary inline-flex items-center gap-2"
+              className={`text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 ${isDark ? 'bg-white text-[#1a1a1a] hover:bg-[#FFD140]' : 'btn-primary'}`}
             >
               Book Your Free Consultation
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
             </a>
           </nav>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-3"
             onClick={() => {
               const newState = !mobileMenuOpen;
               setMobileMenuOpen(newState);
@@ -108,7 +116,7 @@ export default function Header() {
           >
             {mobileMenuOpen ? (
               <svg
-                className="w-6 h-6"
+                className={`w-6 h-6 ${isDark ? 'text-white' : 'text-[#1a1a1a]'}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -122,7 +130,7 @@ export default function Header() {
               </svg>
             ) : (
               <svg
-                className="w-6 h-6"
+                className={`w-6 h-6 ${isDark ? 'text-white' : 'text-[#1a1a1a]'}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -140,7 +148,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4">
+          <div className="md:hidden pb-4 mobile-menu-enter">
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 "isExternal" in link && link.isExternal ? (
@@ -149,7 +157,7 @@ export default function Header() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-black font-medium py-2"
+                    className={`font-medium py-2 ${isDark ? 'text-white' : 'text-[#1a1a1a]'}`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.name}
@@ -158,7 +166,7 @@ export default function Header() {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-black font-medium py-2"
+                    className={`font-medium py-2 ${isDark ? 'text-white' : 'text-[#1a1a1a]'}`}
                     onClick={(e) => {
                       scrollToSection(e, link.href);
                       setMobileMenuOpen(false);
@@ -171,7 +179,7 @@ export default function Header() {
               ))}
               <a
                 href="#apply"
-                className="btn-primary inline-flex items-center justify-center gap-2 mt-2"
+                className="btn-primary text-center mt-2"
                 onClick={(e) => {
                   scrollToSection(e, "#apply");
                   setMobileMenuOpen(false);
@@ -179,19 +187,6 @@ export default function Header() {
                 }}
               >
                 Book Your Free Consultation
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
               </a>
             </nav>
           </div>

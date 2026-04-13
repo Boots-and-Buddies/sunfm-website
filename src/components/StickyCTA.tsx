@@ -48,7 +48,7 @@ export default function StickyCTA() {
   if (!isVisible || inputFocused) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#FFD140] shadow-[0_-4px_20px_rgba(0,0,0,0.15)] transform transition-transform duration-300 md:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-t border-gray-200 transform transition-transform duration-300 md:hidden">
       <div className="px-4 py-3">
         <a
           href="#apply"
@@ -56,22 +56,9 @@ export default function StickyCTA() {
             scrollToApply(e);
             trackEvent("cta_click", { button_text: "Book Free Consultation", section: "sticky_cta" });
           }}
-          className="flex items-center justify-center gap-2 w-full bg-black text-white font-bold py-3 px-6 rounded-full"
+          className="flex items-center justify-center w-full btn-primary py-3"
         >
           Book Free Consultation
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
         </a>
       </div>
     </div>

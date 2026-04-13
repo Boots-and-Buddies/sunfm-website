@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { useReveal } from "@/hooks/useReveal";
 
 export default function FAQ() {
   const faqs = [
@@ -53,71 +54,65 @@ export default function FAQ() {
   ];
 
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const revealRef = useReveal<HTMLDivElement>();
 
   return (
-    <section className="section-padding bg-white">
-      <div className="max-w-3xl mx-auto">
-        {/* Section header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black">
-            Frequently Asked Questions
-          </h2>
-          <div className="w-16 h-1 bg-[#FFD140] mx-auto mt-4"></div>
-        </div>
-
-        {/* FAQ items */}
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl overflow-hidden shadow-sm"
-            >
-              <button
-                onClick={() => {
-                  const isOpening = openIndex !== index;
-                  setOpenIndex(openIndex === index ? null : index);
-                  if (isOpening) {
-                    trackEvent("faq_toggle", { question: faq.question.slice(0, 50) });
-                  }
-                }}
-                className="w-full px-6 py-4 flex items-center justify-between text-left"
+    <section className="section-padding bg-[#F5F2ED]">
+      <div className="max-w-7xl mx-auto" ref={revealRef}>
+        <div className="grid md:grid-cols-[1fr_1.5fr] gap-12 md:gap-20">
+          {/* Left - sticky header */}
+          <div className="md:sticky md:top-32 md:self-start reveal">
+            <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4">FAQ</p>
+            <h2 className="text-display text-[#1a1a1a] mb-6">
+              Common Questions
+            </h2>
+            <p className="text-gray-500 mb-6 leading-relaxed">
+              Everything you need to know before getting started.
+            </p>
+            <div>
+              <p className="text-gray-400 text-sm mb-1">Still have questions?</p>
+              <a
+                href="mailto:jeff@sunfm.fitness"
+                className="text-[#CB4538] font-medium hover:underline underline-offset-4 transition-colors"
+                onClick={() => trackEvent("external_link_click", { platform: "email", section: "faq" })}
               >
-                <span className="font-bold text-black pr-4">{faq.question}</span>
-                <svg
-                  className={`w-5 h-5 text-[#CB4538] flex-shrink-0 transition-transform ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              {openIndex === index && (
-                <div className="px-6 pb-4">
-                  <p className="text-gray-600">{faq.answer}</p>
-                </div>
-              )}
+                jeff@sunfm.fitness
+              </a>
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* Still have questions */}
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">Still have questions?</p>
-          <a
-            href="mailto:jeff@sunfm.fitness"
-            className="text-[#CB4538] font-semibold hover:underline"
-            onClick={() => trackEvent("external_link_click", { platform: "email", section: "faq" })}
-          >
-            Email me directly
-          </a>
+          {/* Right - accordion */}
+          <div className="border-t border-black/10 reveal reveal-delay-2">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="border-b border-black/10"
+              >
+                <button
+                  onClick={() => {
+                    const isOpening = openIndex !== index;
+                    setOpenIndex(openIndex === index ? null : index);
+                    if (isOpening) {
+                      trackEvent("faq_toggle", { question: faq.question.slice(0, 50) });
+                    }
+                  }}
+                  className="w-full py-6 flex items-start justify-between text-left gap-4 group"
+                >
+                  <span className={`text-lg font-medium transition-colors ${openIndex === index ? 'text-[#1a1a1a]' : 'text-gray-500 group-hover:text-[#1a1a1a]'}`}>
+                    {faq.question}
+                  </span>
+                  <span className={`text-2xl leading-none shrink-0 mt-0.5 transition-colors ${openIndex === index ? 'text-[#CB4538]' : 'text-gray-300'}`}>
+                    {openIndex === index ? "\u2212" : "+"}
+                  </span>
+                </button>
+                {openIndex === index && (
+                  <div className="pb-6 pr-0 md:pr-12">
+                    <p className="text-gray-500 leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
