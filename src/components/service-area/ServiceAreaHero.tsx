@@ -26,7 +26,7 @@ export default function ServiceAreaHero({ area }: { area: ServiceArea }) {
           revealed half keeps the text-side contrast consistent. */}
       <div
         aria-hidden="true"
-        className="absolute inset-y-0 right-0 w-[58%] z-0 hidden lg:block"
+        className="absolute inset-y-0 right-0 w-[58%] z-0 hidden lg:block bg-[#1a1a1a]"
       >
         <Image
           src="/images/jeffrey-headshot-final.jpg"
@@ -39,6 +39,12 @@ export default function ServiceAreaHero({ area }: { area: ServiceArea }) {
               "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 25%, black 55%)",
             WebkitMaskImage:
               "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 25%, black 55%)",
+            maskSize: "100% 100%",
+            WebkitMaskSize: "100% 100%",
+            maskRepeat: "no-repeat",
+            WebkitMaskRepeat: "no-repeat",
+            maskPosition: "0 0",
+            WebkitMaskPosition: "0 0",
           }}
           priority
         />
