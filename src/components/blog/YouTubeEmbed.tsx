@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
+import { useBlogContext } from "@/components/BlogContext";
 
 interface Props {
   id: string;
@@ -9,6 +11,21 @@ interface Props {
 
 export default function YouTubeEmbed({ id, title }: Props) {
   const [loaded, setLoaded] = useState(false);
+  const blog = useBlogContext();
+
+  const handlePlay = () => {
+    setLoaded(true);
+    const params: Record<string, string | number> = {
+      video_id: id,
+      video_title: title,
+      location: "blog_article_body",
+    };
+    if (blog) {
+      params.blog_slug = blog.slug;
+      params.blog_category = blog.category;
+    }
+    trackEvent("video_play", params);
+  };
 
   return (
     <div className="not-prose my-8 overflow-hidden rounded-xl bg-black">
@@ -25,7 +42,7 @@ export default function YouTubeEmbed({ id, title }: Props) {
         ) : (
           <button
             type="button"
-            onClick={() => setLoaded(true)}
+            onClick={handlePlay}
             className="group absolute inset-0 flex items-center justify-center"
             aria-label={`Play video: ${title}`}
           >

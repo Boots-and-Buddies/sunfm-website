@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import {
   getAllPosts,
@@ -13,9 +12,13 @@ import ProgressBar from "@/components/blog/ProgressBar";
 import RelatedPosts from "@/components/blog/RelatedPosts";
 import YouTubeEmbed from "@/components/blog/YouTubeEmbed";
 import TrackedCTALink from "@/components/TrackedCTALink";
+import TrackedNavLink from "@/components/TrackedNavLink";
+import TrackedMDXLink from "@/components/blog/TrackedMDXLink";
+import { BlogProvider } from "@/components/BlogContext";
 
 const mdxComponents = {
   YouTube: YouTubeEmbed,
+  a: TrackedMDXLink,
 };
 
 interface Props {
@@ -120,15 +123,17 @@ export default async function ArticlePage({ params }: Props) {
   };
 
   return (
-    <>
+    <BlogProvider slug={slug} category={category}>
       <ProgressBar />
       <main className="min-h-screen bg-[#EEEADA]">
         <div className="h-20" />
 
         <article className="max-w-[680px] mx-auto px-4 sm:px-6 py-12 md:py-16">
           {/* Back link */}
-          <Link
+          <TrackedNavLink
             href="/blog"
+            section="blog_post_back_link"
+            linkText="Back to Blog"
             className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-[#CB4538] transition-colors mb-6"
           >
             <svg
@@ -145,17 +150,19 @@ export default async function ArticlePage({ params }: Props) {
               />
             </svg>
             Back to Blog
-          </Link>
+          </TrackedNavLink>
 
           {/* Article header card */}
           <div className="bg-white rounded-2xl shadow-sm p-6 sm:p-10 mb-8">
             {/* Category pill */}
-            <Link
+            <TrackedNavLink
               href={`/${post.category}`}
+              section="blog_post_category_pill"
+              linkText={categoryLabels[post.category] || post.category}
               className="inline-block bg-[#FFD140] text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-5 hover:bg-[#FFD140]/80 transition-colors"
             >
               {categoryLabels[post.category] || post.category}
-            </Link>
+            </TrackedNavLink>
 
             {/* Title */}
             <h1 className="text-3xl sm:text-4xl md:text-[42px] font-bold leading-tight mb-6">
@@ -229,6 +236,6 @@ export default async function ArticlePage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </main>
-    </>
+    </BlogProvider>
   );
 }

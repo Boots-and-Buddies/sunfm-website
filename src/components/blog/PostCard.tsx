@@ -1,13 +1,15 @@
-import Link from "next/link";
 import Image from "next/image";
 import { Post, categoryLabels } from "@/lib/blog";
+import PostCardLink from "./PostCardLink";
 
 export default function PostCard({
   post,
   featured = false,
+  source = "unknown",
 }: {
   post: Post;
   featured?: boolean;
+  source?: string;
 }) {
   const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
     year: "numeric",
@@ -15,10 +17,15 @@ export default function PostCard({
     day: "numeric",
   });
 
+  const href = `/${post.category}/${post.slug}`;
+
   if (featured) {
     return (
-      <Link
-        href={`/${post.category}/${post.slug}`}
+      <PostCardLink
+        href={href}
+        source={source}
+        slug={post.slug}
+        category={post.category}
         className="group block bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow"
       >
         <div className="md:flex">
@@ -56,13 +63,16 @@ export default function PostCard({
             </div>
           </div>
         </div>
-      </Link>
+      </PostCardLink>
     );
   }
 
   return (
-    <Link
-      href={`/${post.category}/${post.slug}`}
+    <PostCardLink
+      href={href}
+      source={source}
+      slug={post.slug}
+      category={post.category}
       className="group block bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow"
     >
       <div className="aspect-[16/9] relative bg-gradient-to-br from-[#FFD140]/20 to-[#CB4538]/10">
@@ -98,6 +108,6 @@ export default function PostCard({
           <span>{post.readTime} min read</span>
         </div>
       </div>
-    </Link>
+    </PostCardLink>
   );
 }

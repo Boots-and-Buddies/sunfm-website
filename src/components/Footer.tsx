@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import TrackedLink from "@/components/TrackedLink";
+import TrackedNavLink from "@/components/TrackedNavLink";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -95,12 +95,14 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
+                  <TrackedNavLink
                     href={link.href}
+                    section="footer"
+                    linkText={link.name}
                     className="text-white/60 hover:text-white transition-colors text-sm"
                   >
                     {link.name}
-                  </Link>
+                  </TrackedNavLink>
                 </li>
               ))}
             </ul>

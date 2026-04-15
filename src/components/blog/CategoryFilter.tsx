@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { categoryLabels } from "@/lib/blog-constants";
+import { trackEvent } from "@/lib/analytics";
 
 export default function CategoryFilter({
   categories,
@@ -14,6 +15,12 @@ export default function CategoryFilter({
     <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap">
       <Link
         href="/blog"
+        onClick={() =>
+          trackEvent("category_filter_click", {
+            category: "all",
+            from_category: activeCategory || "all",
+          })
+        }
         className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-semibold transition-colors flex-shrink-0 ${
           !activeCategory
             ? "bg-[#FFD140] text-black"
@@ -26,6 +33,12 @@ export default function CategoryFilter({
         <Link
           key={cat}
           href={`/${cat}`}
+          onClick={() =>
+            trackEvent("category_filter_click", {
+              category: cat,
+              from_category: activeCategory || "all",
+            })
+          }
           className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-semibold transition-colors flex-shrink-0 ${
             activeCategory === cat
               ? "bg-[#FFD140] text-black"

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { categoryLabels } from "@/lib/blog";
+import TrackedBreadcrumbLink from "./TrackedBreadcrumbLink";
 
 interface Crumb {
   label: string;
@@ -46,12 +46,13 @@ export default function Breadcrumbs({
             <li key={i} className="flex items-center gap-1">
               {i > 0 && <span className="mx-1">/</span>}
               {crumb.href ? (
-                <Link
+                <TrackedBreadcrumbLink
                   href={crumb.href}
+                  label={crumb.label}
                   className="hover:text-[#CB4538] transition-colors"
                 >
                   {crumb.label}
-                </Link>
+                </TrackedBreadcrumbLink>
               ) : (
                 <span className="text-gray-800 font-medium truncate max-w-[200px] sm:max-w-none">
                   {crumb.label}

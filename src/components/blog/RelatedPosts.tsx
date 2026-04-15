@@ -10,7 +10,7 @@ export default function RelatedPosts({ posts }: { posts: Post[] }) {
       <div className="w-12 h-1 bg-[#FFD140] mb-8" />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.slice(0, 3).map((post) => (
-          <PostCard key={post.slug} post={post} />
+          <PostCard key={post.slug} post={post} source="related_posts" />
         ))}
       </div>
     </section>

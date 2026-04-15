@@ -1,21 +1,24 @@
 "use client";
 
 import Link from "next/link";
+import { ReactNode } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { useBlogContext } from "@/components/BlogContext";
 
 interface Props {
   href: string;
-  section: string;
-  buttonText: string;
+  source: string;
+  slug: string;
+  category: string;
   className?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-export default function TrackedCTALink({
+export default function PostCardLink({
   href,
-  section,
-  buttonText,
+  source,
+  slug,
+  category,
   className,
   children,
 }: Props) {
@@ -26,14 +29,15 @@ export default function TrackedCTALink({
       className={className}
       onClick={() => {
         const params: Record<string, string | number> = {
-          button_text: buttonText,
-          section,
+          target_slug: slug,
+          target_category: category,
+          source,
         };
         if (blog) {
           params.blog_slug = blog.slug;
           params.blog_category = blog.category;
         }
-        trackEvent("cta_click", params);
+        trackEvent("blog_card_click", params);
       }}
     >
       {children}

@@ -78,7 +78,7 @@ export default async function CategoryPage({ params }: Props) {
         {posts.length > 0 ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map((post) => (
-              <PostCard key={post.slug} post={post} />
+              <PostCard key={post.slug} post={post} source="category_page_grid" />
             ))}
           </div>
         ) : (

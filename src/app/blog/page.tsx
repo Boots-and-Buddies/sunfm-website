@@ -51,7 +51,7 @@ export default function BlogPage() {
         {/* Featured post */}
         {featured && (
           <div className="mb-10">
-            <PostCard post={featured} featured />
+            <PostCard post={featured} featured source="blog_index_featured" />
           </div>
         )}
 
@@ -59,7 +59,7 @@ export default function BlogPage() {
         {rest.length > 0 && (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {rest.map((post) => (
-              <PostCard key={post.slug} post={post} />
+              <PostCard key={post.slug} post={post} source="blog_index_grid" />
             ))}
           </div>
         )}
