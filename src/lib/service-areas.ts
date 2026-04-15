@@ -185,9 +185,9 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
-      "Sunnyvale is a short drive from my studio in San Jose, usually seven to ten minutes on 85 when traffic cooperates. Plenty of my clients come from here, and the mix is specific enough that I can usually tell within a few questions whether somebody is a Sunnyvale client.",
-      "The dominant pattern is dual-career households with kids. One parent works at LinkedIn, Apple, Yahoo, or one of the smaller semiconductor shops. The other is doing the same somewhere else, or holding it all together at home. Both are north of thirty-five. Neither slept more than six hours last night. And their own bodies have been on the back burner for five years or so while they put everyone else's needs first. Training is often the first thing they've done just for themselves in longer than they'd like to admit.",
-      "If that sounds like you, you're in good company.",
+      "Sunnyvale is a short drive from my studio in San Jose, usually seven to ten minutes on 85 when traffic cooperates. A lot of my clients come from here.",
+      "A fair number are in dual-career households with kids. One parent might be working at LinkedIn, Apple, Yahoo, or one of the smaller semiconductor shops, and the other is usually holding something comparable down somewhere else. Sleep isn't great. Their own bodies have been on the back burner for a few years while they put everyone else's needs first. For a lot of them, training is the first thing they've done just for themselves in longer than they'd like to admit.",
+      "If that sounds familiar, you're in good company.",
     ],
     sections: [
       {
