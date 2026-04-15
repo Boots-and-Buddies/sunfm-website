@@ -739,8 +739,8 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
-      "Milpitas is ten to fifteen minutes up 880 from the studio, and the client mix here is different from every other city I serve. Milpitas is a working tech city. Semiconductor, networking, and the sort of hardware and manufacturing operations that don't make the cover of Wired but build the products everyone else depends on. Tesla's Fremont facility is just north, and a lot of their engineers live in Milpitas.",
-      "The cultural mix here is also distinct. Milpitas has one of the largest Asian-American populations in the South Bay, and a good portion of my clients from here are first or second-generation immigrants balancing demanding careers with intergenerational family responsibilities. That specific life situation shapes what training looks like.",
+      "Milpitas is ten to fifteen minutes up 880 from the studio. A lot of my clients come from here, many of them working in hardware and manufacturing roles. Tesla's Fremont facility is just north of the city.",
+      "A fair number of my Milpitas clients are balancing demanding careers with caring for parents, raising kids, or both. When that's the life situation, training has to fit around whatever energy is left after everyone else has been taken care of.",
     ],
     sections: [
       {

@@ -41,7 +41,7 @@ export default function ServiceAreaPage({ area }: { area: ServiceArea }) {
               {/* Trainer card */}
               <aside className="lg:sticky lg:top-8 self-start reveal-scale">
                 <div className="bg-white rounded-3xl shadow-sm overflow-hidden border border-black/5">
-                  <div className="relative aspect-[4/5]">
+                  <div className="relative aspect-square">
                     <Image
                       src="/images/jeffrey-headshot-final.jpg"
                       alt="Jeffrey Sun, ACE-certified personal trainer"
@@ -57,12 +57,8 @@ export default function ServiceAreaPage({ area }: { area: ServiceArea }) {
                     <p className="text-xl font-bold text-[#1a1a1a] mb-1">
                       Jeffrey Sun
                     </p>
-                    <p className="text-sm text-gray-500 mb-4">
+                    <p className="text-sm text-gray-500 mb-5">
                       ACE-Certified, 12,000+ sessions
-                    </p>
-                    <p className="text-sm text-gray-600 leading-relaxed mb-5">
-                      I run a private practice out of San Jose, serving
-                      clients across the South Bay for over a decade.
                     </p>
                     <TrackedCTALink
                       href="/#apply"
