@@ -19,28 +19,22 @@ export default function ServiceAreaHero({ area }: { area: ServiceArea }) {
         }}
       />
 
-      {/* Right-side portrait on lg+ */}
+      {/* Full-bleed portrait with a uniform dark overlay on lg+ */}
       <div
         aria-hidden="true"
-        className="absolute inset-y-0 right-0 w-[55%] z-0 hidden lg:block"
+        className="absolute inset-0 z-0 hidden lg:block"
       >
         <Image
           src="/images/jeffrey-headshot-final.jpg"
           alt=""
           fill
           className="object-cover hero-image-settle"
-          style={{ objectPosition: "60% 20%" }}
+          style={{ objectPosition: "70% 20%" }}
           priority
         />
-        {/* Long, soft fade so the image merges into the section's dark bg
-            on the left with no visible seam. */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to right, #1a1a1a 0%, rgba(26,26,26,0.95) 20%, rgba(26,26,26,0.55) 45%, rgba(26,26,26,0.15) 75%, rgba(26,26,26,0) 100%)",
-          }}
-        />
+        {/* Subtle left-heavy fade; no hard edge anywhere because the image
+            spans the whole hero and the overlay sits on top of all of it. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/90 from-0% via-[#1a1a1a]/75 via-40% to-[#1a1a1a]/55 to-100%" />
       </div>
 
       {/* Accent glow */}
