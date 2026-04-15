@@ -1,11 +1,13 @@
 import { MetadataRoute } from "next";
 import { getAllPosts, getAllCategories } from "@/lib/blog";
+import { getAllServiceAreas } from "@/lib/service-areas";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.sunfm.fitness";
 
   const posts = getAllPosts();
   const categories = getAllCategories();
+  const serviceAreas = getAllServiceAreas();
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
@@ -27,5 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...categoryPages, ...postPages];
+  const serviceAreaPages: MetadataRoute.Sitemap = serviceAreas.map((area) => ({
+    url: `${baseUrl}${area.urlPath}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
+  return [...staticPages, ...serviceAreaPages, ...categoryPages, ...postPages];
 }

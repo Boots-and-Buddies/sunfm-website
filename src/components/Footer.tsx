@@ -67,8 +67,31 @@ export default function Footer() {
               className="h-10 w-auto mb-6"
             />
             <p className="text-white/60 mb-6 max-w-md text-sm leading-relaxed">
-              Sunnyvale, Cupertino, Santa Clara, Mountain View & online.
-              Helping busy professionals move better, feel stronger, and train
+              Serving{" "}
+              <TrackedNavLink href="/san-jose-personal-trainer" section="footer_service_area" linkText="San Jose" className="underline hover:text-white">
+                San Jose
+              </TrackedNavLink>
+              ,{" "}
+              <TrackedNavLink href="/sunnyvale-personal-trainer" section="footer_service_area" linkText="Sunnyvale" className="underline hover:text-white">
+                Sunnyvale
+              </TrackedNavLink>
+              ,{" "}
+              <TrackedNavLink href="/cupertino-personal-trainer" section="footer_service_area" linkText="Cupertino" className="underline hover:text-white">
+                Cupertino
+              </TrackedNavLink>
+              ,{" "}
+              <TrackedNavLink href="/santa-clara-personal-trainer" section="footer_service_area" linkText="Santa Clara" className="underline hover:text-white">
+                Santa Clara
+              </TrackedNavLink>
+              ,{" "}
+              <TrackedNavLink href="/mountain-view-personal-trainer" section="footer_service_area" linkText="Mountain View" className="underline hover:text-white">
+                Mountain View
+              </TrackedNavLink>
+              , and{" "}
+              <TrackedNavLink href="/campbell-personal-trainer" section="footer_service_area" linkText="Campbell" className="underline hover:text-white">
+                Campbell
+              </TrackedNavLink>
+              . Helping busy professionals move better, feel stronger, and train
               for health longevity. ACE Certified with 12,000+ sessions delivered.
             </p>
             <div className="flex gap-3">
