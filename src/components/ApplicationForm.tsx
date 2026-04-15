@@ -167,7 +167,7 @@ export default function ApplicationForm() {
             1-hour consultation. No commitment required.
           </p>
           <p className="text-[#FFD140] text-sm font-medium">
-            Plus: Get a free 1-week mobility plan!
+            Plus: Get a free mobility assessment + 1-week plan
           </p>
         </div>
 
@@ -193,7 +193,7 @@ export default function ApplicationForm() {
                 Application Received!
               </h3>
               <p className="text-gray-400">
-                Thanks for reaching out! Check your email for your free 1-week mobility plan.
+                Thanks for reaching out! Check your email for your free mobility assessment + 1-week plan.
                 I&apos;ll be in touch within 24 hours to schedule your free consultation.
               </p>
             </div>
