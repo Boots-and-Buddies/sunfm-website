@@ -46,18 +46,12 @@ function FAQItem({
       </button>
 
       <div
-        className={`grid transition-[grid-template-rows] duration-300 ease-out ${
-          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        className={`overflow-hidden transition-all duration-300 ease-out ${
+          open ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="overflow-hidden">
-          <div
-            className={`px-6 pb-6 -mt-1 text-gray-600 leading-relaxed transition-opacity duration-200 ${
-              open ? "opacity-100 delay-100" : "opacity-0"
-            }`}
-          >
-            {faq.answer}
-          </div>
+        <div className="px-6 pb-6 -mt-1 text-gray-600 leading-relaxed">
+          {faq.answer}
         </div>
       </div>
     </div>
