@@ -40,7 +40,7 @@ export default function MovementScreenIntro({ onStart }: Props) {
           <p className="text-lg text-white/60 leading-relaxed max-w-xl mb-10 animate-fade-up animate-delay-200">
             A {QUESTIONS.length}-test diagnostic used on every new client at
             my San Jose studio. You'll do each movement yourself and self-score
-            it. Four to five minutes. No email. Then we look at the results
+            it. About five minutes. No email. Then we look at the results
             together.
           </p>
 
