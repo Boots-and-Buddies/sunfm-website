@@ -1,3 +1,4 @@
+import RevealWrapper from "@/components/RevealWrapper";
 import type { FAQ } from "@/lib/service-areas";
 
 export default function ServiceAreaFAQ({
@@ -9,20 +10,20 @@ export default function ServiceAreaFAQ({
 }) {
   return (
     <section className="py-20 md:py-28 bg-[#EEEADA]">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <p className="text-xs tracking-[0.25em] uppercase text-gray-500 font-medium mb-4">
+      <RevealWrapper className="max-w-3xl mx-auto px-4 sm:px-6">
+        <p className="text-xs tracking-[0.25em] uppercase text-gray-500 font-medium mb-4 reveal">
           FAQ
         </p>
-        <h2 className="text-display scroll-skew text-[#1a1a1a] mb-3">
+        <h2 className="text-display scroll-skew text-[#1a1a1a] mb-3 reveal reveal-delay-1">
           Questions from {city} clients
         </h2>
-        <div className="w-12 h-1 bg-[#FFD140] mb-12" />
+        <div className="w-12 h-1 bg-[#FFD140] mb-12 reveal reveal-delay-2" />
 
         <div className="space-y-3">
           {faqs.map((faq, i) => (
             <details
               key={i}
-              className="group bg-white rounded-2xl border border-black/5 overflow-hidden open:shadow-sm transition-shadow"
+              className={`group bg-white rounded-2xl border border-black/5 overflow-hidden open:shadow-sm transition-shadow reveal reveal-delay-${Math.min(i + 1, 5)}`}
             >
               <summary className="cursor-pointer list-none p-6 flex items-start justify-between gap-6">
                 <h3 className="text-base md:text-lg font-semibold text-[#1a1a1a] leading-snug">
@@ -40,7 +41,7 @@ export default function ServiceAreaFAQ({
             </details>
           ))}
         </div>
-      </div>
+      </RevealWrapper>
     </section>
   );
 }

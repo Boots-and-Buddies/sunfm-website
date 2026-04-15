@@ -1,3 +1,4 @@
+import RevealWrapper from "@/components/RevealWrapper";
 import type { ServiceArea } from "@/lib/service-areas";
 
 export default function ServiceAreaMap({ area }: { area: ServiceArea }) {
@@ -13,18 +14,18 @@ export default function ServiceAreaMap({ area }: { area: ServiceArea }) {
 
   return (
     <section className="py-20 md:py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <RevealWrapper className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
           {/* Left: info card */}
           <div className="lg:col-span-2">
-            <p className="text-xs tracking-[0.25em] uppercase text-gray-500 font-medium mb-4">
+            <p className="text-xs tracking-[0.25em] uppercase text-gray-500 font-medium mb-4 reveal">
               Location
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1a1a1a] mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1a1a1a] mb-6 leading-tight reveal reveal-delay-1">
               The studio is close to {area.city}.
             </h2>
 
-            <div className="space-y-5 mb-8">
+            <div className="space-y-5 mb-8 reveal reveal-delay-2">
               <div>
                 <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">
                   Address
@@ -49,7 +50,7 @@ export default function ServiceAreaMap({ area }: { area: ServiceArea }) {
               href={directionsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[#CB4538] font-semibold hover:underline"
+              className="inline-flex items-center gap-2 text-[#CB4538] font-semibold hover:underline reveal reveal-delay-3"
             >
               Get directions from {area.city}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,7 +60,7 @@ export default function ServiceAreaMap({ area }: { area: ServiceArea }) {
           </div>
 
           {/* Right: map embed */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 reveal-scale">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 border border-black/5 shadow-sm">
               <iframe
                 src={staticEmbedSrc}
@@ -72,7 +73,7 @@ export default function ServiceAreaMap({ area }: { area: ServiceArea }) {
             </div>
           </div>
         </div>
-      </div>
+      </RevealWrapper>
     </section>
   );
 }
