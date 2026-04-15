@@ -33,24 +33,24 @@ export interface ServiceArea {
 
 const commonServices: ServiceCard[] = [
   {
-    title: "One-on-one strength training",
+    title: "1:1, semi-private, or small group",
     description:
-      "Private sessions built around compound lifts, progressive overload, and the specific things your body is pushing back on.",
+      "Private one-on-one, two-person semi-private, or small group. Every client still gets a program built around their own body, whatever the format.",
   },
   {
-    title: "Mobility and movement work",
+    title: "Strength, conditioning, and mobility",
     description:
-      "Targeted mobility for hip flexors, thoracic spine, and shoulders. Especially effective if you sit eight hours a day.",
+      "Sessions mix compound strength with conditioning and targeted mobility. The studio has dumbbells, kettlebells, racks, a bench, bands, cardio equipment, and mobility tools.",
   },
   {
-    title: "Longevity-focused programming",
+    title: "Programming for the days between sessions",
     description:
-      "Training built for the next forty years of your body, not the next four weeks. Bone density, grip strength, and balance included.",
+      "Training you do on your own the rest of the week, at home with whatever you have or at the studio where all the equipment is included. It's how the work compounds.",
   },
   {
-    title: "Nutrition and recovery guidance",
+    title: "Longevity-focused approach",
     description:
-      "Practical, realistic nutrition and recovery advice that fits around how you actually live. No rigid meal plans.",
+      "Built for the next forty years of your body, not the next four weeks. Bone density, grip strength, balance, and practical nutrition guidance are part of the plan.",
   },
 ];
 
@@ -58,17 +58,22 @@ const sharedFAQs: FAQ[] = [
   {
     question: "How much does training cost?",
     answer:
-      "Pricing depends on frequency and package length. Most clients train twice a week and pay somewhere in the typical Silicon Valley range for private training. The free consultation covers pricing so there are no surprises.",
+      "Pricing depends on format (1:1, semi-private, or small group) and how often you train. The free consultation covers exact pricing in detail so there are no surprises.",
   },
   {
     question: "How often should I be training?",
     answer:
-      "For most of my clients, twice a week is the sweet spot. That produces real results without taking over your life. Three times a week is the upper end for busy professionals. Once a week is maintenance; useful if you already have a base.",
+      "Once a week is a great place to start, especially if you're new to training or have a packed schedule. Many clients settle into twice a week once they feel how quickly it compounds. Three times a week is the upper end. There's no wrong entry point.",
   },
   {
     question: "Do you offer online or hybrid training?",
     answer:
       "Yes. A lot of my clients do a hybrid: mostly in-person, with online sessions when the schedule doesn't allow the drive. Online works best once we've established your form in-studio, so the default is to start with a few in-person sessions and flex into hybrid as needed.",
+  },
+  {
+    question: "What do you provide between sessions?",
+    answer:
+      "You get programming for the days we aren't training together. That's on-your-own workouts scaled to whatever equipment you have at home, or you can come in and use the studio. Because the goal is long-term health, the work needs to happen across the week, not just in the hour I see you.",
   },
   {
     question: "What should I bring to the first session?",
@@ -96,7 +101,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Studio", value: "1401 Parkmoor Ave, Ste 100" },
       { label: "Sessions", value: "12,000+" },
       { label: "Certification", value: "ACE" },
-      { label: "Format", value: "1-on-1 only" },
+      { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
       "The studio is in San Jose. I've spent more than a decade building a training practice here, mostly with working professionals who live or commute through the city. If you're reading this, you're probably within fifteen minutes of the studio at 1401 Parkmoor Avenue.",
@@ -108,27 +113,27 @@ export const serviceAreas: Record<string, ServiceArea> = {
         heading: "What I focus on with San Jose clients",
         body: [
           "Most of the people who come to me are dealing with a version of the same problem. A body that used to feel fine and doesn't anymore. A schedule that doesn't have room for a two-hour gym routine. Usually a history of old injuries or years of sitting that the training has to work around.",
-          "We build training around all of that. It's usually forty to sixty minutes per session, three to five movements, plus mobility that targets whatever your body is asking for. Over twelve thousand sessions in, I've gotten pretty good at seeing what somebody needs within the first few minutes.",
+          "We build training around all of that. Sessions are usually sixty minutes, covering compound strength, some conditioning, and mobility that targets whatever your body is asking for. Over twelve thousand sessions in, I've gotten pretty good at seeing what somebody needs within the first few minutes.",
         ],
       },
       {
         heading: "The studio",
         body: [
-          "1401 Parkmoor Avenue, Suite 100. Parking is easy, it isn't a gym, and there's no music blasting at you. It's a private training space set up for one-on-one work. You'll find dumbbells, kettlebells, a squat rack, a bench, resistance bands, and mobility tools. That covers ninety-five percent of what most people actually need.",
+          "1401 Parkmoor Avenue, Suite 100. Parking is easy, it isn't a gym, and there's no music blasting at you. It's a private training space set up for focused 1:1 and small-group work. You'll find dumbbells, kettlebells, a squat rack, a bench, bands, cardio equipment, and mobility tools — all of it included in your session, nothing to bring.",
           "The location matters more than people assume. It's just off the 880 interchange, which means if you're commuting in from Almaden or down from north San Jose, you're not sitting in traffic to get here. People underestimate how much easier it is to keep a training habit when the drive is fifteen minutes and not forty-five.",
         ],
       },
       {
         heading: "Who I'm not the right fit for",
         body: [
-          "I want to be upfront about this. I'm not the right trainer if you're looking for a bootcamp or group class format. I only do one-on-one work. I'm also not the right trainer if you want fast weight loss over sustainable strength training. My focus is building a body that ages well, not one that looks good for a specific event.",
-          "Drop-in sessions aren't my thing either. This tends to work better as an ongoing relationship, usually twice a week minimum. Training isn't something you do once a month.",
+          "I want to be upfront about this. I'm not the right trainer if you want fast weight loss over sustainable training. My focus is building a body that ages well, not one that looks good for a specific event. The group sessions I run are small and intentional; they aren't commercial-gym bootcamps.",
+          "Drop-in sessions aren't my thing either. This works best as an ongoing relationship. Once a week is a fine starting point, and most clients settle into twice a week once they feel the momentum build.",
         ],
       },
       {
         heading: "What happens after you reach out",
         body: [
-          "You fill out a short form. I reply within a day, usually the same afternoon. We get on a quick call, schedule the free consultation, and if it's a fit we book sessions starting the following week. If it's not, I'll usually point you toward someone or something that is. No hard sell either way.",
+          "You fill out a short form. I reply the same day. We get on a quick call, schedule the free consultation, and if it's a fit we book sessions starting the following week. If it's not, I'll usually point you toward someone or something that is. No hard sell either way.",
         ],
       },
     ],
@@ -177,7 +182,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Drive time", value: "~15 min" },
       { label: "Route", value: "85 S to 880" },
       { label: "Sessions", value: "12,000+" },
-      { label: "Format", value: "1-on-1 only" },
+      { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
       "Sunnyvale is a short drive from my studio in San Jose, somewhere between twelve and fifteen minutes on 85 when traffic cooperates. Plenty of my clients come from here, and the mix is specific enough that I can usually tell within a few questions whether somebody is a Sunnyvale client.",
@@ -252,7 +257,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Drive time", value: "~20 min" },
       { label: "Route", value: "280 to 880" },
       { label: "Sessions", value: "12,000+" },
-      { label: "Format", value: "1-on-1 only" },
+      { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
       "Most of my Cupertino clients work at Apple or used to. The rest are at Seagate, legacy semiconductor companies, or one of the smaller engineering shops tucked into the Main Street side of the city. Cupertino has a very specific work culture, and after hundreds of sessions with clients from this city, I can tell you what shows up physically.",
@@ -332,7 +337,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Drive time", value: "~10-15 min" },
       { label: "Route", value: "880 or 101" },
       { label: "Sessions", value: "12,000+" },
-      { label: "Format", value: "1-on-1 only" },
+      { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
       "Santa Clara has changed a lot in the last five years. The rise of Nvidia has brought in a younger, high-intensity tech workforce that trains differently than engineers at older companies. The 49ers at Levi's Stadium pull in a different kind of client again. And mixed in with all of that is the steadier workforce of the University, healthcare systems, and families who've been here for a generation.",
@@ -410,7 +415,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Drive time", value: "~20-25 min" },
       { label: "Route", value: "85 S" },
       { label: "Sessions", value: "12,000+" },
-      { label: "Format", value: "1-on-1 only" },
+      { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
       "Mountain View is where I see the most Googlers, which is unsurprising given that the Googleplex is here. But my Mountain View clients come from further afield than just Google. I've trained engineers from X (Alphabet's moonshot division), Waymo, multiple well-funded startups on Castro Street, and a handful of folks from the Computer History Museum area.",
@@ -420,7 +425,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       {
         heading: "What Mountain View clients usually want",
         body: [
-          "A few things come up repeatedly. The starting point is a workout space that isn't crowded or noisy. Having somebody actually watch their form matters, because that's exactly what doesn't happen in a group class. And the schedule has to work around long meetings and async communication.",
+          "A few things come up repeatedly. The starting point is a workout space that isn't crowded or noisy. Having somebody actually watch their form matters, which is why my groups stay small enough for real attention. And the schedule has to work around long meetings and async communication.",
           "That third one matters. Mountain View has a lot of flexible-schedule work, where somebody might have a 7 AM call with Europe and then nothing until 11 AM. I keep my calendar open for those windows specifically because training between meetings is a much easier habit to sustain than trying to squeeze it into a tight morning or evening window.",
         ],
       },
@@ -490,7 +495,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Drive time", value: "~10 min" },
       { label: "Route", value: "Highway 17" },
       { label: "Sessions", value: "12,000+" },
-      { label: "Format", value: "1-on-1 only" },
+      { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
       "Los Gatos is about ten minutes south of my studio on 17. It's my shortest commute after Campbell, and the client mix here is genuinely distinct from everywhere else I serve. Los Gatos has become the home of a particular kind of tech money over the last decade, especially since Netflix set up headquarters on Winchester. My Los Gatos clients tend to be executives, directors, and senior ICs at the bigger tech companies, plus longtime residents whose families have been here since well before Silicon Valley had that name.",
@@ -521,7 +526,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       {
         heading: "Who I'm not the right fit for",
         body: [
-          "Same caveats as everywhere else. No bootcamps, no group classes, and I don't do drop-in sessions. If you want a trainer who'll push you through a viral workout for a TikTok video, that isn't what I do. The Los Gatos clients who stick with me are usually the ones who wanted the opposite of that in the first place.",
+          "Same caveats as everywhere else. The group sessions I run are small and programmed individually, not commercial-gym bootcamps. I also don't do drop-in sessions. If you want a trainer who'll push you through a viral workout for a TikTok video, that isn't what I do. The Los Gatos clients who stick with me are usually the ones who wanted the opposite of that in the first place.",
         ],
       },
     ],
@@ -570,7 +575,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Drive time", value: "~15 min" },
       { label: "Route", value: "Saratoga-Sunnyvale Rd" },
       { label: "Sessions", value: "12,000+" },
-      { label: "Format", value: "1-on-1 only" },
+      { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
       "Saratoga is one of my quieter markets, in the sense that the pace of life there is different from everywhere else in the South Bay. People stay in Saratoga. Some of my Saratoga clients have lived in the same house for three decades. The demographic skews older, wealthier, and more settled than the tech cities just north, which means the training conversation is usually pretty different from what I have with a thirty-five-year-old engineer in Mountain View.",
@@ -651,7 +656,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Drive time", value: "~20 min" },
       { label: "Route", value: "85 S" },
       { label: "Sessions", value: "12,000+" },
-      { label: "Format", value: "1-on-1 only" },
+      { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
       "Los Altos sits between Mountain View and Saratoga geographically but has its own character. The money here is old by Silicon Valley standards. Plenty of my Los Altos clients are second-generation tech. Parents who were at Sun or Oracle in the eighties, kids who went to Stanford and are now running product at a company I've definitely heard of.",
@@ -731,7 +736,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Drive time", value: "~15-20 min" },
       { label: "Route", value: "880 S" },
       { label: "Sessions", value: "12,000+" },
-      { label: "Format", value: "1-on-1 only" },
+      { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
       "Milpitas is fifteen to twenty minutes up 880 from the studio, and the client mix here is different from every other city I serve. Milpitas is a working tech city. Semiconductor, networking, and the sort of hardware and manufacturing operations that don't make the cover of Wired but build the products everyone else depends on. Tesla's Fremont facility is just north, and a lot of their engineers live in Milpitas.",
@@ -761,7 +766,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       {
         heading: "What I don't do",
         body: [
-          "I don't run bootcamps or group classes, and I don't make marketing promises about six-week transformations. Training is one-on-one only, and I don't take drop-in sessions. I work in months and years. What I actually care about is whether you're still training consistently in three years, not what happens in the first three weeks.",
+          "I don't run commercial-gym bootcamps, and I don't make marketing promises about six-week transformations. My group sessions stay small enough for individual attention, and I don't take drop-in sessions. I work in months and years. What I actually care about is whether you're still training consistently in three years, not what happens in the first three weeks.",
         ],
       },
     ],
@@ -810,7 +815,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Drive time", value: "~5-10 min" },
       { label: "Route", value: "17 or Hamilton" },
       { label: "Sessions", value: "12,000+" },
-      { label: "Format", value: "1-on-1 only" },
+      { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
       "Campbell is one of my easier commutes. My studio sits about five to eight minutes from downtown Campbell, depending on where you start. For a lot of Campbell residents, it's faster to come to my studio than it is to get across town to 24 Hour Fitness.",
