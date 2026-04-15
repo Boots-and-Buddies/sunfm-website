@@ -7,7 +7,7 @@ export default function ServiceAreaHero({ area }: { area: ServiceArea }) {
   const headlineWithoutCity = area.heroHeadline.replace(cityWord, "").trim();
 
   return (
-    <section className="relative bg-[#1a1a1a] text-white overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28 lg:min-h-[720px]">
+    <section className="relative bg-[#1a1a1a] text-white overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28 lg:min-h-screen lg:flex lg:items-center">
       {/* Subtle grid pattern overlay */}
       <div
         aria-hidden="true"
@@ -34,7 +34,7 @@ export default function ServiceAreaHero({ area }: { area: ServiceArea }) {
           fill
           className="object-cover hero-image-settle"
           style={{
-            objectPosition: "50% 5%",
+            objectPosition: "50% 25%",
             maskImage:
               "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 25%, black 55%)",
             WebkitMaskImage:

@@ -96,7 +96,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
     metaDescription:
       "One-on-one personal training in San Jose. Private studio at 1401 Parkmoor Ave. 12,000+ sessions with Bay Area professionals. Free consultation.",
     commuteText:
-      "The studio is at 1401 Parkmoor Ave, just off the 880 interchange. Most San Jose clients are here in under fifteen minutes.",
+      "The studio is at 1401 Parkmoor Ave, just off the 880 interchange. Most San Jose clients are here in under ten minutes.",
     quickFacts: [
       { label: "Studio", value: "1401 Parkmoor Ave, Ste 100" },
       { label: "Sessions", value: "12,000+" },
@@ -104,7 +104,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
-      "The studio is in San Jose. I've spent more than a decade building a training practice here, mostly with working professionals who live or commute through the city. If you're reading this, you're probably within fifteen minutes of the studio at 1401 Parkmoor Avenue.",
+      "The studio is in San Jose. I've spent more than a decade building a training practice here, mostly with working professionals who live or commute through the city. If you're reading this, you're probably within ten minutes of the studio at 1401 Parkmoor Avenue.",
       "San Jose is different from the rest of the South Bay, even though people tend to lump it all together. The client mix here runs across the whole range. Engineers from Cisco, Adobe, and PayPal walk over during their lunch break. Product managers in Willow Glen stop in before their kids wake up. Retired teachers from Almaden come in the mornings, and nurses coming off shifts at Good Samaritan often head here before heading home. A handful of small business owners on The Alameda close up their shops and walk three blocks over.",
       "What ties most of my San Jose clients together is that they're not looking for a bootcamp. They've usually tried a gym membership. Maybe a class pack or an app after that. None of it held. What they need is a trainer who actually pays attention, programs around their life, and isn't going to push heavy deadlifts when they've had a terrible night of sleep.",
     ],
@@ -120,7 +120,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
         heading: "The studio",
         body: [
           "1401 Parkmoor Avenue, Suite 100. Parking is easy, it isn't a gym, and there's no music blasting at you. It's a private training space set up for focused 1:1 and small-group work. You'll find dumbbells, kettlebells, a squat rack, a bench, bands, cardio equipment, and mobility tools — all of it included in your session, nothing to bring.",
-          "The location matters more than people assume. It's just off the 880 interchange, which means if you're commuting in from Almaden or down from north San Jose, you're not sitting in traffic to get here. People underestimate how much easier it is to keep a training habit when the drive is fifteen minutes and not forty-five.",
+          "The location matters more than people assume. It's just off the 880 interchange, which means if you're commuting in from Almaden or down from north San Jose, you're not sitting in traffic to get here. People underestimate how much easier it is to keep a training habit when the drive is ten minutes and not forty-five.",
         ],
       },
       {
@@ -142,7 +142,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       {
         question: "How do I get to the studio from central San Jose?",
         answer:
-          "From downtown, it's about five to ten minutes depending on traffic. The Alameda runs straight to Parkmoor, or you can take 880 to the Bascom exit. Parking is easy and free at the studio.",
+          "From downtown, it's about three to five minutes depending on traffic. The Alameda runs straight to Parkmoor, or you can take 880 to the Bascom exit. Parking is easy and free at the studio.",
       },
       ...sharedFAQs,
       {
@@ -172,20 +172,20 @@ export const serviceAreas: Record<string, ServiceArea> = {
     heroTag: "Sunnyvale Residents",
     heroHeadline: "Personal Trainer for Sunnyvale",
     heroSubheadline:
-      "Training built for Sunnyvale professionals and parents. Fifteen minutes from downtown Sunnyvale to a private studio in San Jose.",
+      "Training built for Sunnyvale professionals and parents. Ten minutes from downtown Sunnyvale to a private studio in San Jose.",
     metaTitle: "Personal Trainer in Sunnyvale | Sun Functional Movement",
     metaDescription:
       "Serving Sunnyvale with one-on-one training at a private San Jose studio. 15 minutes from Murphy Ave. Free consultation with an ACE-certified trainer.",
     commuteText:
-      "Fifteen minutes on 85 South to the studio in San Jose. I reserve early morning and mid-morning slots for Sunnyvale clients who want to miss traffic.",
+      "Ten minutes on 85 South to the studio in San Jose. I reserve early morning and mid-morning slots for Sunnyvale clients who want to miss traffic.",
     quickFacts: [
-      { label: "Drive time", value: "~15 min" },
+      { label: "Drive time", value: "~10 min" },
       { label: "Route", value: "85 S to 880" },
       { label: "Sessions", value: "12,000+" },
       { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
-      "Sunnyvale is a short drive from my studio in San Jose, somewhere between twelve and fifteen minutes on 85 when traffic cooperates. Plenty of my clients come from here, and the mix is specific enough that I can usually tell within a few questions whether somebody is a Sunnyvale client.",
+      "Sunnyvale is a short drive from my studio in San Jose, usually seven to ten minutes on 85 when traffic cooperates. Plenty of my clients come from here, and the mix is specific enough that I can usually tell within a few questions whether somebody is a Sunnyvale client.",
       "The dominant pattern is dual-career households with kids. One parent works at LinkedIn, Apple, Yahoo, or one of the smaller semiconductor shops. The other is doing the same somewhere else, or holding it all together at home. Both are north of thirty-five. Neither slept more than six hours last night. And their own bodies have been on the back burner for five years or so while they put everyone else's needs first. Training is often the first thing they've done just for themselves in longer than they'd like to admit.",
       "If that sounds like you, you're in good company.",
     ],
@@ -201,7 +201,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       {
         heading: "Driving to the studio from Sunnyvale",
         body: [
-          "If you're near Murphy Avenue or downtown Sunnyvale, it's about twelve to fourteen minutes on 85 South, then a short hop off 880. From the Levi's Stadium side of town, closer to twenty. I try to schedule appointments in windows that miss the worst of the commute, so early mornings and mid-mornings fill up fast but tend to be the smoothest drive.",
+          "If you're near Murphy Avenue or downtown Sunnyvale, it's about seven to nine minutes on 85 South, then a short hop off 880. From the Levi's Stadium side of town, closer to fifteen. I try to schedule appointments in windows that miss the worst of the commute, so early mornings and mid-mornings fill up fast but tend to be the smoothest drive.",
           "Some of my Sunnyvale clients train before their morning standups. Others come over after school drop-off. A few do a 5:30 AM slot because it's the only time their schedule actually clears. There isn't one right answer. The right answer is whatever you'll reliably show up for.",
         ],
       },
@@ -215,9 +215,9 @@ export const serviceAreas: Record<string, ServiceArea> = {
     services: commonServices,
     faqs: [
       {
-        question: "Is fifteen minutes each way worth it for training?",
+        question: "Is ten minutes each way worth it for training?",
         answer:
-          "Most of my Sunnyvale clients say yes. The actual training session is forty-five to sixty minutes, so total time investment is around ninety minutes door-to-door. For twice a week, that's about three hours of your week. Given the results compound over months and years, the ROI is high.",
+          "Most of my Sunnyvale clients say yes. The actual training session is sixty minutes, so total time investment is around eighty minutes door-to-door. For twice a week, that's under three hours of your week. Given the results compound over months and years, the ROI is high.",
       },
       ...sharedFAQs,
       {
@@ -252,9 +252,9 @@ export const serviceAreas: Record<string, ServiceArea> = {
     metaDescription:
       "One-on-one training for Cupertino professionals and Apple employees. Private studio 20 minutes from Apple Park. Free consultation with an ACE-certified trainer.",
     commuteText:
-      "From Apple Park, 280 to 880 South is the cleanest route. Most Cupertino clients get to the studio in about twenty minutes.",
+      "From Apple Park, 280 to 880 South is the cleanest route. Most Cupertino clients get to the studio in about fifteen minutes.",
     quickFacts: [
-      { label: "Drive time", value: "~20 min" },
+      { label: "Drive time", value: "~15 min" },
       { label: "Route", value: "280 to 880" },
       { label: "Sessions", value: "12,000+" },
       { label: "Format", value: "1:1, Semi, Group" },
@@ -281,7 +281,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       {
         heading: "Commute from Cupertino",
         body: [
-          "You're looking at about fifteen to twenty minutes to the studio, depending on where in Cupertino you're starting. From Apple Park, it's 280 to 880 South, straightforward. From the Main Street area, 85 down is roughly the same time. Early mornings are fastest. Mid-day is tolerable. Evenings after 5:30 can get painful, so most of my Cupertino clients train in the morning before standup or during an extended lunch.",
+          "You're looking at about ten to fifteen minutes to the studio, depending on where in Cupertino you're starting. From Apple Park, it's 280 to 880 South, straightforward. From the Main Street area, 85 down is roughly the same time. Early mornings are fastest. Mid-day is tolerable. Evenings after 5:30 can get painful, so most of my Cupertino clients train in the morning before standup or during an extended lunch.",
         ],
       },
       {
@@ -332,9 +332,9 @@ export const serviceAreas: Record<string, ServiceArea> = {
     metaDescription:
       "Private personal training for Santa Clara professionals. 10-15 min from Nvidia, Intel, and Levi's Stadium. Free consultation. ACE-certified.",
     commuteText:
-      "From Santa Clara University, 880 South gets you here fast. The stadium area uses 101 South. Either way, under fifteen minutes most of the day.",
+      "From Santa Clara University, 880 South gets you here fast. The stadium area uses 101 South. Either way, under ten minutes most of the day.",
     quickFacts: [
-      { label: "Drive time", value: "~10-15 min" },
+      { label: "Drive time", value: "~5-10 min" },
       { label: "Route", value: "880 or 101" },
       { label: "Sessions", value: "12,000+" },
       { label: "Format", value: "1:1, Semi, Group" },
@@ -360,7 +360,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       {
         heading: "Getting to the studio",
         body: [
-          "Santa Clara is close. You're looking at about ten to fifteen minutes, depending on where you start. If you're near Santa Clara University or downtown, 880 South gets you to the studio fast. From the stadium area, 101 is usually smoother. Either way, Santa Clara clients have one of the shortest commutes of any of the cities I serve, which is part of why so many of them manage to train twice a week consistently.",
+          "Santa Clara is close. You're looking at about five to ten minutes, depending on where you start. If you're near Santa Clara University or downtown, 880 South gets you to the studio fast. From the stadium area, 101 is usually smoother. Either way, Santa Clara clients have one of the shortest commutes of any of the cities I serve, which is part of why so many of them manage to train twice a week consistently.",
         ],
       },
       {
@@ -410,9 +410,9 @@ export const serviceAreas: Record<string, ServiceArea> = {
     metaDescription:
       "Private training for Mountain View residents and Google employees. 20-25 min drive, calendar-friendly for flexible tech schedules. Free consultation.",
     commuteText:
-      "About twenty to twenty-five minutes on 85 South. Morning and mid-day slots miss the worst of the commute.",
+      "About fifteen to twenty minutes on 85 South. Morning and mid-day slots miss the worst of the commute.",
     quickFacts: [
-      { label: "Drive time", value: "~20-25 min" },
+      { label: "Drive time", value: "~15-20 min" },
       { label: "Route", value: "85 S" },
       { label: "Sessions", value: "12,000+" },
       { label: "Format", value: "1:1, Semi, Group" },
@@ -432,7 +432,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       {
         heading: "The commute situation",
         body: [
-          "You're looking at twenty to twenty-five minutes from Mountain View to the studio, depending on traffic. 85 South is the main route. If you're near Castro Street or Shoreline, the first couple of miles to the freeway can be slow during rush hour, which is why I typically book my Mountain View clients for either early morning or mid-day slots. The ten-to-eleven window is gold; you're going the wrong direction of traffic for both commutes.",
+          "You're looking at fifteen to twenty minutes from Mountain View to the studio, depending on traffic. 85 South is the main route. If you're near Castro Street or Shoreline, the first couple of miles to the freeway can be slow during rush hour, which is why I typically book my Mountain View clients for either early morning or mid-day slots. The ten-to-eleven window is gold; you're going the wrong direction of traffic for both commutes.",
           "Some of my Mountain View clients just bike or take the bus to their office and drive down to me on training days. That's worked for a few of them when they wanted to reduce their total driving time.",
         ],
       },
@@ -498,7 +498,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
-      "Los Gatos is about ten minutes south of my studio on 17. It's my shortest commute after Campbell, and the client mix here is genuinely distinct from everywhere else I serve. Los Gatos has become the home of a particular kind of tech money over the last decade, especially since Netflix set up headquarters on Winchester. My Los Gatos clients tend to be executives, directors, and senior ICs at the bigger tech companies, plus longtime residents whose families have been here since well before Silicon Valley had that name.",
+      "Los Gatos is about five minutes south of my studio on 17. It's my shortest commute after Campbell, and the client mix here is genuinely distinct from everywhere else I serve. Los Gatos has become the home of a particular kind of tech money over the last decade, especially since Netflix set up headquarters on Winchester. My Los Gatos clients tend to be executives, directors, and senior ICs at the bigger tech companies, plus longtime residents whose families have been here since well before Silicon Valley had that name.",
       "What happens when those two groups walk into the same studio is interesting. The newer arrivals are often used to the Netflix-style performance culture, which means they want to train hard and see measurable progress. The longer-term residents are usually looking for something different. Their goal is to stay strong and stay independent and keep enjoying the life they've built here.",
     ],
     sections: [
@@ -512,7 +512,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       {
         heading: "Getting to the studio from Los Gatos",
         body: [
-          "Highway 17 straight up, about ten minutes in normal traffic. The 17 to 880 interchange backs up during commute hours, so I tend to book Los Gatos clients for mid-morning or early afternoon slots when possible. A handful of Los Gatos clients work from home most days and come in during flexible middle hours.",
+          "Highway 17 straight up, about five minutes in normal traffic. The 17 to 880 interchange backs up during commute hours, so I tend to book Los Gatos clients for mid-morning or early afternoon slots when possible. A handful of Los Gatos clients work from home most days and come in during flexible middle hours.",
           "If you're closer to the eastern side of Los Gatos by the Pruneyard or University Avenue, you can also take Los Gatos Boulevard up through Campbell and skip the freeway entirely.",
         ],
       },
@@ -565,21 +565,21 @@ export const serviceAreas: Record<string, ServiceArea> = {
     heroTag: "Saratoga Residents",
     heroHeadline: "Personal Trainer for Saratoga",
     heroSubheadline:
-      "Patient, professional training for established Saratoga residents. Fifteen minutes to the studio via Saratoga-Sunnyvale Road or 85.",
+      "Patient, professional training for established Saratoga residents. Ten minutes to the studio via Saratoga-Sunnyvale Road or 85.",
     metaTitle: "Personal Trainer in Saratoga | Sun Functional Movement",
     metaDescription:
       "One-on-one personal training for Saratoga residents. 15 min from downtown via 85 or Saratoga-Sunnyvale Rd. Free consultation. ACE-certified.",
     commuteText:
-      "Fifteen minutes via Saratoga-Sunnyvale Road or 85 North. Most Saratoga clients prefer the surface streets through Prospect Road.",
+      "Ten minutes via Saratoga-Sunnyvale Road or 85 North. Most Saratoga clients prefer the surface streets through Prospect Road.",
     quickFacts: [
-      { label: "Drive time", value: "~15 min" },
+      { label: "Drive time", value: "~10 min" },
       { label: "Route", value: "Saratoga-Sunnyvale Rd" },
       { label: "Sessions", value: "12,000+" },
       { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
       "Saratoga is one of my quieter markets, in the sense that the pace of life there is different from everywhere else in the South Bay. People stay in Saratoga. Some of my Saratoga clients have lived in the same house for three decades. The demographic skews older, wealthier, and more settled than the tech cities just north, which means the training conversation is usually pretty different from what I have with a thirty-five-year-old engineer in Mountain View.",
-      "The drive from downtown Saratoga to my studio is about fifteen minutes, depending on whether you take Saratoga-Sunnyvale Road or head down 85. Both work. Most of my Saratoga clients take the surface streets through Prospect Road because the drive is more pleasant and usually just as quick.",
+      "The drive from downtown Saratoga to my studio is about ten minutes, depending on whether you take Saratoga-Sunnyvale Road or head down 85. Both work. Most of my Saratoga clients take the surface streets through Prospect Road because the drive is more pleasant and usually just as quick.",
     ],
     sections: [
       {
@@ -600,7 +600,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       {
         heading: "Getting to the studio",
         body: [
-          "Saratoga-Sunnyvale Road connects pretty directly to Campbell Avenue and then over to Parkmoor, about fifteen minutes in light traffic. 85 North to 17 is about the same, though the freeway can slow in commute hours. If you're up near the Mountain Winery side of town, Highway 9 down to Saratoga Avenue is another option.",
+          "Saratoga-Sunnyvale Road connects pretty directly to Campbell Avenue and then over to Parkmoor, about ten minutes in light traffic. 85 North to 17 is about the same, though the freeway can slow in commute hours. If you're up near the Mountain Winery side of town, Highway 9 down to Saratoga Avenue is another option.",
         ],
       },
       {
@@ -653,14 +653,14 @@ export const serviceAreas: Record<string, ServiceArea> = {
     commuteText:
       "Twenty minutes via 85 South on a normal day. Most Los Altos clients book mid-morning or early afternoon for the easiest commute.",
     quickFacts: [
-      { label: "Drive time", value: "~20 min" },
+      { label: "Drive time", value: "~15 min" },
       { label: "Route", value: "85 S" },
       { label: "Sessions", value: "12,000+" },
       { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
       "Los Altos sits between Mountain View and Saratoga geographically but has its own character. The money here is old by Silicon Valley standards. Plenty of my Los Altos clients are second-generation tech. Parents who were at Sun or Oracle in the eighties, kids who went to Stanford and are now running product at a company I've definitely heard of.",
-      "The drive from downtown Los Altos to the studio is twenty minutes on 85 South on a normal day. A bit slower during commute. Most of my Los Altos clients come in during the middle of their workday, which makes sense given how much of that population works flexibly or has enough seniority that the schedule is theirs to arrange.",
+      "The drive from downtown Los Altos to the studio is fifteen minutes on 85 South on a normal day. A bit slower during commute. Most of my Los Altos clients come in during the middle of their workday, which makes sense given how much of that population works flexibly or has enough seniority that the schedule is theirs to arrange.",
     ],
     sections: [
       {
@@ -674,7 +674,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       {
         heading: "Getting to the studio",
         body: [
-          "85 South is the main route, and it's reliable outside of rush hour. Most Los Altos clients book around their workday, so the drive is usually under twenty minutes. If you're closer to the El Camino side of Los Altos, 280 to 880 is an alternate that runs similarly.",
+          "85 South is the main route, and it's reliable outside of rush hour. Most Los Altos clients book around their workday, so the drive is usually under fifteen minutes. If you're closer to the El Camino side of Los Altos, 280 to 880 is an alternate that runs similarly.",
         ],
       },
       {
@@ -726,20 +726,20 @@ export const serviceAreas: Record<string, ServiceArea> = {
     heroTag: "Working Tech",
     heroHeadline: "Personal Trainer for Milpitas",
     heroSubheadline:
-      "Patient, efficient training for Milpitas professionals balancing demanding tech jobs with family responsibilities. Fifteen to twenty minutes up 880.",
+      "Patient, efficient training for Milpitas professionals balancing demanding tech jobs with family responsibilities. Ten to fifteen minutes up 880.",
     metaTitle: "Personal Trainer in Milpitas | Sun Functional Movement",
     metaDescription:
       "One-on-one training for Milpitas professionals. 15-20 min from Great Mall area via 880. Free consultation with an ACE-certified trainer.",
     commuteText:
-      "Fifteen to twenty minutes on 880 South. Early morning or mid-day slots avoid the worst of the commute.",
+      "Ten to fifteen minutes on 880 South. Early morning or mid-day slots avoid the worst of the commute.",
     quickFacts: [
-      { label: "Drive time", value: "~15-20 min" },
+      { label: "Drive time", value: "~10-15 min" },
       { label: "Route", value: "880 S" },
       { label: "Sessions", value: "12,000+" },
       { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
-      "Milpitas is fifteen to twenty minutes up 880 from the studio, and the client mix here is different from every other city I serve. Milpitas is a working tech city. Semiconductor, networking, and the sort of hardware and manufacturing operations that don't make the cover of Wired but build the products everyone else depends on. Tesla's Fremont facility is just north, and a lot of their engineers live in Milpitas.",
+      "Milpitas is ten to fifteen minutes up 880 from the studio, and the client mix here is different from every other city I serve. Milpitas is a working tech city. Semiconductor, networking, and the sort of hardware and manufacturing operations that don't make the cover of Wired but build the products everyone else depends on. Tesla's Fremont facility is just north, and a lot of their engineers live in Milpitas.",
       "The cultural mix here is also distinct. Milpitas has one of the largest Asian-American populations in the South Bay, and a good portion of my clients from here are first or second-generation immigrants balancing demanding careers with intergenerational family responsibilities. That specific life situation shapes what training looks like.",
     ],
     sections: [
@@ -760,7 +760,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
       {
         heading: "Getting to the studio",
         body: [
-          "880 South is the primary route. Fifteen to twenty minutes on a normal day, closer to twenty-five during commute hours. If you're on the east side of Milpitas near the Great Mall, it's the same drive. I book most Milpitas clients early morning or mid-day to skip the worst of the traffic.",
+          "880 South is the primary route. Ten to fifteen minutes on a normal day, closer to twenty during commute hours. If you're on the east side of Milpitas near the Great Mall, it's the same drive. I book most Milpitas clients early morning or mid-day to skip the worst of the traffic.",
         ],
       },
       {
@@ -805,14 +805,14 @@ export const serviceAreas: Record<string, ServiceArea> = {
     heroTag: "Downtown Campbell",
     heroHeadline: "Personal Trainer for Campbell",
     heroSubheadline:
-      "Private training five to ten minutes from downtown Campbell. Built for small business owners, healthcare workers, and longtime residents who want honest, patient work.",
+      "Private training just a few minutes from downtown Campbell. Built for small business owners, healthcare workers, and longtime residents who want honest, patient work.",
     metaTitle: "Personal Trainer in Campbell | Sun Functional Movement",
     metaDescription:
       "Personal training for Campbell residents. 5-10 min from downtown Campbell. Honest, patient, ACE-certified one-on-one training. Free consultation.",
     commuteText:
-      "Five to ten minutes from downtown Campbell to the studio. One of the shortest commutes of any city I serve.",
+      "Just a few minutes from downtown Campbell to the studio. One of the shortest commutes of any city I serve.",
     quickFacts: [
-      { label: "Drive time", value: "~5-10 min" },
+      { label: "Drive time", value: "~5 min" },
       { label: "Route", value: "17 or Hamilton" },
       { label: "Sessions", value: "12,000+" },
       { label: "Format", value: "1:1, Semi, Group" },
