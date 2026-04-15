@@ -34,7 +34,7 @@ export default function ServiceAreaHero({ area }: { area: ServiceArea }) {
           fill
           className="object-cover hero-image-settle"
           style={{
-            objectPosition: "50% 20%",
+            objectPosition: "50% 5%",
             maskImage:
               "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 25%, black 55%)",
             WebkitMaskImage:
