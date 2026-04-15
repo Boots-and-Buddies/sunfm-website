@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import TrackedCTALink from "@/components/TrackedCTALink";
 
 export const metadata: Metadata = {
   title: "Our Team | Sun Functional Movement",
@@ -269,12 +270,14 @@ export default function TeamPage() {
             Book a free consultation with our team and take the first step
             toward moving better, feeling stronger, and living longer.
           </p>
-          <Link
+          <TrackedCTALink
             href="/#apply"
+            section="team_page_footer_cta"
+            buttonText="Book Your Free Consultation"
             className="btn-primary text-lg"
           >
             Book Your Free Consultation
-          </Link>
+          </TrackedCTALink>
         </div>
       </div>
 

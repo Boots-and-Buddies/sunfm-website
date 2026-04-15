@@ -10,6 +10,7 @@ import PostCard from "@/components/blog/PostCard";
 import CategoryFilter from "@/components/blog/CategoryFilter";
 import Breadcrumbs from "@/components/blog/Breadcrumbs";
 import Link from "next/link";
+import TrackedCTALink from "@/components/TrackedCTALink";
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -96,9 +97,14 @@ export default async function CategoryPage({ params }: Props) {
             Get personalized guidance from an ACE-certified trainer with
             12,000+ sessions delivered in San Jose and the South Bay.
           </p>
-          <Link href="/#apply" className="btn-primary inline-block">
+          <TrackedCTALink
+            href="/#apply"
+            section="category_page_footer_cta"
+            buttonText="Book Your Free Consultation"
+            className="btn-primary inline-block"
+          >
             Book Your Free Consultation
-          </Link>
+          </TrackedCTALink>
         </div>
       </div>
     </main>

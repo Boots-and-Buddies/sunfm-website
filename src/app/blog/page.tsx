@@ -3,6 +3,7 @@ import { getAllPosts, getAllCategories } from "@/lib/blog";
 import PostCard from "@/components/blog/PostCard";
 import CategoryFilter from "@/components/blog/CategoryFilter";
 import Link from "next/link";
+import TrackedCTALink from "@/components/TrackedCTALink";
 
 export const metadata: Metadata = {
   title: "Fitness, Nutrition & Wellness Blog - SunFM",
@@ -78,9 +79,14 @@ export default function BlogPage() {
             Get personalized guidance from an ACE-certified trainer with
             12,000+ sessions delivered.
           </p>
-          <Link href="/#apply" className="btn-primary inline-block">
+          <TrackedCTALink
+            href="/#apply"
+            section="blog_index_footer_cta"
+            buttonText="Book Your Free Consultation"
+            className="btn-primary inline-block"
+          >
             Book Your Free Consultation
-          </Link>
+          </TrackedCTALink>
         </div>
       </div>
     </main>

@@ -12,6 +12,7 @@ import {
 import ProgressBar from "@/components/blog/ProgressBar";
 import RelatedPosts from "@/components/blog/RelatedPosts";
 import YouTubeEmbed from "@/components/blog/YouTubeEmbed";
+import TrackedCTALink from "@/components/TrackedCTALink";
 
 const mdxComponents = {
   YouTube: YouTubeEmbed,
@@ -180,12 +181,14 @@ export default async function ArticlePage({ params }: Props) {
                   movement, mobility, and strength training for busy
                   professionals in San Jose and the Bay Area.
                 </p>
-                <Link
+                <TrackedCTALink
                   href="/#apply"
+                  section="blog_post_author_bio"
+                  buttonText="Book a free consultation"
                   className="inline-block mt-2 text-sm font-semibold text-[#CB4538] hover:underline"
                 >
                   Book a free consultation &rarr;
-                </Link>
+                </TrackedCTALink>
               </div>
             </div>
           </div>
@@ -206,9 +209,14 @@ export default async function ArticlePage({ params }: Props) {
               Get a personalized program built around your goals, your body,
               and your schedule.
             </p>
-            <Link href="/#apply" className="btn-primary inline-block text-sm">
+            <TrackedCTALink
+              href="/#apply"
+              section="blog_post_footer_cta"
+              buttonText="Book Your Free Consultation"
+              className="btn-primary inline-block text-sm"
+            >
               Book Your Free Consultation
-            </Link>
+            </TrackedCTALink>
           </div>
 
           {/* Related posts */}
