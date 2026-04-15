@@ -81,12 +81,13 @@ export default function MovementScreenResults({ result, onRestart }: Props) {
 
   const displayScore = useCountUp(overallScore, 1400, mounted);
 
-  // Heatmap: weaker axes get stronger red intensity
+  // Heatmap: axes averaging under a solid 1.5/2 glow red, intensity
+  // proportional to how far below perfect they are.
   const heatmap: Partial<Record<AxisKey, number>> = {};
   perAxis.forEach((a) => {
-    // Score 0 => intensity 1, score 1 => intensity 0.55, score 2 => intensity 0
-    const intensity = a.rawScore === 0 ? 1 : a.rawScore === 1 ? 0.55 : 0;
-    if (intensity > 0) heatmap[a.axis] = intensity;
+    if (a.rawScore >= 1.75) return;
+    const intensity = Math.max(0.3, 1 - a.rawScore / 2);
+    heatmap[a.axis] = intensity;
   });
 
   return (

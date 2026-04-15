@@ -40,7 +40,8 @@ export default function MovementScreenIntro({ onStart }: Props) {
           <p className="text-lg text-white/60 leading-relaxed max-w-xl mb-10 animate-fade-up animate-delay-200">
             A {QUESTIONS.length}-test diagnostic used on every new client at
             my San Jose studio. You'll do each movement yourself and self-score
-            it. Two minutes. No email. Then we look at the results together.
+            it. Four to five minutes. No email. Then we look at the results
+            together.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 animate-fade-up animate-delay-300">
@@ -64,7 +65,7 @@ export default function MovementScreenIntro({ onStart }: Props) {
 
           <div className="mt-14 pt-8 border-t border-white/10 grid grid-cols-3 gap-4 animate-fade-up animate-delay-400">
             <Stat label="Tests" value={String(QUESTIONS.length)} />
-            <Stat label="Minutes" value="~2" />
+            <Stat label="Minutes" value="~5" />
             <Stat label="Email required" value="No" />
           </div>
         </div>

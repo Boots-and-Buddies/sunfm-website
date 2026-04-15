@@ -37,6 +37,7 @@ export interface Question {
 }
 
 export const QUESTIONS: Question[] = [
+  // ── SHOULDERS ─────────────────────────────────────────────────
   {
     id: "shoulder-reach",
     axis: "shoulders",
@@ -45,23 +46,27 @@ export const QUESTIONS: Question[] = [
       "Stand up. Reach one arm over your shoulder from above (hand going down your spine). Reach the other arm from below, behind your back (hand going up your spine).",
     instruction: "Try it on your tighter side. Where do your hands meet?",
     options: [
-      {
-        label: "Hands overlap",
-        detail: "Your fingers cross past each other. Full range.",
-        score: 2,
-      },
-      {
-        label: "Fingertips touch",
-        detail: "Your fingers meet but don't cross.",
-        score: 1,
-      },
-      {
-        label: "There's a gap",
-        detail: "Your hands don't meet, sometimes by several inches.",
-        score: 0,
-      },
+      { label: "Hands overlap", detail: "Your fingers cross past each other. Full range.", score: 2 },
+      { label: "Fingertips touch", detail: "Your fingers meet but don't cross.", score: 1 },
+      { label: "There's a gap", detail: "Your hands don't meet, sometimes by several inches.", score: 0 },
     ],
   },
+  {
+    id: "shoulder-overhead",
+    axis: "shoulders",
+    title: "Overhead reach with back flat",
+    setup:
+      "Lie on your back with knees bent. Press your low back flat into the floor so there's no gap under your lumbar spine. Straighten both arms and reach them overhead.",
+    instruction:
+      "Without letting your low back arch, how far back can your arms reach?",
+    options: [
+      { label: "Arms flat on floor", detail: "Hands touch the ground, back still pinned.", score: 2 },
+      { label: "A few inches off the floor", detail: "Arms stop short, but your back stays flat.", score: 1 },
+      { label: "Much further off, or back arches", detail: "You can't get near the floor without compensating.", score: 0 },
+    ],
+  },
+
+  // ── THORACIC SPINE ────────────────────────────────────────────
   {
     id: "thoracic-rotation",
     axis: "thoracic",
@@ -71,23 +76,26 @@ export const QUESTIONS: Question[] = [
     instruction:
       "Rotate your upper body to one side as far as you can without shifting your hips. About how far do you turn?",
     options: [
-      {
-        label: "Over 90 degrees",
-        detail: "You can see well behind you.",
-        score: 2,
-      },
-      {
-        label: "Around 45 to 90 degrees",
-        detail: "You can turn to the side but not fully behind.",
-        score: 1,
-      },
-      {
-        label: "Under 45 degrees",
-        detail: "You feel locked up quickly, maybe some back strain.",
-        score: 0,
-      },
+      { label: "Over 90 degrees", detail: "You can see well behind you.", score: 2 },
+      { label: "Around 45 to 90 degrees", detail: "You can turn to the side but not fully behind.", score: 1 },
+      { label: "Under 45 degrees", detail: "You feel locked up quickly, maybe some back strain.", score: 0 },
     ],
   },
+  {
+    id: "thoracic-sidebend",
+    axis: "thoracic",
+    title: "Standing side bend",
+    setup:
+      "Stand tall, feet hip-width. Slide one hand straight down the outside of your thigh. Keep both feet planted. Don't shift your weight to the opposite side.",
+    instruction: "How far down your leg do your fingers reach?",
+    options: [
+      { label: "Past the knee", detail: "A long, smooth curve through your ribs.", score: 2 },
+      { label: "To the knee or just above", detail: "Moderate side bend, some rib compression.", score: 1 },
+      { label: "Above mid-thigh", detail: "Hips shift or your ribs feel locked up.", score: 0 },
+    ],
+  },
+
+  // ── HIPS ──────────────────────────────────────────────────────
   {
     id: "hip-lunge",
     axis: "hips",
@@ -96,25 +104,26 @@ export const QUESTIONS: Question[] = [
       "Drop into a half-kneeling lunge. One knee on the floor, the other foot forward with the shin vertical. Square your hips forward. Gently squeeze the glute on the kneeling leg.",
     instruction: "What do you feel in the front of the kneeling-leg hip?",
     options: [
-      {
-        label: "Loose and easy",
-        detail: "Almost no stretch. The position feels natural.",
-        score: 2,
-      },
-      {
-        label: "Some tightness",
-        detail:
-          "A noticeable stretch in the front of the hip. Tolerable but present.",
-        score: 1,
-      },
-      {
-        label: "Significant pull",
-        detail:
-          "Strong stretch or pinching. You can't fully square your hips or tuck your pelvis.",
-        score: 0,
-      },
+      { label: "Loose and easy", detail: "Almost no stretch. The position feels natural.", score: 2 },
+      { label: "Some tightness", detail: "Noticeable stretch in the front of the hip. Tolerable but present.", score: 1 },
+      { label: "Significant pull", detail: "Strong stretch or pinching. You can't fully square your hips.", score: 0 },
     ],
   },
+  {
+    id: "hip-knee-to-chest",
+    axis: "hips",
+    title: "Knee to chest",
+    setup:
+      "Lie on your back. Pull one knee toward your chest with both hands. The other leg stays straight and flat on the floor.",
+    instruction: "What happens to the straight leg as you pull the knee in?",
+    options: [
+      { label: "Stays flat", detail: "Opposite leg stays pinned to the floor. Knee pulls cleanly to chest.", score: 2 },
+      { label: "Starts to lift slightly", detail: "Opposite leg rises a bit as you pull the other knee in.", score: 1 },
+      { label: "Lifts significantly", detail: "The straight leg wants to bend or lift off the floor to let you get the other knee close.", score: 0 },
+    ],
+  },
+
+  // ── POSTERIOR CHAIN ───────────────────────────────────────────
   {
     id: "toe-touch",
     axis: "hamstrings",
@@ -123,23 +132,26 @@ export const QUESTIONS: Question[] = [
       "Stand with feet together, knees straight but not locked. Slowly hinge forward from the hips and reach toward the floor.",
     instruction: "No bouncing. Where do your fingertips land?",
     options: [
-      {
-        label: "Palms flat on floor",
-        detail: "Full range. Comfortable at the bottom.",
-        score: 2,
-      },
-      {
-        label: "Fingertips to toes or floor",
-        detail: "You can touch your toes or just graze the floor.",
-        score: 1,
-      },
-      {
-        label: "Mid-shin or higher",
-        detail: "You can't reach past your shins without bending the knees.",
-        score: 0,
-      },
+      { label: "Palms flat on floor", detail: "Full range. Comfortable at the bottom.", score: 2 },
+      { label: "Fingertips to toes or floor", detail: "You can touch your toes or just graze the floor.", score: 1 },
+      { label: "Mid-shin or higher", detail: "You can't reach past your shins without bending the knees.", score: 0 },
     ],
   },
+  {
+    id: "straight-leg-raise",
+    axis: "hamstrings",
+    title: "Straight-leg raise",
+    setup:
+      "Lie on your back. Keep one leg straight and flat on the ground. Raise the other leg as high as you can while keeping the knee locked out.",
+    instruction: "How high does the raised leg go before you feel hard restriction?",
+    options: [
+      { label: "Past 80 degrees (nearly vertical)", detail: "Your raised leg is almost perpendicular to the floor.", score: 2 },
+      { label: "60 to 80 degrees", detail: "Well off the ground, but not vertical.", score: 1 },
+      { label: "Under 60 degrees", detail: "Your hamstring or back locks up early.", score: 0 },
+    ],
+  },
+
+  // ── ANKLES ────────────────────────────────────────────────────
   {
     id: "ankle-knee-wall",
     axis: "ankles",
@@ -149,25 +161,27 @@ export const QUESTIONS: Question[] = [
     instruction:
       "Try to drive your knee forward to touch the wall without lifting the heel. How close does it get?",
     options: [
-      {
-        label: "Knee touches the wall easily",
-        detail: "Plenty of ankle range. Heel stays planted.",
-        score: 2,
-      },
-      {
-        label: "Knee gets close but heel wants to lift",
-        detail:
-          "You can reach the wall only if you cheat the heel off the floor.",
-        score: 1,
-      },
-      {
-        label: "Knee doesn't reach the wall",
-        detail:
-          "Even with the heel lifting, your knee can't make contact from four inches.",
-        score: 0,
-      },
+      { label: "Knee touches the wall easily", detail: "Plenty of ankle range. Heel stays planted.", score: 2 },
+      { label: "Knee gets close but heel wants to lift", detail: "You can reach the wall only if the heel cheats off the floor.", score: 1 },
+      { label: "Knee doesn't reach the wall", detail: "Even with the heel lifting, the knee can't make contact from four inches.", score: 0 },
     ],
   },
+  {
+    id: "deep-squat",
+    axis: "ankles",
+    title: "Deep squat hold",
+    setup:
+      "Stand feet hip-width. Lower into your deepest squat with heels flat on the floor and hands in front for balance.",
+    instruction:
+      "Can you hold a full-depth squat with heels down for 30 seconds without tipping backward?",
+    options: [
+      { label: "Comfortably", detail: "Heels stay planted. You could hold it indefinitely.", score: 2 },
+      { label: "Possible but tense", detail: "You hold it, but feel pulling in the ankles or want to fall back.", score: 1 },
+      { label: "Can't get there", detail: "Heels lift, or you fall backward before reaching depth.", score: 0 },
+    ],
+  },
+
+  // ── CORE / BREATHING ──────────────────────────────────────────
   {
     id: "dead-bug",
     axis: "core",
@@ -177,24 +191,23 @@ export const QUESTIONS: Question[] = [
     instruction:
       "Take a full breath in through your nose, out through your mouth. Do you stay connected to the floor, and does your breathing feel natural?",
     options: [
-      {
-        label: "Easy",
-        detail:
-          "Low back stays pinned. Breathing is smooth through the nose and belly.",
-        score: 2,
-      },
-      {
-        label: "Requires concentration",
-        detail:
-          "You can hold the position but breathing feels shallow or chest-dominant.",
-        score: 1,
-      },
-      {
-        label: "Hard to maintain",
-        detail:
-          "Your low back lifts as you breathe, or your breathing stays locked in the chest.",
-        score: 0,
-      },
+      { label: "Easy", detail: "Low back stays pinned. Breathing is smooth through the nose and belly.", score: 2 },
+      { label: "Requires concentration", detail: "You can hold the position but breathing feels shallow or chest-dominant.", score: 1 },
+      { label: "Hard to maintain", detail: "Your low back lifts as you breathe, or your breathing stays locked in the chest.", score: 0 },
+    ],
+  },
+  {
+    id: "plank-hold",
+    axis: "core",
+    title: "Forearm plank hold",
+    setup:
+      "Set up in a forearm plank: elbows directly under shoulders, body in one straight line from shoulders to heels. No sagging hips, no piking up.",
+    instruction:
+      "How long can you hold that line before form breaks (hips sag, butt lifts, or you're shaking out)?",
+    options: [
+      { label: "60+ seconds, no breakdown", detail: "Solid control, no shaking, no form drift.", score: 2 },
+      { label: "30 to 60 seconds", detail: "You hold the line but start to sag or shake.", score: 1 },
+      { label: "Under 30 seconds", detail: "Form breaks fast, or you can't set up the position cleanly.", score: 0 },
     ],
   },
 ];
@@ -302,7 +315,7 @@ export const DRILLS: Record<AxisKey, DrillRecommendation[]> = {
 
 export interface AxisScore {
   axis: AxisKey;
-  rawScore: number; // 0, 1, or 2
+  rawScore: number; // 0.0 to 2.0, averaged across the axis's questions
   normalized: number; // 0-100 (percent)
 }
 
@@ -314,29 +327,41 @@ export interface ScreenResult {
 }
 
 export function scoreResult(answers: Array<0 | 1 | 2 | null>): ScreenResult {
-  const perAxis: AxisScore[] = QUESTIONS.map((q, i) => {
+  // Group raw scores by axis
+  const byAxis = new Map<AxisKey, number[]>();
+  QUESTIONS.forEach((q, i) => {
     const raw = answers[i] ?? 0;
+    const existing = byAxis.get(q.axis) ?? [];
+    existing.push(raw);
+    byAxis.set(q.axis, existing);
+  });
+
+  const perAxis: AxisScore[] = AXES.map((axis) => {
+    const values = byAxis.get(axis.key) ?? [0];
+    const avg = values.reduce((a, b) => a + b, 0) / values.length;
     return {
-      axis: q.axis,
-      rawScore: raw,
-      normalized: Math.round((raw / 2) * 100),
+      axis: axis.key,
+      rawScore: avg,
+      normalized: Math.round((avg / 2) * 100),
     };
   });
 
-  const averageRaw =
-    perAxis.reduce((sum, a) => sum + a.rawScore, 0) / perAxis.length;
-  const overallScore = Math.round(((averageRaw / 2) * 10) * 10) / 10;
+  // Overall: sum of all raw answers / max possible, scaled to 10
+  const totalRaw = answers.reduce<number>((sum, a) => sum + (a ?? 0), 0);
+  const totalMax = QUESTIONS.length * 2;
+  const overallScore = Math.round((totalRaw / totalMax) * 10 * 10) / 10;
 
-  // Sort by score ascending (weakest first). Take up to 2 weakest where
-  // score < 2 (so strong scores don't become "weak areas").
+  // Weak areas: axes where the average raw score is below 1.5.
+  // Sort ascending and take up to 2.
   const sorted = [...perAxis].sort((a, b) => a.rawScore - b.rawScore);
   const weakAreas = sorted
-    .filter((a) => a.rawScore < 2)
+    .filter((a) => a.rawScore < 1.5)
     .slice(0, 2)
     .map((a) => a.axis);
 
   const strongest = [...perAxis].sort((a, b) => b.rawScore - a.rawScore)[0];
-  const strongestArea = strongest && strongest.rawScore === 2 ? strongest.axis : null;
+  const strongestArea =
+    strongest && strongest.rawScore >= 1.75 ? strongest.axis : null;
 
   return { perAxis, overallScore, weakAreas, strongestArea };
 }
