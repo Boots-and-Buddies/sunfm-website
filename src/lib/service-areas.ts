@@ -485,14 +485,14 @@ export const serviceAreas: Record<string, ServiceArea> = {
     heroTag: "Netflix & Old Money",
     heroHeadline: "Personal Trainer for Los Gatos",
     heroSubheadline:
-      "Private training for Los Gatos executives, longtime residents, and the weekend cyclists climbing Shannon Road. Ten minutes up Highway 17 from the studio.",
+      "Private training for Los Gatos executives, longtime residents, and the weekend cyclists climbing Shannon Road. Five minutes up Highway 17 from the studio.",
     metaTitle: "Personal Trainer in Los Gatos | Sun Functional Movement",
     metaDescription:
-      "One-on-one personal training for Los Gatos professionals and residents. 10 min from downtown via 17. Free consultation with an ACE-certified trainer.",
+      "One-on-one personal training for Los Gatos professionals and residents. 5 min from downtown via 17. Free consultation with an ACE-certified trainer.",
     commuteText:
-      "Ten minutes straight up Highway 17. Most Los Gatos clients book mid-morning to skip the 17/880 interchange traffic.",
+      "Five minutes straight up Highway 17. Most Los Gatos clients book mid-morning to skip the 17/880 interchange traffic.",
     quickFacts: [
-      { label: "Drive time", value: "~10 min" },
+      { label: "Drive time", value: "~5 min" },
       { label: "Route", value: "Highway 17" },
       { label: "Sessions", value: "12,000+" },
       { label: "Format", value: "1:1, Semi, Group" },
