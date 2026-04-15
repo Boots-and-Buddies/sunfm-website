@@ -2,15 +2,23 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { useScrollSkew } from "@/hooks/useScrollSkew";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   useScrollSkew();
 
   useEffect(() => {
+    if (!isHome) {
+      setIsDark(false);
+      return;
+    }
     const checkDarkSections = () => {
       const darkSections = document.querySelectorAll("#testimonials, #apply");
       const headerBottom = 80; // header height
@@ -28,18 +36,26 @@ export default function Header() {
 
     window.addEventListener("scroll", checkDarkSections, { passive: true });
     return () => window.removeEventListener("scroll", checkDarkSections);
-  }, []);
+  }, [isHome]);
 
+  // Anchors always point to the home page so clicks from sub-pages navigate correctly.
   const navLinks = [
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "How It Works", href: "#how-it-works" },
-    { name: "About", href: "#about" },
+    { name: "Testimonials", hash: "#testimonials" },
+    { name: "How It Works", hash: "#how-it-works" },
+    { name: "About", hash: "#about" },
   ];
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const element = document.querySelector(href);
+  const anchorHref = (hash: string) => (isHome ? hash : `/${hash}`);
+
+  const handleAnchorClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    hash: string
+  ) => {
+    // If the target section exists on this page, intercept and smooth-scroll.
+    // Otherwise let the browser navigate to /<hash> naturally.
+    const element = document.querySelector(hash);
     if (element) {
+      e.preventDefault();
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -49,14 +65,21 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a
-            href="#top"
+          <Link
+            href="/"
             onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-              trackEvent("nav_click", { link_text: "logo", target_section: "#top", device: "header" });
+              if (isHome) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+              trackEvent("nav_click", {
+                link_text: "logo",
+                target_section: "/",
+                device: "header",
+              });
             }}
             className="flex items-center cursor-pointer"
+            aria-label="SunFM home"
           >
             <Image
               src={isDark ? "/images/logo-white.png" : "/images/logo.png"}
@@ -66,45 +89,37 @@ export default function Header() {
               className="h-20 w-auto"
               priority
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              "isExternal" in link && link.isExternal ? (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    trackEvent("nav_click", { link_text: link.name, target_section: link.href, device: "desktop", external: "true" })
-                  }
-                  className={`nav-link text-sm font-medium transition-colors ${isDark ? 'text-white/80 hover:text-white' : 'text-[#1a1a1a]'}`}
-                >
-                  {link.name}
-                </a>
-              ) : (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => {
-                    scrollToSection(e, link.href);
-                    trackEvent("nav_click", { link_text: link.name, target_section: link.href, device: "desktop" });
-                  }}
-                  className={`nav-link text-sm font-medium transition-colors ${isDark ? 'text-white/80 hover:text-white' : 'text-[#1a1a1a]'}`}
-                >
-                  {link.name}
-                </a>
-              )
+              <a
+                key={link.name}
+                href={anchorHref(link.hash)}
+                onClick={(e) => {
+                  handleAnchorClick(e, link.hash);
+                  trackEvent("nav_click", {
+                    link_text: link.name,
+                    target_section: link.hash,
+                    device: "desktop",
+                  });
+                }}
+                className={`nav-link text-sm font-medium transition-colors ${isDark ? "text-white/80 hover:text-white" : "text-[#1a1a1a]"}`}
+              >
+                {link.name}
+              </a>
             ))}
             <a
-              href="#apply"
+              href={anchorHref("#apply")}
               onClick={(e) => {
-                scrollToSection(e, "#apply");
-                trackEvent("cta_click", { button_text: "Book Your Free Consultation", section: "header" });
+                handleAnchorClick(e, "#apply");
+                trackEvent("cta_click", {
+                  button_text: "Book Your Free Consultation",
+                  section: "header",
+                });
               }}
-              className={`text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 ${isDark ? 'bg-white text-[#1a1a1a] hover:bg-[#FFD140]' : 'btn-primary'}`}
+              className={`text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 ${isDark ? "bg-white text-[#1a1a1a] hover:bg-[#FFD140]" : "btn-primary"}`}
             >
               Book Your Free Consultation
             </a>
@@ -157,42 +172,33 @@ export default function Header() {
           <div className="md:hidden pb-4 mobile-menu-enter">
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                "isExternal" in link && link.isExternal ? (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`font-medium py-2 ${isDark ? 'text-white' : 'text-[#1a1a1a]'}`}
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      trackEvent("nav_click", { link_text: link.name, target_section: link.href, device: "mobile", external: "true" });
-                    }}
-                  >
-                    {link.name}
-                  </a>
-                ) : (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className={`font-medium py-2 ${isDark ? 'text-white' : 'text-[#1a1a1a]'}`}
-                    onClick={(e) => {
-                      scrollToSection(e, link.href);
-                      setMobileMenuOpen(false);
-                      trackEvent("nav_click", { link_text: link.name, target_section: link.href, device: "mobile" });
-                    }}
-                  >
-                    {link.name}
-                  </a>
-                )
+                <a
+                  key={link.name}
+                  href={anchorHref(link.hash)}
+                  className={`font-medium py-2 ${isDark ? "text-white" : "text-[#1a1a1a]"}`}
+                  onClick={(e) => {
+                    handleAnchorClick(e, link.hash);
+                    setMobileMenuOpen(false);
+                    trackEvent("nav_click", {
+                      link_text: link.name,
+                      target_section: link.hash,
+                      device: "mobile",
+                    });
+                  }}
+                >
+                  {link.name}
+                </a>
               ))}
               <a
-                href="#apply"
+                href={anchorHref("#apply")}
                 className="btn-primary text-center mt-2"
                 onClick={(e) => {
-                  scrollToSection(e, "#apply");
+                  handleAnchorClick(e, "#apply");
                   setMobileMenuOpen(false);
-                  trackEvent("cta_click", { button_text: "Book Your Free Consultation", section: "header" });
+                  trackEvent("cta_click", {
+                    button_text: "Book Your Free Consultation",
+                    section: "header",
+                  });
                 }}
               >
                 Book Your Free Consultation

@@ -3,6 +3,7 @@ import { getAllPosts, getAllCategories } from "@/lib/blog";
 import PostCard from "@/components/blog/PostCard";
 import CategoryFilter from "@/components/blog/CategoryFilter";
 import Link from "next/link";
+import Header from "@/components/Header";
 import TrackedCTALink from "@/components/TrackedCTALink";
 
 export const metadata: Metadata = {
@@ -28,9 +29,11 @@ export default function BlogPage() {
   const [featured, ...rest] = posts;
 
   return (
-    <main className="min-h-screen bg-[#EEEADA]">
-      {/* Header spacer */}
-      <div className="h-20" />
+    <>
+      <Header />
+      <main className="min-h-screen bg-[#EEEADA]">
+        {/* Header spacer */}
+        <div className="h-20" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         {/* Page heading */}
@@ -89,6 +92,7 @@ export default function BlogPage() {
           </TrackedCTALink>
         </div>
       </div>
-    </main>
+      </main>
+    </>
   );
 }

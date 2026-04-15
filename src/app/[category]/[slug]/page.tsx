@@ -11,6 +11,7 @@ import {
 import ProgressBar from "@/components/blog/ProgressBar";
 import RelatedPosts from "@/components/blog/RelatedPosts";
 import YouTubeEmbed from "@/components/blog/YouTubeEmbed";
+import Header from "@/components/Header";
 import TrackedCTALink from "@/components/TrackedCTALink";
 import TrackedNavLink from "@/components/TrackedNavLink";
 import TrackedMDXLink from "@/components/blog/TrackedMDXLink";
@@ -124,6 +125,7 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <BlogProvider slug={slug} category={category}>
+      <Header />
       <ProgressBar />
       <main className="min-h-screen bg-[#EEEADA]">
         <div className="h-20" />

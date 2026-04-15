@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Header from "@/components/Header";
 import TrackedCTALink from "@/components/TrackedCTALink";
 import TrackedNavLink from "@/components/TrackedNavLink";
 import ServiceAreaHero from "./ServiceAreaHero";
@@ -12,6 +13,7 @@ export default function ServiceAreaPage({ area }: { area: ServiceArea }) {
   return (
     <>
       <ServiceAreaSchema area={area} />
+      <Header />
 
       <main className="bg-[#EEEADA]">
         {/* Breadcrumbs */}

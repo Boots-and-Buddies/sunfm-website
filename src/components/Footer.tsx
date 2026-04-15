@@ -67,7 +67,7 @@ export default function Footer() {
               className="h-10 w-auto mb-6"
             />
             <p className="text-white/60 mb-6 max-w-md text-sm leading-relaxed">
-              Serving{" "}
+              Serving clients from{" "}
               <TrackedNavLink href="/san-jose-personal-trainer" section="footer_service_area" linkText="San Jose" className="underline hover:text-white">
                 San Jose
               </TrackedNavLink>
