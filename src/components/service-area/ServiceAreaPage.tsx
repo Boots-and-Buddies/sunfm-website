@@ -16,29 +16,6 @@ export default function ServiceAreaPage({ area }: { area: ServiceArea }) {
       <Header />
 
       <main className="bg-[#EEEADA]">
-        {/* Breadcrumbs */}
-        <nav
-          aria-label="Breadcrumb"
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-sm text-gray-500"
-        >
-          <ol className="flex items-center gap-1">
-            <li>
-              <TrackedNavLink
-                href="/"
-                section={`service_area_${area.slug}_breadcrumb`}
-                linkText="Home"
-                className="hover:text-[#CB4538] transition-colors"
-              >
-                Home
-              </TrackedNavLink>
-            </li>
-            <li className="mx-1">/</li>
-            <li className="text-gray-800 font-medium">
-              {area.city} Personal Trainer
-            </li>
-          </ol>
-        </nav>
-
         {/* Hero */}
         <ServiceAreaHero area={area} />
 

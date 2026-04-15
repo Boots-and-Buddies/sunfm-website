@@ -1,8 +1,8 @@
+import Image from "next/image";
 import TrackedCTALink from "@/components/TrackedCTALink";
 import type { ServiceArea } from "@/lib/service-areas";
 
 export default function ServiceAreaHero({ area }: { area: ServiceArea }) {
-  const words = area.heroHeadline.split(" ");
   const cityWord = area.city;
   const headlineWithoutCity = area.heroHeadline.replace(cityWord, "").trim();
 
@@ -19,6 +19,22 @@ export default function ServiceAreaHero({ area }: { area: ServiceArea }) {
         }}
       />
 
+      {/* Right-side portrait on lg+ */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-y-0 right-0 w-[45%] z-0 hidden lg:block"
+      >
+        <Image
+          src="/images/jeffrey-headshot-final.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          style={{ objectPosition: "50% 20%" }}
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] via-[#1a1a1a]/80 to-[#1a1a1a]/20" />
+      </div>
+
       {/* Accent glow */}
       <div
         aria-hidden="true"
@@ -26,56 +42,58 @@ export default function ServiceAreaHero({ area }: { area: ServiceArea }) {
       />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-xs md:text-sm tracking-[0.25em] uppercase text-[#FFD140] font-medium mb-6">
-          {area.heroTag}
-        </p>
+        <div className="lg:max-w-[60%]">
+          <p className="text-xs md:text-sm tracking-[0.25em] uppercase text-[#FFD140] font-medium mb-6">
+            {area.heroTag}
+          </p>
 
-        <h1 className="text-display-lg mb-8 max-w-4xl">
-          {headlineWithoutCity}{" "}
-          <span className="highlight">{cityWord}</span>
-        </h1>
+          <h1 className="text-display-lg mb-8">
+            {headlineWithoutCity}{" "}
+            <span className="highlight">{cityWord}</span>
+          </h1>
 
-        <p className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed mb-10">
-          {area.heroSubheadline}
-        </p>
+          <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10">
+            {area.heroSubheadline}
+          </p>
 
-        {/* Quick facts row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-10 max-w-4xl">
-          {area.quickFacts.map((fact) => (
-            <div
-              key={fact.label}
-              className="border-l-2 border-[#FFD140] pl-4"
+          {/* Quick facts row */}
+          <div className="grid grid-cols-2 gap-4 md:gap-6 mb-10">
+            {area.quickFacts.map((fact) => (
+              <div
+                key={fact.label}
+                className="border-l-2 border-[#FFD140] pl-4"
+              >
+                <p className="text-xs text-white/50 uppercase tracking-wider mb-1">
+                  {fact.label}
+                </p>
+                <p className="text-sm md:text-base text-white font-semibold">
+                  {fact.value}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <TrackedCTALink
+              href="/#apply"
+              section={`service_area_${area.slug}_hero`}
+              buttonText="Book Your Free Consultation"
+              className="btn-secondary text-center w-full sm:w-auto"
             >
-              <p className="text-xs text-white/50 uppercase tracking-wider mb-1">
-                {fact.label}
-              </p>
-              <p className="text-sm md:text-base text-white font-semibold">
-                {fact.value}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-          <TrackedCTALink
-            href="/#apply"
-            section={`service_area_${area.slug}_hero`}
-            buttonText="Book Your Free Consultation"
-            className="btn-secondary text-center w-full sm:w-auto"
-          >
-            Book Your Free Consultation
-          </TrackedCTALink>
-          <TrackedCTALink
-            href="#how-training-works"
-            section={`service_area_${area.slug}_hero_secondary`}
-            buttonText="See how it works"
-            className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-white/20 text-white hover:bg-white/5 transition-colors w-full sm:w-auto"
-          >
-            See how it works
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </TrackedCTALink>
+              Book Your Free Consultation
+            </TrackedCTALink>
+            <TrackedCTALink
+              href="#how-training-works"
+              section={`service_area_${area.slug}_hero_secondary`}
+              buttonText="See how it works"
+              className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-white/20 text-white hover:bg-white/5 transition-colors w-full sm:w-auto"
+            >
+              See how it works
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </TrackedCTALink>
+          </div>
         </div>
       </div>
     </section>
