@@ -19,7 +19,7 @@ export default function ServiceAreaPage({ area }: { area: ServiceArea }) {
         {/* Breadcrumbs */}
         <nav
           aria-label="Breadcrumb"
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-0 text-sm text-gray-500"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-0 text-sm text-gray-500"
         >
           <ol className="flex items-center gap-1">
             <li>

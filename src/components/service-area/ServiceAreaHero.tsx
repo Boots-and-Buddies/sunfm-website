@@ -7,7 +7,7 @@ export default function ServiceAreaHero({ area }: { area: ServiceArea }) {
   const headlineWithoutCity = area.heroHeadline.replace(cityWord, "").trim();
 
   return (
-    <section className="relative bg-[#1a1a1a] text-white overflow-hidden pt-32 pb-20 md:pt-44 md:pb-28">
+    <section className="relative bg-[#1a1a1a] text-white overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28">
       {/* Subtle grid pattern overlay */}
       <div
         aria-hidden="true"

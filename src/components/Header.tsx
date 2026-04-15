@@ -60,8 +60,15 @@ export default function Header() {
     }
   };
 
+  // Fixed at top only on the home page, where the anchor-scroll nav is actually
+  // useful. On long-form reading pages (blog, service areas, etc.) the header
+  // scrolls away naturally so it doesn't compete with the content.
+  const positionClass = isHome
+    ? "fixed top-0 left-0 right-0 z-50 backdrop-blur-sm"
+    : "relative z-10 border-b border-black/5";
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm transition-colors duration-300 ${isDark ? 'bg-[#1a1a1a]/95' : 'bg-[#F5F2ED]/95'}`}>
+    <header className={`${positionClass} transition-colors duration-300 ${isDark ? 'bg-[#1a1a1a]/95' : 'bg-[#F5F2ED]/95'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}

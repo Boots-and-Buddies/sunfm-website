@@ -128,7 +128,6 @@ export default async function ArticlePage({ params }: Props) {
       <Header />
       <ProgressBar />
       <main className="min-h-screen bg-[#EEEADA]">
-        <div className="h-20" />
 
         <article className="max-w-[680px] mx-auto px-4 sm:px-6 py-12 md:py-16">
           {/* Back link */}
