@@ -19,22 +19,38 @@ export default function ServiceAreaHero({ area }: { area: ServiceArea }) {
         }}
       />
 
-      {/* Full-bleed portrait with a uniform dark overlay on lg+ */}
+      {/* Right-side portrait with a mask-image alpha fade on lg+.
+          The image itself fades from transparent (left) to opaque (right),
+          so the dark section background shows through naturally on the
+          left without any visible seam. A light dark overlay on the
+          revealed half keeps the text-side contrast consistent. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 z-0 hidden lg:block"
+        className="absolute inset-y-0 right-0 w-[58%] z-0 hidden lg:block"
       >
         <Image
           src="/images/jeffrey-headshot-final.jpg"
           alt=""
           fill
           className="object-cover hero-image-settle"
-          style={{ objectPosition: "70% 20%" }}
+          style={{
+            objectPosition: "50% 20%",
+            maskImage:
+              "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 25%, black 55%)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 25%, black 55%)",
+          }}
           priority
         />
-        {/* Subtle left-heavy fade; no hard edge anywhere because the image
-            spans the whole hero and the overlay sits on top of all of it. */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/90 from-0% via-[#1a1a1a]/75 via-40% to-[#1a1a1a]/55 to-100%" />
+        {/* Subtle uniform dark overlay on the revealed portion so the photo
+            reads as part of the same dark hero, not a bright cutout. */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to right, transparent 0%, rgba(26,26,26,0.35) 50%, rgba(26,26,26,0.3) 100%)",
+          }}
+        />
       </div>
 
       {/* Accent glow */}
