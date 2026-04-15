@@ -66,6 +66,11 @@ const sharedFAQs: FAQ[] = [
       "For most of my clients, twice a week is the sweet spot. That produces real results without taking over your life. Three times a week is the upper end for busy professionals. Once a week is maintenance; useful if you already have a base.",
   },
   {
+    question: "Do you offer online or hybrid training?",
+    answer:
+      "Yes. A lot of my clients do a hybrid: mostly in-person, with online sessions when the schedule doesn't allow the drive. Online works best once we've established your form in-studio, so the default is to start with a few in-person sessions and flex into hybrid as needed.",
+  },
+  {
     question: "What should I bring to the first session?",
     answer:
       "Clothes you can move in and a water bottle. Everything else is at the studio. I'll also ask you to fill out a quick health history beforehand so we can use the whole session to train, not to fill out paperwork.",

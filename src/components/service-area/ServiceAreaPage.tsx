@@ -19,7 +19,7 @@ export default function ServiceAreaPage({ area }: { area: ServiceArea }) {
         {/* Breadcrumbs */}
         <nav
           aria-label="Breadcrumb"
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-0 text-sm text-gray-500"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-sm text-gray-500"
         >
           <ol className="flex items-center gap-1">
             <li>
@@ -44,10 +44,10 @@ export default function ServiceAreaPage({ area }: { area: ServiceArea }) {
 
         {/* Intro + trainer card */}
         <section className="py-20 md:py-28 bg-[#EEEADA]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-12 lg:grid-cols-[1fr_320px] lg:gap-16">
               {/* Intro prose */}
-              <div className="lg:col-span-2">
+              <div className="min-w-0">
                 <p className="text-xs tracking-[0.25em] uppercase text-gray-500 font-medium mb-4">
                   Why {area.city}
                 </p>
@@ -59,7 +59,7 @@ export default function ServiceAreaPage({ area }: { area: ServiceArea }) {
               </div>
 
               {/* Trainer card */}
-              <aside className="lg:sticky lg:top-28 self-start">
+              <aside className="lg:sticky lg:top-8 self-start">
                 <div className="bg-white rounded-3xl shadow-sm overflow-hidden border border-black/5">
                   <div className="relative aspect-[4/5]">
                     <Image
