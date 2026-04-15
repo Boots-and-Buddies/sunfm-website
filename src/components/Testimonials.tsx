@@ -6,6 +6,7 @@ import TrackedVideo from "@/components/TrackedVideo";
 import TrackedLink from "@/components/TrackedLink";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { useReveal } from "@/hooks/useReveal";
+import { trackEvent } from "@/lib/analytics";
 
 const R2_BASE = "https://pub-46d372e7b4b84eaf8efe9f21cab9b2ba.r2.dev";
 
@@ -107,6 +108,8 @@ export default function Testimonials() {
     if (!scrollRef.current) return;
     const el = scrollRef.current;
     const scrollAmount = 340;
+
+    trackEvent("testimonial_nav", { direction });
 
     if (direction === "right") {
       const maxScroll = el.scrollWidth - el.clientWidth;

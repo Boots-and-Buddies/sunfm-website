@@ -54,6 +54,7 @@ export default function Header() {
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
+              trackEvent("nav_click", { link_text: "logo", target_section: "#top", device: "header" });
             }}
             className="flex items-center cursor-pointer"
           >
@@ -76,6 +77,9 @@ export default function Header() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackEvent("nav_click", { link_text: link.name, target_section: link.href, device: "desktop", external: "true" })
+                  }
                   className={`nav-link text-sm font-medium transition-colors ${isDark ? 'text-white/80 hover:text-white' : 'text-[#1a1a1a]'}`}
                 >
                   {link.name}
@@ -160,7 +164,10 @@ export default function Header() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`font-medium py-2 ${isDark ? 'text-white' : 'text-[#1a1a1a]'}`}
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      trackEvent("nav_click", { link_text: link.name, target_section: link.href, device: "mobile", external: "true" });
+                    }}
                   >
                     {link.name}
                   </a>

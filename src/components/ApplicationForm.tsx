@@ -204,7 +204,11 @@ export default function ApplicationForm() {
             <div className="border border-red-500/30 rounded-xl p-6 mb-8 text-center">
               <p className="text-red-400">
                 Something went wrong. Please try again or contact me directly at{" "}
-                <a href="mailto:jeff@sunfm.fitness" className="underline">
+                <a
+                  href="mailto:jeff@sunfm.fitness"
+                  className="underline"
+                  onClick={() => trackEvent("external_link_click", { platform: "email", section: "application_form_error" })}
+                >
                   jeff@sunfm.fitness
                 </a>
               </p>
