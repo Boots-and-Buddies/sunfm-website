@@ -35,11 +35,11 @@ export const metadata: Metadata = {
 
 export default function MovementScreenPage() {
   return (
-    <main className="relative min-h-screen bg-[#0a0a0a] text-white overflow-hidden">
+    <main className="relative min-h-screen bg-[#0a0a0a] text-white overflow-hidden flex flex-col">
       <AmbientBackground />
 
       {/* Minimal top bar */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
+      <div className="relative z-20 flex-shrink-0 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
         <Link
           href="/"
           className="group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-white/50 hover:text-white transition-colors"
@@ -67,8 +67,14 @@ export default function MovementScreenPage() {
         </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 md:pt-4 pb-10 md:pb-14">
-        <MovementScreen />
+      {/* Content fills remaining viewport; short screens (intro, question)
+          are vertically centered. Long screens (results) grow naturally
+          and are effectively top-aligned because the container grows to
+          match them. */}
+      <div className="relative z-10 flex-1 flex items-center justify-center py-6 md:py-10">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <MovementScreen />
+        </div>
       </div>
     </main>
   );
