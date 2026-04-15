@@ -67,7 +67,7 @@ export default function MovementScreenPage() {
         </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-28 pt-4 md:pt-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 md:pt-4 pb-10 md:pb-14">
         <MovementScreen />
       </div>
     </main>
