@@ -482,7 +482,7 @@ export const serviceAreas: Record<string, ServiceArea> = {
     slug: "los-gatos",
     urlPath: "/los-gatos-personal-trainer",
     city: "Los Gatos",
-    heroTag: "Netflix & Old Money",
+    heroTag: "Los Gatos Residents",
     heroHeadline: "Personal Trainer for Los Gatos",
     heroSubheadline:
       "Private training for Los Gatos executives, longtime residents, and the weekend cyclists climbing Shannon Road. Five minutes up Highway 17 from the studio.",
