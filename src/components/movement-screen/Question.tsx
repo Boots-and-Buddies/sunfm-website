@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import BodyDiagram from "./BodyDiagram";
 import type { Question as QuestionType } from "@/lib/movement-screen";
 
 interface Props {
@@ -20,114 +21,167 @@ export default function MovementScreenQuestion({
   onAnswer,
   onBack,
 }: Props) {
-  const cardRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    // Scroll the card into a good reading position on question change (esp. mobile)
-    cardRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [question.id]);
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "1") onAnswer(2);
+      else if (e.key === "2") onAnswer(1);
+      else if (e.key === "3") onAnswer(0);
+      else if (e.key === "Backspace" || e.key === "ArrowLeft") onBack();
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [onAnswer, onBack]);
 
   const progress = ((index + 1) / total) * 100;
+  const progressPrev = (index / total) * 100;
 
   return (
-    <div ref={cardRef} className="max-w-3xl mx-auto">
+    <div
+      key={question.id}
+      className="relative z-10 max-w-6xl mx-auto animate-fade-up"
+    >
       {/* Progress */}
-      <div className="flex items-center justify-between mb-3">
-        <p className="text-xs tracking-[0.25em] uppercase text-gray-500 font-medium">
-          Test {index + 1} of {total}
-        </p>
-        <p className="text-xs text-gray-400">{Math.round(progress)}%</p>
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#FFD140] font-semibold">
+            Test {String(index + 1).padStart(2, "0")}
+          </span>
+          <span className="font-mono text-[10px] text-white/30">
+            / {String(total).padStart(2, "0")}
+          </span>
+        </div>
+        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/50">
+          {question.axis}
+        </span>
       </div>
-      <div className="h-1 bg-black/10 rounded-full overflow-hidden mb-10">
+      <div className="relative h-[2px] bg-white/[0.08] rounded-full overflow-hidden mb-12">
         <div
-          className="h-full bg-[#CB4538] transition-[width] duration-500 ease-out"
-          style={{ width: `${progress}%` }}
+          className="absolute inset-y-0 left-0 bg-[#FFD140]"
+          style={{
+            width: `${progress}%`,
+            transition: "width 600ms cubic-bezier(0.16, 1, 0.3, 1)",
+            transitionDelay: "100ms",
+          }}
+        />
+        <div
+          className="absolute inset-y-0 left-0 bg-[#FFD140]/40 blur-sm"
+          style={{
+            width: `${progress}%`,
+            transition: "width 600ms cubic-bezier(0.16, 1, 0.3, 1)",
+            transitionDelay: "100ms",
+          }}
         />
       </div>
 
-      {/* Question */}
-      <div className="bg-white rounded-3xl shadow-sm border border-black/5 p-6 sm:p-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a1a] leading-tight mb-3">
-          {question.title}
-        </h2>
-        <div className="w-10 h-1 bg-[#FFD140] mb-6" />
+      <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-start">
+        {/* Left: test content */}
+        <div>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.02] tracking-tight mb-6">
+            {question.title}
+          </h2>
 
-        <div className="prose prose-sm max-w-none mb-3">
-          <p className="text-gray-600 leading-relaxed">{question.setup}</p>
-        </div>
-        <p className="text-base text-[#1a1a1a] font-medium mb-8">
-          {question.instruction}
-        </p>
+          <div className="mb-10 space-y-3 max-w-xl">
+            <p className="text-sm uppercase tracking-[0.2em] text-[#FFD140] font-semibold font-mono">
+              Setup
+            </p>
+            <p className="text-white/70 leading-relaxed">
+              {question.setup}
+            </p>
+            <p className="text-sm uppercase tracking-[0.2em] text-[#FFD140] font-semibold font-mono pt-4">
+              Test
+            </p>
+            <p className="text-white leading-relaxed">{question.instruction}</p>
+          </div>
 
-        <div className="space-y-3">
-          {question.options.map((option) => {
-            const isSelected = selected === option.score;
-            return (
-              <button
-                key={option.score}
-                type="button"
-                onClick={() => onAnswer(option.score)}
-                className={`w-full text-left p-5 rounded-2xl border-2 transition-all ${
-                  isSelected
-                    ? "border-[#CB4538] bg-[#CB4538]/5"
-                    : "border-black/10 hover:border-[#1a1a1a]/40"
-                }`}
-              >
-                <div className="flex items-start gap-4">
-                  <span
-                    className={`flex-shrink-0 w-5 h-5 mt-0.5 rounded-full border-2 flex items-center justify-center transition-colors ${
-                      isSelected
-                        ? "border-[#CB4538] bg-[#CB4538]"
-                        : "border-black/20"
-                    }`}
-                    aria-hidden="true"
-                  >
-                    {isSelected && (
-                      <svg
-                        className="w-3 h-3 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+          {/* Options */}
+          <div className="space-y-3">
+            {question.options.map((option, i) => {
+              const isSelected = selected === option.score;
+              const shortcut = i + 1;
+              return (
+                <button
+                  key={option.score}
+                  type="button"
+                  onClick={() => onAnswer(option.score)}
+                  className={`group w-full text-left p-5 rounded-2xl border transition-all ${
+                    isSelected
+                      ? "border-[#FFD140] bg-[#FFD140]/[0.08] shadow-[0_0_32px_-8px_rgba(255,209,64,0.5)]"
+                      : "border-white/10 bg-white/[0.02] hover:border-white/30 hover:bg-white/[0.04]"
+                  }`}
+                >
+                  <div className="flex items-start gap-5">
+                    <kbd
+                      className={`flex-shrink-0 w-9 h-9 rounded-lg font-mono text-sm font-bold flex items-center justify-center transition-colors ${
+                        isSelected
+                          ? "bg-[#FFD140] text-black"
+                          : "bg-white/5 text-white/40 border border-white/10 group-hover:bg-white/10 group-hover:text-white/70"
+                      }`}
+                    >
+                      {shortcut}
+                    </kbd>
+                    <div className="flex-1">
+                      <p
+                        className={`font-semibold mb-1 ${
+                          isSelected ? "text-white" : "text-white/90"
+                        }`}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={3}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    )}
-                  </span>
-                  <div className="flex-1">
-                    <p className="font-semibold text-[#1a1a1a] mb-1">
-                      {option.label}
-                    </p>
-                    <p className="text-sm text-gray-500 leading-relaxed">
-                      {option.detail}
-                    </p>
+                        {option.label}
+                      </p>
+                      <p className="text-sm text-white/50 leading-relaxed">
+                        {option.detail}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </button>
-            );
-          })}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Nav hints */}
+          <div className="mt-8 flex items-center justify-between font-mono text-[11px] text-white/30">
+            <div className="flex items-center gap-3">
+              {index > 0 && (
+                <button
+                  type="button"
+                  onClick={onBack}
+                  className="inline-flex items-center gap-2 hover:text-white transition-colors"
+                >
+                  <kbd className="px-2 py-1 rounded border border-white/10">
+                    ←
+                  </kbd>
+                  <span>back</span>
+                </button>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              <kbd className="px-2 py-1 rounded border border-white/10">1</kbd>
+              <kbd className="px-2 py-1 rounded border border-white/10">2</kbd>
+              <kbd className="px-2 py-1 rounded border border-white/10">3</kbd>
+              <span>to answer</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right: body diagram showing which region is being scanned */}
+        <div className="hidden lg:flex items-center justify-center relative">
+          <div className="relative">
+            <div className="absolute inset-0 rounded-full bg-[#FFD140]/8 blur-3xl animate-pulse-slow" />
+            <div className="relative">
+              <BodyDiagram size={300} mode="active" active={question.axis} />
+            </div>
+          </div>
+
+          {/* Scan indicators */}
+          <div className="absolute top-0 left-0 right-0 flex justify-between font-mono text-[9px] text-white/30 tracking-wider pointer-events-none">
+            <span>REGION</span>
+            <span className="text-[#FFD140]">{question.axis.toUpperCase()}</span>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 flex justify-between font-mono text-[9px] text-white/30 tracking-wider pointer-events-none">
+            <span>SCAN</span>
+            <span className="text-[#FFD140]">ACTIVE</span>
+          </div>
         </div>
       </div>
-
-      {/* Back button */}
-      {index > 0 && (
-        <div className="mt-6 flex justify-start">
-          <button
-            type="button"
-            onClick={onBack}
-            className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-[#CB4538] transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Previous
-          </button>
-        </div>
-      )}
     </div>
   );
 }
