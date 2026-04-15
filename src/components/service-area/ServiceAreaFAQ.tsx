@@ -46,9 +46,13 @@ function FAQItem({
       </button>
 
       <div
-        className={`overflow-hidden transition-all duration-300 ease-out ${
-          open ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        style={{
+          maxHeight: open ? "600px" : "0px",
+          opacity: open ? 1 : 0,
+          overflow: "hidden",
+          transition:
+            "max-height 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms ease-out",
+        }}
       >
         <div className="px-6 pb-6 -mt-1 text-gray-600 leading-relaxed">
           {faq.answer}
