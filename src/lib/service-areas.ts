@@ -468,6 +468,326 @@ export const serviceAreas: Record<string, ServiceArea> = {
     ],
   },
 
+  "los-gatos": {
+    slug: "los-gatos",
+    urlPath: "/los-gatos-personal-trainer",
+    city: "Los Gatos",
+    heroTag: "Netflix & Old Money",
+    heroHeadline: "Personal Trainer for Los Gatos",
+    heroSubheadline:
+      "Private training for Los Gatos executives, longtime residents, and the weekend cyclists climbing Shannon Road. Ten minutes up Highway 17 from the studio.",
+    metaTitle: "Personal Trainer in Los Gatos | Sun Functional Movement",
+    metaDescription:
+      "One-on-one personal training for Los Gatos professionals and residents. 10 min from downtown via 17. Free consultation with an ACE-certified trainer.",
+    commuteText:
+      "Ten minutes straight up Highway 17. Most Los Gatos clients book mid-morning to skip the 17/880 interchange traffic.",
+    quickFacts: [
+      { label: "Drive time", value: "~10 min" },
+      { label: "Route", value: "Highway 17" },
+      { label: "Sessions", value: "12,000+" },
+      { label: "Format", value: "1-on-1 only" },
+    ],
+    intro: [
+      "Los Gatos is about ten minutes south of my studio on 17. It's my shortest commute after Campbell, and the client mix here is genuinely distinct from everywhere else I serve. Los Gatos has become the home of a particular kind of tech money over the last decade, especially since Netflix set up headquarters on Winchester. My Los Gatos clients tend to be executives, directors, and senior ICs at the bigger tech companies, plus longtime residents whose families have been here since well before Silicon Valley had that name.",
+      "What happens when those two groups walk into the same studio is interesting. The newer arrivals are often used to the Netflix-style performance culture, which means they want to train hard and see measurable progress. The longer-term residents are usually looking for something different. Their goal is to stay strong and stay independent and keep enjoying the life they've built here.",
+    ],
+    sections: [
+      {
+        heading: "Programming for a mixed client base",
+        body: [
+          "For the high-performer side of my Los Gatos client base, the programming looks a lot like what I do with Mountain View tech workers. Compound strength and progressive overload, with enough conditioning to support whatever else they're doing on the side. A lot of my Los Gatos clients are cycling, hiking, or playing pickleball in addition to training, so the programming has to account for that.",
+          "For my older Los Gatos clients, the approach is more careful. We focus on bone density, grip strength, balance, and the kind of functional strength that keeps somebody walking up the hills in their own neighborhood without worrying about falling. A lot of Los Gatos is hilly. Staying strong enough to handle that terrain into your seventies is not something that happens by accident.",
+        ],
+      },
+      {
+        heading: "Getting to the studio from Los Gatos",
+        body: [
+          "Highway 17 straight up, about ten minutes in normal traffic. The 17 to 880 interchange backs up during commute hours, so I tend to book Los Gatos clients for mid-morning or early afternoon slots when possible. A handful of Los Gatos clients work from home most days and come in during flexible middle hours.",
+          "If you're closer to the eastern side of Los Gatos by the Pruneyard or University Avenue, you can also take Los Gatos Boulevard up through Campbell and skip the freeway entirely.",
+        ],
+      },
+      {
+        heading: "What's different about the work here",
+        body: [
+          "One thing I've noticed with Los Gatos clients is that they tend to be discerning. They've usually tried other trainers before, often at premium gyms or celebrity-adjacent studios. What they're looking for when they come to me is something more serious than that. Less performative, more programmatic.",
+          "The other thing is that a lot of my Los Gatos clients are training with me alongside the other activities they love, not instead of them. Cycling up Shannon Road on the weekends, or hiking Saint Joseph's Hill, or playing tennis at the Los Gatos Swim and Racquet Club. My job is to make sure the strength training supports all of that rather than competing with it.",
+        ],
+      },
+      {
+        heading: "Who I'm not the right fit for",
+        body: [
+          "Same caveats as everywhere else. No bootcamps, no group classes, and I don't do drop-in sessions. If you want a trainer who'll push you through a viral workout for a TikTok video, that isn't what I do. The Los Gatos clients who stick with me are usually the ones who wanted the opposite of that in the first place.",
+        ],
+      },
+    ],
+    services: commonServices,
+    faqs: [
+      {
+        question: "Can we train around a cycling or hiking schedule?",
+        answer:
+          "Yes. A decent portion of my Los Gatos clients are doing serious cycling or weekend hikes. I build programming that supports that work rather than fighting it, and we move session timing around long weekend efforts.",
+      },
+      ...sharedFAQs,
+      {
+        question: "Do you work with Netflix or other corporate wellness benefits?",
+        answer:
+          "I'm happy to coordinate with any existing wellness stipend or reimbursement program. Several Los Gatos clients expense training through their employer. I'll provide whatever documentation the program needs.",
+      },
+    ],
+    relatedPostSlugs: [
+      {
+        category: "training",
+        slug: "strength-training-for-longevity-beginners-guide-over-30",
+        label: "Strength training for longevity",
+      },
+      {
+        category: "wellness",
+        slug: "personal-training-for-stress-relief-bay-area",
+        label: "Training for stress relief",
+      },
+    ],
+  },
+
+  saratoga: {
+    slug: "saratoga",
+    urlPath: "/saratoga-personal-trainer",
+    city: "Saratoga",
+    heroTag: "Saratoga Residents",
+    heroHeadline: "Personal Trainer for Saratoga",
+    heroSubheadline:
+      "Patient, professional training for established Saratoga residents. Fifteen minutes to the studio via Saratoga-Sunnyvale Road or 85.",
+    metaTitle: "Personal Trainer in Saratoga | Sun Functional Movement",
+    metaDescription:
+      "One-on-one personal training for Saratoga residents. 15 min from downtown via 85 or Saratoga-Sunnyvale Rd. Free consultation. ACE-certified.",
+    commuteText:
+      "Fifteen minutes via Saratoga-Sunnyvale Road or 85 North. Most Saratoga clients prefer the surface streets through Prospect Road.",
+    quickFacts: [
+      { label: "Drive time", value: "~15 min" },
+      { label: "Route", value: "Saratoga-Sunnyvale Rd" },
+      { label: "Sessions", value: "12,000+" },
+      { label: "Format", value: "1-on-1 only" },
+    ],
+    intro: [
+      "Saratoga is one of my quieter markets, in the sense that the pace of life there is different from everywhere else in the South Bay. People stay in Saratoga. Some of my Saratoga clients have lived in the same house for three decades. The demographic skews older, wealthier, and more settled than the tech cities just north, which means the training conversation is usually pretty different from what I have with a thirty-five-year-old engineer in Mountain View.",
+      "The drive from downtown Saratoga to my studio is about fifteen minutes, depending on whether you take Saratoga-Sunnyvale Road or head down 85. Both work. Most of my Saratoga clients take the surface streets through Prospect Road because the drive is more pleasant and usually just as quick.",
+    ],
+    sections: [
+      {
+        heading: "Who I see from Saratoga",
+        body: [
+          "A big portion are semi-retired or adjacent to retirement, coming out of engineering, medicine, law, or executive roles. Some are still working part-time. Most have stopped wanting to grind in the gym and are now focused on what it takes to stay healthy for another twenty or thirty years.",
+          "Another portion are families where one parent is in tech and the other isn't, and they chose Saratoga specifically for the public schools and the quieter neighborhood. These clients tend to be in their forties and early fifties, and they're often trying to get ahead of the decline their own parents went through.",
+        ],
+      },
+      {
+        heading: "What the training looks like",
+        body: [
+          "For the older Saratoga population, the programming is patient. We're not trying to set PRs. We're trying to maintain enough strength that everyday things still feel easy. Traveling without a back flare-up, gardening for a weekend without paying for it on Monday, picking up grandchildren without tweaking a shoulder, staying independent well into the seventies and eighties.",
+          "A lot of that work is quieter than what I do with younger clients. More mobility work, more unilateral loading, and a lot of attention to fall prevention and posture.",
+          "For the forties-and-fifties population, I run programming that looks more like what I do with Cupertino or Mountain View clients. Compound movements and progressive loading, conditioning dialed to whatever else they have going on. The difference is that Saratoga clients tend to have more runway and fewer hard constraints on their schedule, so we can often fit three sessions a week instead of two.",
+        ],
+      },
+      {
+        heading: "Getting to the studio",
+        body: [
+          "Saratoga-Sunnyvale Road connects pretty directly to Campbell Avenue and then over to Parkmoor, about fifteen minutes in light traffic. 85 North to 17 is about the same, though the freeway can slow in commute hours. If you're up near the Mountain Winery side of town, Highway 9 down to Saratoga Avenue is another option.",
+        ],
+      },
+      {
+        heading: "What's different about the work here",
+        body: [
+          "Saratoga clients tend to arrive with specific physical complaints rather than abstract fitness goals. A knee that's been bothering them, or a low back that went out last year. Sometimes a noticeable drop in grip strength they can feel when opening jars. The training has to address those directly before we can get into anything more ambitious.",
+          "This is how I prefer to work. A client with a clear physical concern is a client who will show up reliably, because the training is solving something real for them. The aesthetic or performance outcomes often follow, but they're not what brought the person in.",
+        ],
+      },
+    ],
+    services: commonServices,
+    faqs: [
+      {
+        question: "I'm in my sixties or seventies. Is this the right fit?",
+        answer:
+          "Yes, and Saratoga is where I see the highest concentration of clients over sixty. The programming is genuinely adapted for that stage, with an emphasis on bone density, balance, and functional strength. Nothing extreme, nothing rushed.",
+      },
+      ...sharedFAQs,
+      {
+        question: "Can we work around a specific injury or condition?",
+        answer:
+          "Yes. A big share of my Saratoga clients come in with something specific they're dealing with. A chronic low back issue, an old knee surgery, shoulder impingement. I program around the restriction and coordinate with your physical therapist or physician when that's helpful.",
+      },
+    ],
+    relatedPostSlugs: [
+      {
+        category: "training",
+        slug: "strength-training-for-longevity-beginners-guide-over-30",
+        label: "Strength training for longevity",
+      },
+      {
+        category: "training",
+        slug: "functional-movement-exercises-for-desk-workers",
+        label: "Functional movement basics",
+      },
+    ],
+  },
+
+  "los-altos": {
+    slug: "los-altos",
+    urlPath: "/los-altos-personal-trainer",
+    city: "Los Altos",
+    heroTag: "Old Silicon Valley",
+    heroHeadline: "Personal Trainer for Los Altos",
+    heroSubheadline:
+      "Serious, low-drama training for Los Altos tech leaders and long-tenured residents. Twenty minutes from downtown Los Altos via 85.",
+    metaTitle: "Personal Trainer in Los Altos | Sun Functional Movement",
+    metaDescription:
+      "Private personal training for Los Altos residents and tech executives. 20 min drive via 85. Free consultation with an ACE-certified trainer.",
+    commuteText:
+      "Twenty minutes via 85 South on a normal day. Most Los Altos clients book mid-morning or early afternoon for the easiest commute.",
+    quickFacts: [
+      { label: "Drive time", value: "~20 min" },
+      { label: "Route", value: "85 S" },
+      { label: "Sessions", value: "12,000+" },
+      { label: "Format", value: "1-on-1 only" },
+    ],
+    intro: [
+      "Los Altos sits between Mountain View and Saratoga geographically but has its own character. The money here is old by Silicon Valley standards. Plenty of my Los Altos clients are second-generation tech. Parents who were at Sun or Oracle in the eighties, kids who went to Stanford and are now running product at a company I've definitely heard of.",
+      "The drive from downtown Los Altos to the studio is twenty minutes on 85 South on a normal day. A bit slower during commute. Most of my Los Altos clients come in during the middle of their workday, which makes sense given how much of that population works flexibly or has enough seniority that the schedule is theirs to arrange.",
+    ],
+    sections: [
+      {
+        heading: "What I train for in Los Altos",
+        body: [
+          "The most common profile is a tech director or VP in their late forties or early fifties who has been sitting in meetings for twenty years and is starting to feel it in very specific ways. Lower back that acts up on long flights, shoulders that have quietly rounded forward from the years of laptop posture, and a sense that their body has been on a slow slide they'd like to stop.",
+          "We reverse that with consistent strength training, targeted mobility work, and programming that respects the fact that they're not twenty-five anymore. That last part matters. I've seen a lot of Los Altos clients show up having tried to train the way they did in college and ended up injured for their trouble.",
+          "For the older Los Altos population, the focus shifts toward maintaining independence and staying functional. Bone density is usually the biggest concern in this demographic, along with grip strength, which is a direct predictor of how well you age and something I talk about often with clients in their sixties and seventies. Balance work gets more attention as clients move through their seventies.",
+        ],
+      },
+      {
+        heading: "Getting to the studio",
+        body: [
+          "85 South is the main route, and it's reliable outside of rush hour. Most Los Altos clients book around their workday, so the drive is usually under twenty minutes. If you're closer to the El Camino side of Los Altos, 280 to 880 is an alternate that runs similarly.",
+        ],
+      },
+      {
+        heading: "What's different about Los Altos clients",
+        body: [
+          "Los Altos is quiet by design. People move there specifically for the privacy and the pace, and that carries into how they approach training. My Los Altos clients tend to want the session to be substantive and effective, with minimal drama. Small talk isn't the point, and neither is motivational spectacle. What they want is good work done consistently, and then back to their day.",
+          "This matches how I like to run sessions. I track your numbers, watch your form, progress the programming methodically, and explain what we're doing if you want the explanation. If you want to train and not talk much, that also works.",
+        ],
+      },
+      {
+        heading: "The long view",
+        body: [
+          "Most of my Los Altos clients stay with me for years. The relationship becomes less about any single goal and more about what strength training does over time. The first year is usually spent undoing the damage from a sedentary career. Somewhere in the second year, clients start building real capacity instead of just catching up. After that, the work becomes about staying ahead of the normal decline that most people accept because they don't know there's an alternative.",
+        ],
+      },
+    ],
+    services: commonServices,
+    faqs: [
+      {
+        question: "I have flexible mid-day hours. Do you book during the workday?",
+        answer:
+          "Yes, and Los Altos clients fill most of my mid-day slots. 10 AM through 2 PM is usually the easiest commute and tends to have the best energy. I hold some of those slots specifically for clients with flexible schedules.",
+      },
+      ...sharedFAQs,
+      {
+        question: "I've tried trainers before and burned out. What's different?",
+        answer:
+          "Usually what burns people out is a bootcamp-style approach that ignores how the rest of their life is going. My programming is designed to last years, not weeks. That means less intensity in any single session and far more patience about building up over time. Most Los Altos clients stay past the one-year mark, and a lot past two.",
+      },
+    ],
+    relatedPostSlugs: [
+      {
+        category: "training",
+        slug: "strength-training-for-longevity-beginners-guide-over-30",
+        label: "Strength training for longevity",
+      },
+      {
+        category: "training",
+        slug: "functional-movement-exercises-for-desk-workers",
+        label: "Fixing what sitting does to your body",
+      },
+    ],
+  },
+
+  milpitas: {
+    slug: "milpitas",
+    urlPath: "/milpitas-personal-trainer",
+    city: "Milpitas",
+    heroTag: "Working Tech",
+    heroHeadline: "Personal Trainer for Milpitas",
+    heroSubheadline:
+      "Patient, efficient training for Milpitas professionals balancing demanding tech jobs with family responsibilities. Fifteen to twenty minutes up 880.",
+    metaTitle: "Personal Trainer in Milpitas | Sun Functional Movement",
+    metaDescription:
+      "One-on-one training for Milpitas professionals. 15-20 min from Great Mall area via 880. Free consultation with an ACE-certified trainer.",
+    commuteText:
+      "Fifteen to twenty minutes on 880 South. Early morning or mid-day slots avoid the worst of the commute.",
+    quickFacts: [
+      { label: "Drive time", value: "~15-20 min" },
+      { label: "Route", value: "880 S" },
+      { label: "Sessions", value: "12,000+" },
+      { label: "Format", value: "1-on-1 only" },
+    ],
+    intro: [
+      "Milpitas is fifteen to twenty minutes up 880 from the studio, and the client mix here is different from every other city I serve. Milpitas is a working tech city. Semiconductor, networking, and the sort of hardware and manufacturing operations that don't make the cover of Wired but build the products everyone else depends on. Tesla's Fremont facility is just north, and a lot of their engineers live in Milpitas.",
+      "The cultural mix here is also distinct. Milpitas has one of the largest Asian-American populations in the South Bay, and a good portion of my clients from here are first or second-generation immigrants balancing demanding careers with intergenerational family responsibilities. That specific life situation shapes what training looks like.",
+    ],
+    sections: [
+      {
+        heading: "What Milpitas clients typically come in with",
+        body: [
+          "The common presentation is someone in their late thirties to late fifties who has been working a demanding technical job for twenty years while also caring for parents or raising kids or doing both. The body has been on the back burner for a long time. Sleep is inconsistent, and the diet is usually whatever's easiest that week.",
+          "None of this is unusual for the South Bay overall, but Milpitas clients often come in with an additional layer of feeling they've been neglecting themselves specifically because everyone else in their life is a priority. My first conversation with a lot of these clients is about permission. Permission to spend an hour twice a week on their own health, even when there are other people who need things.",
+        ],
+      },
+      {
+        heading: "The training itself",
+        body: [
+          "For most Milpitas clients, we start with a gentle ramp into consistent work. Two sessions a week, forty to fifty minutes each. Compound strength, careful mobility, and enough conditioning to bring energy levels up. The physical work is straightforward. The harder part is usually the scheduling and the internal work of actually showing up when life is demanding attention elsewhere.",
+          "I try to make this easier by being flexible with scheduling and by keeping the session efficient. Milpitas clients who have stuck with the training for a year or more tell me the biggest change wasn't what they expected. They thought it would be about weight or strength numbers. It turned out to be about having the energy to actually be present with their family at the end of the day.",
+        ],
+      },
+      {
+        heading: "Getting to the studio",
+        body: [
+          "880 South is the primary route. Fifteen to twenty minutes on a normal day, closer to twenty-five during commute hours. If you're on the east side of Milpitas near the Great Mall, it's the same drive. I book most Milpitas clients early morning or mid-day to skip the worst of the traffic.",
+        ],
+      },
+      {
+        heading: "What I don't do",
+        body: [
+          "I don't run bootcamps or group classes, and I don't make marketing promises about six-week transformations. Training is one-on-one only, and I don't take drop-in sessions. I work in months and years. What I actually care about is whether you're still training consistently in three years, not what happens in the first three weeks.",
+        ],
+      },
+    ],
+    services: commonServices,
+    faqs: [
+      {
+        question: "I'm new to personal training. What do I need to know?",
+        answer:
+          "Almost nothing, honestly. Show up in clothes you can move in. I handle the programming, equipment, and form cues. The first few sessions are about learning the basic movements and figuring out where your body is today. No prerequisites needed.",
+      },
+      ...sharedFAQs,
+      {
+        question: "Can I bring a family member for a separate session?",
+        answer:
+          "Yes. A number of my Milpitas clients have referred spouses, siblings, or parents for their own training. Each person gets their own program and sessions; I don't train couples together because the work has to be specific to each body.",
+      },
+    ],
+    relatedPostSlugs: [
+      {
+        category: "wellness",
+        slug: "personal-training-for-stress-relief-bay-area",
+        label: "Training for stress relief",
+      },
+      {
+        category: "nutrition",
+        slug: "meal-prep-for-busy-professionals",
+        label: "Meal prep for busy professionals",
+      },
+    ],
+  },
+
   campbell: {
     slug: "campbell",
     urlPath: "/campbell-personal-trainer",

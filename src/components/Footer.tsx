@@ -87,9 +87,25 @@ export default function Footer() {
               <TrackedNavLink href="/mountain-view-personal-trainer" section="footer_service_area" linkText="Mountain View" className="underline hover:text-white">
                 Mountain View
               </TrackedNavLink>
-              , and{" "}
+              ,{" "}
               <TrackedNavLink href="/campbell-personal-trainer" section="footer_service_area" linkText="Campbell" className="underline hover:text-white">
                 Campbell
+              </TrackedNavLink>
+              ,{" "}
+              <TrackedNavLink href="/los-gatos-personal-trainer" section="footer_service_area" linkText="Los Gatos" className="underline hover:text-white">
+                Los Gatos
+              </TrackedNavLink>
+              ,{" "}
+              <TrackedNavLink href="/saratoga-personal-trainer" section="footer_service_area" linkText="Saratoga" className="underline hover:text-white">
+                Saratoga
+              </TrackedNavLink>
+              ,{" "}
+              <TrackedNavLink href="/los-altos-personal-trainer" section="footer_service_area" linkText="Los Altos" className="underline hover:text-white">
+                Los Altos
+              </TrackedNavLink>
+              , and{" "}
+              <TrackedNavLink href="/milpitas-personal-trainer" section="footer_service_area" linkText="Milpitas" className="underline hover:text-white">
+                Milpitas
               </TrackedNavLink>
               . Helping busy professionals move better, feel stronger, and train
               for health longevity. ACE Certified with 12,000+ sessions delivered.
