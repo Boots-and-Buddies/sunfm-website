@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import BodyDiagram from "./BodyDiagram";
 import RadarChart from "./RadarChart";
 import TrackedCTALink from "@/components/TrackedCTALink";
+import { trackEvent } from "@/lib/analytics";
 import {
   AXES,
   DRILLS,
@@ -74,10 +75,31 @@ export default function MovementScreenResults({ result, onRestart }: Props) {
   const hasWeakAreas = weakAreas.length > 0;
 
   const [mounted, setMounted] = useState(false);
+  const [downloading, setDownloading] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 100);
     return () => clearTimeout(t);
   }, []);
+
+  const handleDownloadPDF = useCallback(async () => {
+    setDownloading(true);
+    try {
+      const [{ generateProgram }, { generateProgramPDF }] = await Promise.all([
+        import("@/lib/mobility-program"),
+        import("@/lib/generate-program-pdf"),
+      ]);
+      const program = generateProgram(result);
+      const doc = await generateProgramPDF(program);
+      doc.save("sunfm-mobility-program.pdf");
+      trackEvent("movement_screen_pdf_download", {
+        overall_score: result.overallScore,
+      });
+    } catch (err) {
+      console.error("PDF generation failed:", err);
+    } finally {
+      setDownloading(false);
+    }
+  }, [result]);
 
   const displayScore = useCountUp(overallScore, 1400, mounted);
 
@@ -287,6 +309,39 @@ export default function MovementScreenResults({ result, onRestart }: Props) {
           </p>
         </div>
       )}
+
+      {/* Download PDF */}
+      <div className="mb-16 animate-fade-up animate-delay-300">
+        <div className="bg-white/[0.03] border border-[#FFD140]/20 rounded-3xl p-8 sm:p-10 text-center">
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#FFD140] font-semibold mb-4">
+            Your free plan
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl text-white leading-tight tracking-tight mb-3">
+            Download your 1-week program
+          </h2>
+          <p className="text-white/60 text-sm leading-relaxed max-w-lg mx-auto mb-8">
+            A personalized mobility routine built from your results.
+            15–25 minutes a day, repeatable week over week.
+          </p>
+          <button
+            type="button"
+            onClick={handleDownloadPDF}
+            disabled={downloading}
+            className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white text-black font-semibold hover:bg-[#FFD140] transition-colors disabled:opacity-50 disabled:cursor-wait"
+          >
+            {downloading ? (
+              "Generating…"
+            ) : (
+              <>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Download PDF
+              </>
+            )}
+          </button>
+        </div>
+      </div>
 
       {/* Conversion CTA */}
       <div className="relative bg-gradient-to-br from-[#1a1a1a] via-[#1a1a1a] to-[#0a0a0a] border border-[#FFD140]/20 rounded-3xl p-8 sm:p-12 md:p-16 text-center overflow-hidden animate-fade-up animate-delay-400">
