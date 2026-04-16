@@ -19,7 +19,7 @@ export const metadata: Metadata = {
       "Expert articles on functional movement training, nutrition, and wellness.",
     type: "website",
     url: "https://www.sunfm.fitness/blog",
-    images: [{ url: "https://www.sunfm.fitness/images/jeffrey-headshot-final.jpg" }],
+    images: [{ url: "https://www.sunfm.fitness/images/jeffrey-og.jpg", width: 1200, height: 630 }],
   },
 };
 

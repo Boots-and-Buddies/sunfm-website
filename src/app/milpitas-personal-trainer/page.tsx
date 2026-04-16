@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     url: canonical,
     images: [
       {
-        url: "https://www.sunfm.fitness/images/jeffrey-headshot-final.jpg",
+        url: "https://www.sunfm.fitness/images/jeffrey-og.jpg",
         width: 1200,
-        height: 1600,
+        height: 630,
         alt: `Jeffrey Sun, personal trainer serving ${area.city}`,
       },
     ],

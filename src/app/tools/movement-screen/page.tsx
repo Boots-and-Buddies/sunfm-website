@@ -8,7 +8,7 @@ const canonical = "https://www.sunfm.fitness/tools/movement-screen";
 export const metadata: Metadata = {
   title: "The Movement Screen · Sun Functional Movement",
   description:
-    "A 6-test mobility self-assessment from a San Jose personal trainer. Find your tightest areas, get specific drill recommendations, and see where training would help most.",
+    "A 12-question mobility self-assessment from a San Jose personal trainer. Find your tightest areas and get personalized drills.",
   alternates: { canonical },
   openGraph: {
     title: "The Movement Screen — 2-minute mobility diagnostic",
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     url: canonical,
     images: [
       {
-        url: "https://www.sunfm.fitness/images/jeffrey-headshot-final.jpg",
+        url: "https://www.sunfm.fitness/images/jeffrey-og.jpg",
         width: 1200,
-        height: 1600,
+        height: 630,
         alt: "The Movement Screen by Jeffrey Sun",
       },
     ],
@@ -33,9 +33,37 @@ export const metadata: Metadata = {
   },
 };
 
+const softwareApplicationSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "The Movement Screen",
+  url: canonical,
+  applicationCategory: "HealthApplication",
+  description:
+    "A 12-question mobility self-assessment scoring shoulders, thoracic spine, hips, hamstrings, ankles, and core. Includes a downloadable 1-week program.",
+  operatingSystem: "Web",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  author: {
+    "@type": "Person",
+    name: "Jeffrey Sun",
+    jobTitle: "ACE-Certified Personal Trainer",
+    url: "https://www.sunfm.fitness",
+  },
+};
+
 export default function MovementScreenPage() {
   return (
     <main className="relative min-h-screen bg-[#0a0a0a] text-white overflow-hidden flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(softwareApplicationSchema),
+        }}
+      />
       <AmbientBackground />
 
       {/* Minimal top bar */}
@@ -60,9 +88,14 @@ export default function MovementScreenPage() {
           </svg>
           sunfm
         </Link>
-        <div className="flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase text-white/40">
-          <span className="hidden sm:inline">Diagnostic</span>
-          <span className="h-px w-6 bg-white/20" />
+        <div className="flex items-center gap-3 font-mono text-[10px] tracking-[0.25em] uppercase text-white/40">
+          <Link
+            href="/#apply"
+            className="hidden sm:inline text-white/60 hover:text-white transition-colors"
+          >
+            Book consultation
+          </Link>
+          <span className="hidden sm:inline h-px w-6 bg-white/20" />
           <span>v2.0</span>
         </div>
       </div>

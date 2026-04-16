@@ -106,7 +106,14 @@ export default async function ArticlePage({ params }: Props) {
       "@type": "WebPage",
       "@id": `https://www.sunfm.fitness/${category}/${slug}`,
     },
-    image: post.image ? `https://www.sunfm.fitness${post.image}` : undefined,
+    image: post.image
+      ? {
+          "@type": "ImageObject",
+          url: `https://www.sunfm.fitness${post.image}`,
+          width: 1200,
+          height: 630,
+        }
+      : undefined,
     author: {
       "@type": "Person",
       name: post.author,
@@ -119,6 +126,8 @@ export default async function ArticlePage({ params }: Props) {
       logo: {
         "@type": "ImageObject",
         url: "https://www.sunfm.fitness/images/logo.png",
+        width: 512,
+        height: 512,
       },
     },
   };
@@ -180,7 +189,10 @@ export default async function ArticlePage({ params }: Props) {
                 className="w-12 h-12 rounded-full object-cover flex-shrink-0"
               />
               <div>
-                <p className="text-black font-semibold">{post.author}</p>
+                <p className="text-black font-semibold">
+                  {post.author}
+                  <span className="font-normal text-gray-500">, ACE-CPT</span>
+                </p>
                 <p className="text-gray-500 text-sm">
                   {formattedDate} &middot; {post.readTime} min read
                 </p>
