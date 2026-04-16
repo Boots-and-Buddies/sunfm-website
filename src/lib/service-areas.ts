@@ -137,10 +137,10 @@ export const serviceAreas: Record<string, ServiceArea> = {
         ],
       },
       {
-        heading: "A typical San Jose client",
+        heading: "Where the work usually ends up",
         body: [
-          "One of my longer-standing clients is a retired teacher who lives near the Rose Garden. She came in with eight years of chronic low back pain she'd accepted as part of getting older. We didn't do anything heroic. Steady work on her glutes, teaching her pelvis to sit neutral, and progressive loading with a kettlebell that started light and slowly got heavier. Three months in, the morning stiffness was gone. A year in, she was carrying her grandkids up her front steps without bracing. She still trains with me twice a week.",
-          "Most of what people in their sixties and seventies think of as aging is just untrained tissue. The body repairs a lot more than the common narrative allows for, as long as the work is steady and the load is appropriate.",
+          "One of my longer-standing clients is a retired teacher who lives near the Rose Garden. She came in with eight years of chronic low back pain she'd accepted as part of getting older. We didn't do anything heroic. Steady glute work, teaching her pelvis to sit neutral, and a kettlebell that started light and slowly got heavier. Three months in, the morning stiffness was gone. A year in, she was carrying her grandkids up her front steps without bracing. She still trains with me twice a week.",
+          "A lot of what people in their sixties and seventies call aging is actually untrained tissue. The body repairs itself better than the standard narrative allows for, if the work is consistent.",
         ],
       },
     ],
@@ -219,10 +219,10 @@ export const serviceAreas: Record<string, ServiceArea> = {
         ],
       },
       {
-        heading: "A typical Sunnyvale client",
+        heading: "What it looks like after six months",
         body: [
-          "A client I've worked with for a couple of years is a product manager in his early forties who lives near Ortega Park with two young kids. When he started, lifting his toddler out of the car seat was giving him a sharp pinch in his lower back a couple of times a week. He wasn't sleeping well because of it, and it was quietly eating into his patience at home. Six months of consistent work later, he told me the thing that changed wasn't a number on the barbell. It was that he'd stopped thinking about his back on school drop-off mornings.",
-          "That kind of outcome — less pain, more energy for the people who need you — is what most Sunnyvale parents actually come in for, even when they describe it as wanting to get back in shape.",
+          "I've worked with a product manager in his early forties for a couple of years now. He lives near Ortega Park with two young kids. When he started, lifting his toddler out of the car seat was giving him a sharp pinch in his lower back a couple of times a week. He wasn't sleeping well because of it, and it was quietly eating into his patience at home. Six months of consistent work later, he told me the thing that changed wasn't a number on the barbell. It was that he'd stopped thinking about his back on school drop-off mornings.",
+          "That's a pretty common arrival point for parents training here. Less pain. More energy at the end of the day. Enough capacity to get through the week without the body cashing a check somewhere else.",
         ],
       },
     ],
@@ -306,10 +306,10 @@ export const serviceAreas: Record<string, ServiceArea> = {
         ],
       },
       {
-        heading: "A typical Cupertino client",
+        heading: "What ten years of desk work reverses to",
         body: [
-          "I worked with an engineer in her early forties who lives on the Monta Vista side of Cupertino. She had the exact profile I see constantly here. A decade at Apple, shoulders that had quietly crept forward, and afternoon neck pain she'd started medicating with Advil without really noticing. The first three months were almost entirely thoracic spine and shoulder mobility, with small-dose strength layered in. By month five, she'd stopped the Advil habit. By month eight, she was hiking Rancho San Antonio on weekends without paying for it Monday morning.",
-          "What stuck with her wasn't the numbers. It was realizing she could get another thirty years out of her body if she actually took care of it.",
+          "I worked with an engineer in her early forties who lives on the Monta Vista side of Cupertino. She had the profile I see constantly here. A decade at Apple, shoulders that had crept forward without her noticing, and afternoon neck pain she'd started medicating with Advil. The first three months were almost entirely thoracic spine and shoulder mobility with small-dose strength layered in. By month five she'd stopped reaching for the Advil. By month eight she was hiking Rancho San Antonio on weekends without paying for it Monday.",
+          "She said later that the thing that surprised her wasn't any change in how she looked. It was how much runway her body had if she actually used it.",
         ],
       },
     ],
@@ -361,8 +361,8 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
-      "Santa Clara is close to the studio. Five to ten minutes on 880 or 101 depending on where you start. Most clients I work with are coming from within a short drive of the Nvidia campus, Santa Clara University, downtown, or the Central Park area.",
-      "A lot of Santa Clara clients come in wanting real training that doesn't eat half of their week. Two focused, well-programmed sessions tend to outperform three unfocused ones, especially when the rest of the day is already full. That's usually how we build from the start. The goal is long-term health and capability, not a six-week transformation that falls apart the first time life gets in the way.",
+      "Santa Clara is close to the studio. Five to ten minutes on 880 or 101 depending on where you start. Most of the clients I work with are coming from near the Nvidia campus, Santa Clara University, downtown, or Central Park.",
+      "A lot of them want real training that doesn't eat half of their week. Two focused, well-programmed sessions a week tend to outperform three unfocused ones, especially when the rest of the day is already full. That's where we usually start. The goal here is long-term health, not a quick cosmetic change that fades by summer.",
     ],
     sections: [
       {
@@ -391,10 +391,10 @@ export const serviceAreas: Record<string, ServiceArea> = {
         ],
       },
       {
-        heading: "A typical Santa Clara client",
+        heading: "When the motivation is a lab result",
         body: [
-          "One client is a software engineer in her late thirties who came in after her annual physical flagged early signs of low bone density. Her doctor mentioned weight-bearing exercise and she looked me up. We built a patient program around squats, deadlifts, and loaded carries, done twice a week for a year, with progression that respected how new she was to training. When she went back for her follow-up DEXA, her bone density had stabilized for the first time in a decade.",
-          "She still trains with me, and the program has grown up as her capacity has. Her actual goal was never strength numbers. It was not ending up like her mother, who broke a hip in her late sixties.",
+          "One client is a software engineer in her late thirties who came in after her annual physical flagged early signs of low bone density. Her doctor mentioned weight-bearing exercise and she looked me up. We built a patient program around squats and loaded carries, done twice a week for a year, progressed conservatively because she was new to the work. When she went back for her follow-up DEXA, the density had stabilized for the first time in a decade.",
+          "She still trains with me, and the program has grown up as her capacity has. The goal was never about how much weight she could move. It was about not ending up like her mother, who broke a hip in her late sixties.",
         ],
       },
     ],
@@ -478,10 +478,10 @@ export const serviceAreas: Record<string, ServiceArea> = {
         ],
       },
       {
-        heading: "A typical Mountain View client",
+        heading: "Getting the hobby back",
         body: [
-          "A client who works near the Googleplex is a software engineer in his late forties who had quietly stopped running the Stevens Creek Trail on weekends because his knees would ache for two days afterward. He'd assumed it was just age catching up. We spent the first couple of months on single-leg strength and ankle and hip mobility he was clearly missing. A year in, he's back on the trail every Saturday. Not chasing pace records, just moving like somebody who trusts his body again.",
-          "That's usually the real ask from Mountain View clients, even when they don't say it directly. They want the hobby they used to love back.",
+          "A software engineer in his late forties who works near the Googleplex came in after he'd quietly stopped running the Stevens Creek Trail on weekends. His knees would ache for two days afterward, and he'd decided it was age catching up. We spent the first couple of months on single-leg strength and the ankle and hip mobility he was clearly missing. A year in, he's back on the trail every Saturday. He isn't chasing pace records anymore, but he's running again.",
+          "That outcome gets at what a lot of Mountain View clients actually want, even if it doesn't come up in the first conversation. They want the thing they used to do without thinking about it to be available again.",
         ],
       },
     ],
@@ -565,10 +565,10 @@ export const serviceAreas: Record<string, ServiceArea> = {
         ],
       },
       {
-        heading: "A typical Los Gatos client",
+        heading: "When the goal is the baseline you already had",
         body: [
-          "A retired physician in her early sixties came to me after she realized she was getting winded on the Los Gatos Creek Trail walks she'd been doing for fifteen years. She wasn't interested in getting strong in the abstract. She wanted her old baseline back. We worked on posterior chain strength, conditioning scaled to her age, and a lot of walking-drill progressions. About a year later, she and her husband are doing the trail together without stopping, and she's added a short climb up toward Saint Joseph's Hill a couple of times a month.",
-          "Plenty of my Los Gatos clients come in with something specific they don't want to lose. A trail. A tennis match. A weekly ride. The training is built around keeping those things in reach for another twenty or thirty years.",
+          "A retired physician in her early sixties came to me after she noticed she was getting winded on the Los Gatos Creek Trail walks she'd been doing for fifteen years. She wasn't interested in getting strong in the abstract. She wanted her baseline back. We worked on posterior chain strength, conditioning scaled to her age, and a lot of walking progressions. About a year later, she and her husband are doing the trail together without stopping, and she's added a short climb toward Saint Joseph's Hill a couple of times a month.",
+          "Plenty of Los Gatos clients come in the same way. There's something specific they're trying not to lose, whether it's a trail or a tennis match or a weekend cycling loop, and the training gets built around keeping that thing reachable.",
         ],
       },
     ],
@@ -653,10 +653,10 @@ export const serviceAreas: Record<string, ServiceArea> = {
         ],
       },
       {
-        heading: "A typical Saratoga client",
+        heading: "Who I see most often here",
         body: [
-          "A semi-retired attorney in her late sixties started with me after she noticed some hesitation on her morning walks through the Saratoga Heritage Orchard. It wasn't dramatic. She just felt a little less sure-footed than she had two years earlier, and she didn't want to wait until that became a real problem. We built a careful program around balance work, unilateral loading, and bone-density-friendly strength training. Eighteen months in, she's walking the orchard loop twice on the mornings she feels good, and her last DEXA came back stable for the first time in years.",
-          "She didn't come to me for strength numbers. She came so that her seventies look more like her sixties and less like her mother's seventies did. That's the most common motivation I hear in Saratoga, even when it goes unspoken.",
+          "A semi-retired attorney in her late sixties started with me after she noticed some hesitation on her morning walks through the Saratoga Heritage Orchard. It wasn't dramatic. She just felt a little less sure-footed than she had two years before, and she didn't want to wait until that became a real problem. We built a careful program around balance work, unilateral loading, and enough strength training to keep her bone density moving in the right direction. Eighteen months in, she's walking the orchard loop twice on the mornings she feels good, and her last DEXA came back stable for the first time in years.",
+          "She came so that her seventies would look more like her sixties, and so they wouldn't look the way her mother's did. That motivation isn't always spoken out loud, but it sits under most of the work I do in Saratoga.",
         ],
       },
     ],
@@ -740,10 +740,10 @@ export const serviceAreas: Record<string, ServiceArea> = {
         ],
       },
       {
-        heading: "A typical Los Altos client",
+        heading: "The daughter who stopped asking",
         body: [
-          "One of my Los Altos clients is a VP at a tech firm who came in after his daughter asked him why he was walking slower than her on their weekend loops through Shoup Park. He was fifty-two at the time and had assumed the slowdown was permanent. We worked twice a week for a year. The sessions weren't flashy. Glute activation, progressive squats, and a lot of loaded carries to rebuild his general strength. He still trains with me three years later, and his daughter stopped asking.",
-          "What Los Altos clients actually pay for, though they rarely phrase it this way, is somebody in their corner making sure the next thirty years don't quietly pass them by the way the last ten almost did.",
+          "One of my Los Altos clients is a VP at a tech firm who came in after his daughter asked him why he was walking slower than her on their weekend loops through Shoup Park. He was fifty-two at the time and had assumed the slowdown was permanent. We worked twice a week for a year. The sessions weren't flashy. Glute activation, progressive squats, and loaded carries to rebuild his general strength. He still trains with me three years later, and his daughter stopped asking.",
+          "Most Los Altos clients don't come in looking for a program. They're looking for somebody in their corner making sure the next thirty years don't slip by the same way the last ten almost did.",
         ],
       },
     ],
@@ -795,8 +795,8 @@ export const serviceAreas: Record<string, ServiceArea> = {
       { label: "Format", value: "1:1, Semi, Group" },
     ],
     intro: [
-      "Milpitas is ten to fifteen minutes up 880 from the studio. Whether you're coming from the Great Mall area, the Piedmont Hills foothills, or near the Milpitas BART station, the drive to Parkmoor is the same straightforward shot down the freeway.",
-      "A lot of my Milpitas clients are balancing demanding careers with family responsibilities. Training has to fit around real life, not the other way around. Not five sessions a week. Not hours of prep. Two focused sessions with programming to do on your own in between is usually where we land. That turns out to be plenty when it's consistent and when the programming fits your actual body.",
+      "Milpitas is ten to fifteen minutes up 880 from the studio. Whether you're coming from the Great Mall area, the Piedmont Hills foothills, or the neighborhoods near the Milpitas BART station, the drive to Parkmoor is the same straight shot down the freeway.",
+      "Most of my Milpitas clients are balancing demanding careers with family responsibilities at home. Training has to work with that, not against it. Five sessions a week isn't realistic for them, and hours of prep between sessions isn't either. Two focused sessions with programming to do on their own in between is usually where we land, and it turns out to be plenty when the programming is actually built for their body.",
     ],
     sections: [
       {
@@ -826,10 +826,10 @@ export const serviceAreas: Record<string, ServiceArea> = {
         ],
       },
       {
-        heading: "A typical Milpitas client",
+        heading: "The quiet wins",
         body: [
-          "One client is a registered nurse who lives in the Piedmont Hills area and works long hospital shifts. When she came in, she had chronic hip pain that was turning twelve-hour shifts into a grind by hour eight. Her sleep was a mess for the same reason. The first few months were heavy on hip mobility and glute work, plus a couple of small adjustments to how she moved during her shifts. Six months in, she told me she was sleeping through the night for the first time in two years. The hip pain hasn't come back.",
-          "Milpitas clients often describe the win this way. Not a better body in the abstract. A better life because the body works again. The training is in service of that, not the other way around.",
+          "One client is a registered nurse who lives in the Piedmont Hills area and works long hospital shifts. When she came in, she had chronic hip pain that was turning her twelve-hour shifts into a grind by hour eight. Her sleep was a mess for the same reason. The first few months were heavy on hip mobility and glute work, plus a couple of small adjustments to how she moved during her shifts. About six months in, she told me she was sleeping through the night for the first time in two years. The hip pain hasn't come back.",
+          "She described the change in terms of sleep, not her body. Which makes sense. The body working is usually the delivery mechanism for the rest of life working a little better.",
         ],
       },
     ],
@@ -907,10 +907,10 @@ export const serviceAreas: Record<string, ServiceArea> = {
         ],
       },
       {
-        heading: "A typical Campbell client",
+        heading: "When his wife stopped asking",
         body: [
-          "One long-time Campbell client is a small business owner in his early fifties who ran a shop near downtown for twenty years. Fifteen of those years he spent hunched over a counter, and his wife had been telling him for most of them that his posture was getting worse. We worked on thoracic spine mobility, rowing patterns, and glute activation for about four months of twice-a-week sessions. His wife stopped asking. That was his actual win.",
-          "He's still training with me three years later. He told me once that nothing ages a person faster than watching themselves hunch in the mirror. A lot of my Campbell clients end up in the same place, working on small things that compound into looking and moving like themselves again.",
+          "One long-time Campbell client is a small business owner in his early fifties who ran a shop near downtown for twenty years. Fifteen of those years he spent hunched over a counter, and his wife had been telling him for most of them that his posture was getting worse. We worked on thoracic mobility and rowing patterns for about four months of twice-a-week sessions, with glute work folded in. His wife stopped asking. He told me that was the win he'd been after the whole time, even though he hadn't phrased it that way when he first came in.",
+          "He's still training three years later.",
         ],
       },
     ],
