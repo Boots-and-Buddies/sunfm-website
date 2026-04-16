@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       {
         url: `${siteUrl}/images/jeffrey-headshot-final.jpg`,
         width: 1200,
-        height: 900,
+        height: 1600,
         alt: "Jeffrey Sun - Personal Trainer in San Jose",
       },
     ],

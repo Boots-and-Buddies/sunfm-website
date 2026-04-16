@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       {
         url: "https://www.sunfm.fitness/images/jeffrey-headshot-final.jpg",
         width: 1200,
-        height: 900,
+        height: 1600,
         alt: "The Movement Screen by Jeffrey Sun",
       },
     ],
