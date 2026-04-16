@@ -1,14 +1,5 @@
 import type { ServiceArea } from "@/lib/service-areas";
 
-const OTHER_CITIES = [
-  "San Jose",
-  "Sunnyvale",
-  "Cupertino",
-  "Santa Clara",
-  "Mountain View",
-  "Campbell",
-];
-
 export default function ServiceAreaSchema({ area }: { area: ServiceArea }) {
   const baseUrl = "https://www.sunfm.fitness";
   const pageUrl = `${baseUrl}${area.urlPath}`;
@@ -35,15 +26,68 @@ export default function ServiceAreaSchema({ area }: { area: ServiceArea }) {
       latitude: 37.3115,
       longitude: -121.9192,
     },
-    areaServed: OTHER_CITIES.map((name) => ({
+    areaServed: {
       "@type": "City",
-      name,
-    })),
+      name: area.city,
+      containedInPlace: {
+        "@type": "AdministrativeArea",
+        name: "San Francisco Bay Area",
+      },
+    },
     sameAs: [
       "https://www.instagram.com/jeffsunfitness/",
       "https://www.yelp.com/biz/sun-functional-movement-san-jose",
       "https://maps.app.goo.gl/XyrnsHXu9K1xYqXw5",
     ],
+  };
+
+  const service = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${pageUrl}#service`,
+    name: `Personal Training in ${area.city}`,
+    serviceType: "Personal Training",
+    description: `One-on-one personal training for ${area.city} residents. ACE-certified trainer focused on functional strength, mobility, and longevity.`,
+    provider: {
+      "@id": `${pageUrl}#business`,
+    },
+    areaServed: {
+      "@type": "City",
+      name: area.city,
+    },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: `${baseUrl}/#apply`,
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Training formats",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "1:1 private training",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Semi-private (2-person) training",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Small group training",
+          },
+        },
+      ],
+    },
   };
 
   const breadcrumbs = {
@@ -83,6 +127,10 @@ export default function ServiceAreaSchema({ area }: { area: ServiceArea }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(service) }}
       />
       <script
         type="application/ld+json"
