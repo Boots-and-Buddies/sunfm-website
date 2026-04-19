@@ -11,6 +11,7 @@ interface Props {
   slug: string;
   category: string;
   className?: string;
+  ariaLabel?: string;
   children: ReactNode;
 }
 
@@ -20,12 +21,14 @@ export default function PostCardLink({
   slug,
   category,
   className,
+  ariaLabel,
   children,
 }: Props) {
   const blog = useBlogContext();
   return (
     <Link
       href={href}
+      aria-label={ariaLabel}
       className={className}
       onClick={() => {
         const params: Record<string, string | number> = {

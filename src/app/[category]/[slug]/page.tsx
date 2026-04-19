@@ -11,15 +11,18 @@ import {
 import ProgressBar from "@/components/blog/ProgressBar";
 import RelatedPosts from "@/components/blog/RelatedPosts";
 import YouTubeEmbed from "@/components/blog/YouTubeEmbed";
+import MDXImage from "@/components/blog/MDXImage";
 import Header from "@/components/Header";
 import TrackedCTALink from "@/components/TrackedCTALink";
 import TrackedNavLink from "@/components/TrackedNavLink";
 import TrackedMDXLink from "@/components/blog/TrackedMDXLink";
 import { BlogProvider } from "@/components/BlogContext";
+import { getPublicImageDims } from "@/lib/image-dims";
 
 const mdxComponents = {
   YouTube: YouTubeEmbed,
   a: TrackedMDXLink,
+  img: MDXImage,
 };
 
 interface Props {
@@ -93,6 +96,32 @@ export default async function ArticlePage({ params }: Props) {
   );
 
   const wordCount = post.content.split(/\s+/).length;
+
+  const heroDims = post.image ? await getPublicImageDims(post.image) : null;
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.sunfm.fitness",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: categoryLabels[category] || category,
+        item: `https://www.sunfm.fitness/${category}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+      },
+    ],
+  };
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -213,6 +242,21 @@ export default async function ArticlePage({ params }: Props) {
             </div>
           </div>
 
+          {/* Hero image */}
+          {post.image && heroDims && (
+            <div className="mb-8 rounded-2xl overflow-hidden shadow-sm">
+              <Image
+                src={post.image}
+                alt={post.title}
+                width={heroDims.width}
+                height={heroDims.height}
+                priority
+                sizes="(max-width: 680px) 100vw, 680px"
+                className="w-full h-auto"
+              />
+            </div>
+          )}
+
           {/* Article body */}
           <div className="bg-white rounded-2xl shadow-sm p-6 sm:p-10">
             <div className="prose prose-lg max-w-none prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-headings:font-bold prose-headings:text-black prose-p:text-gray-700 prose-p:text-lg prose-p:leading-[1.8] prose-li:text-gray-700 prose-li:text-lg prose-a:text-[#CB4538] prose-a:no-underline hover:prose-a:underline prose-blockquote:border-l-[#FFD140] prose-blockquote:border-l-4 prose-blockquote:text-gray-600 prose-img:rounded-xl prose-strong:text-black prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none prose-hr:my-8">
@@ -223,7 +267,7 @@ export default async function ArticlePage({ params }: Props) {
           {/* CTA */}
           <div className="mt-12 text-center bg-white rounded-2xl shadow-md p-8">
             <h2 className="text-xl font-bold mb-2">
-              Ready to Train Smarter?
+              Ready to train smarter?
             </h2>
             <p className="text-gray-600 mb-5 text-sm max-w-md mx-auto">
               Get a personalized program built around your goals, your body,
@@ -247,6 +291,10 @@ export default async function ArticlePage({ params }: Props) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
         />
       </main>
     </BlogProvider>
