@@ -102,35 +102,66 @@ tags: ["primary keyword", "secondary keyword", "desk workers", "San Jose", "mobi
 
 ### Image embedding
 
-Available stock images in `public/images/blog/`:
-- `barbell-compound-lift.jpg`
-- `desk-worker-exercises.jpg`
-- `functional-workout.jpg`
-- `gym-workout-strength.jpg`
-- `healthy-food-prep.jpg`
-- `kettlebell-training.jpg`
-- `meal-prep-containers.jpg`
-- `meal-prep-professionals.jpg`
-- `personal-trainer-session.jpg`
-- `personal-training-stress.jpg`
-- `strength-training-longevity.jpg`
-- `stretching-mobility.jpg`
+Check `public/images/blog/` for the current stock inventory (run `ls public/images/blog/`) — list changes as posts get published. Known stock photos as of April 2026 include desk worker exercises, functional workout, gym strength, kettlebell training, meal prep, personal training sessions, stretching mobility, and an ankle-mobility-stretch photo (woman seated forward fold on yoga mat).
 
 Rules:
 - Use one image as the `image:` frontmatter field (the hero, rendered by the post page)
 - Embed 1–2 additional images inline with `![alt](/images/blog/filename.jpg)` at natural section breaks
-- If none of the stock images fits the topic, check memory — the user prefers downloading from Unsplash CDN when creating blog posts rather than asking them to find images. Save new images to `public/images/blog/<descriptive-slug>.jpg`.
 - Alt text should be specific and descriptive, not keyword-stuffed
+
+Per memory, never ask the user to source images. If no existing stock photo fits, pull one from Unsplash using the workflow below.
+
+#### Working Unsplash workflow (April 2026)
+
+Unsplash.com has Anubis proof-of-work bot protection, so WebFetch and direct HTML scrapes return 401. `source.unsplash.com` is shut down (503). But the `/download?force=true` endpoint still returns a 302 redirect to the CDN URL, and the CDN (`images.unsplash.com`) is not bot-protected. That's the gap.
+
+1. **Find a specific photo page URL** via WebSearch: `site:unsplash.com/photos <your topic keywords>`. Results will include URLs like `https://unsplash.com/photos/<slug>-<shortId>` or `https://unsplash.com/photos/<shortId>`. The short ID is 11 characters, appended after the last dash (e.g., `sVH7i5A4Wh8`). Collect 3–5 candidate IDs because not every photo's download endpoint works.
+
+2. **Check which candidates resolve.** Some photos return 403 on the download endpoint, not every short ID works:
+   ```bash
+   for id in "id1" "id2" "id3"; do
+     curl -sI -A "Mozilla/5.0" "https://unsplash.com/photos/$id/download?force=true" | grep -iE "^location|^HTTP"
+   done
+   ```
+   Pick the first one that returns `HTTP/2 302` with a `location:` pointing at `images.unsplash.com/photo-...`.
+
+3. **Download it** to a descriptive filename:
+   ```bash
+   curl -sL -A "Mozilla/5.0" \
+     "https://unsplash.com/photos/<shortId>/download?force=true&w=1600" \
+     -o public/images/blog/<descriptive-slug>.jpg
+   ```
+
+4. **Verify the image** by reading the file path with the Read tool — it returns the image visually so you can confirm subject matter before committing to it as the hero.
+
+5. **Update the frontmatter** `image:` field.
+
+If all candidates 403, pick a different topic query (e.g., "calf stretch" instead of "ankle mobility") and repeat. If you genuinely can't find one, fall back to the closest stock photo and note it in the final report so the user can swap in a better image later.
 
 ### YouTube embedding
 
-The MDX renderer supports `<YouTube id="..." title="..." />`. Existing posts embed demonstration videos for each exercise.
+The MDX renderer supports `<YouTube id="..." title="..." />`. Existing posts embed one demonstration video under each H3 exercise section.
 
-**Important:** Do not invent YouTube IDs. Either:
-1. Ask the user for video URLs for each exercise, extract the IDs, and embed them
-2. Skip YouTube embeds and note in the completion summary that the user should add them
+Never invent IDs. The workflow is WebSearch → pick candidates → verify via YouTube's oEmbed endpoint before embedding.
 
-Do NOT pass off made-up IDs as real videos. The IDs used in `functional-movement-exercises-for-desk-workers.mdx` are Jeffrey's chosen demonstrations — if you need similar videos for a new post, the user must supply them.
+1. **Find candidates.** For each drill, WebSearch the exact drill name + "youtube demonstration" or a descriptive variant (e.g., "banded ankle distraction youtube squat university"). Extract the `v=<ID>` parameter from each result URL — these are the candidate video IDs. Prefer credible channels (Squat University, named PTs, rehab clinics, known fitness brands) over aggregator channels.
+
+2. **Verify each ID exists** via YouTube's oEmbed endpoint. This also returns the actual title and author, so you can confirm the video matches the drill:
+   ```bash
+   for id in "id1" "id2" "id3"; do
+     http=$(curl -s -o /tmp/oembed.json -w "%{http_code}" "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=$id&format=json")
+     info=$(python3 -c "import json; d=json.load(open('/tmp/oembed.json')); print(d.get('title',''),'|',d.get('author_name',''))" 2>/dev/null)
+     echo "$id  [$http]  $info"
+   done
+   ```
+   `200` = video exists and is embeddable. `401`/`404`/`403` = drop the candidate. The returned title should clearly describe the drill; if it's off-topic, skip it even if the ID resolves.
+
+3. **Embed** with a short, descriptive `title=` attribute (the title is the accessibility label, not marketing copy):
+   ```mdx
+   <YouTube id="ILSbK8RnGdI" title="Banded joint mobilization for stiff ankles" />
+   ```
+
+If you can't find a credible, verified video for a specific drill, skip the embed for that drill and note it in the completion summary so the user can add their own later.
 
 ---
 
