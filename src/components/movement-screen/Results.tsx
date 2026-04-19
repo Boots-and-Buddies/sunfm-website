@@ -340,6 +340,13 @@ export default function MovementScreenResults({ result, onRestart }: Props) {
               </>
             )}
           </button>
+          <p className="mt-8 text-white/40 text-xs leading-relaxed max-w-lg mx-auto">
+            This is an educational self-assessment, not medical advice or a
+            substitute for professional evaluation. If you have persistent
+            pain, a recent injury, or a known medical condition, talk to a
+            licensed physician or physical therapist before starting this or
+            any exercise program.
+          </p>
         </div>
       </div>
 

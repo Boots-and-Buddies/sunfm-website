@@ -247,6 +247,17 @@ export async function generateProgramPDF(
     doc.text(focusLines, dx + dayW / 2, y + 13, { align: "center" });
   });
 
+  y += 30;
+
+  // Medical disclaimer
+  doc.setFontSize(7);
+  setColor(doc, GRAY);
+  doc.setFont("helvetica", "italic");
+  const disclaimer =
+    "This is an educational self-assessment, not medical advice or a substitute for professional evaluation. If you have persistent pain, a recent injury, or a known medical condition, consult a licensed physician or physical therapist before starting this or any exercise program.";
+  const disclaimerLines = doc.splitTextToSize(disclaimer, contentW - 20);
+  doc.text(disclaimerLines, pageW / 2, y, { align: "center" });
+
   // Footer
   setColor(doc, GRAY);
   doc.setFontSize(7);
