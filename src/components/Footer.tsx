@@ -60,9 +60,9 @@ export default function Footer() {
             <Image
               src="/images/logo-white.png"
               alt="SunFM"
-              width={160}
-              height={60}
-              className="h-10 w-auto mb-6"
+              width={1456}
+              height={546}
+              className="h-20 w-auto mb-6"
             />
             <p className="text-white/60 mb-6 max-w-md text-sm leading-relaxed">
               Serving clients from{" "}
