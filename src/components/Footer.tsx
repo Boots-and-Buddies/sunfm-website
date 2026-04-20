@@ -62,7 +62,7 @@ export default function Footer() {
               alt="SunFM"
               width={1200}
               height={538}
-              className="h-24 w-auto mb-6"
+              className="h-16 w-auto mb-6"
             />
             <p className="text-white/60 mb-6 max-w-md text-sm leading-relaxed">
               Serving clients from{" "}

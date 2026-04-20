@@ -102,7 +102,7 @@ export default function Header() {
               alt="SunFM"
               width={isDark ? 1200 : 240}
               height={isDark ? 538 : 90}
-              className="h-20 w-auto"
+              className={isDark ? "h-11 w-auto" : "h-20 w-auto"}
               priority
             />
           </Link>
