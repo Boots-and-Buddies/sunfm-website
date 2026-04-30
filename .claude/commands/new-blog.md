@@ -109,15 +109,17 @@ Rules:
 - Embed 1–2 additional images inline with `![alt](/images/blog/filename.jpg)` at natural section breaks
 - Alt text should be specific and descriptive, not keyword-stuffed
 
-Per memory, never ask the user to source images. If no existing stock photo fits, pull one from Unsplash using the workflow below.
+Per memory, never ask the user to source images. If no existing stock photo fits, pull one from Unsplash, Pexels, or Pixabay using the workflows below.
 
-#### Working Unsplash workflow (April 2026)
+**Pick a source by rotating** — don't default to Unsplash every time. Variety across posts matters. Look at the existing inventory in `public/images/blog/` and consciously pick a different source than the most recent few hero images. Roughly: Unsplash for clean studio/lifestyle shots, Pexels for gym/fitness scenes, Pixabay for broader generic stock when the first two come up empty.
 
-Unsplash.com has Anubis proof-of-work bot protection, so WebFetch and direct HTML scrapes return 401. `source.unsplash.com` is shut down (503). But the `/download?force=true` endpoint still returns a 302 redirect to the CDN URL, and the CDN (`images.unsplash.com`) is not bot-protected. That's the gap.
+#### Source 1: Unsplash (no auth required)
 
-1. **Find a specific photo page URL** via WebSearch: `site:unsplash.com/photos <your topic keywords>`. Results will include URLs like `https://unsplash.com/photos/<slug>-<shortId>` or `https://unsplash.com/photos/<shortId>`. The short ID is 11 characters, appended after the last dash (e.g., `sVH7i5A4Wh8`). Collect 3–5 candidate IDs because not every photo's download endpoint works.
+Unsplash.com has Anubis proof-of-work bot protection, so WebFetch and direct HTML scrapes return 401. But the `/download?force=true` endpoint still returns a 302 redirect to the CDN URL, and the CDN (`images.unsplash.com`) is not bot-protected. That's the gap.
 
-2. **Check which candidates resolve.** Some photos return 403 on the download endpoint, not every short ID works:
+1. **Find a photo page URL** via WebSearch: `site:unsplash.com/photos <your topic keywords>`. URLs look like `https://unsplash.com/photos/<slug>-<shortId>` (the 11-char short ID is the last segment, e.g., `sVH7i5A4Wh8`). Collect 3–5 candidates.
+
+2. **Check which resolve** (some return 403):
    ```bash
    for id in "id1" "id2" "id3"; do
      curl -sI -A "Mozilla/5.0" "https://unsplash.com/photos/$id/download?force=true" | grep -iE "^location|^HTTP"
@@ -125,18 +127,66 @@ Unsplash.com has Anubis proof-of-work bot protection, so WebFetch and direct HTM
    ```
    Pick the first one that returns `HTTP/2 302` with a `location:` pointing at `images.unsplash.com/photo-...`.
 
-3. **Download it** to a descriptive filename:
+3. **Download** to a descriptive filename:
    ```bash
    curl -sL -A "Mozilla/5.0" \
      "https://unsplash.com/photos/<shortId>/download?force=true&w=1600" \
      -o public/images/blog/<descriptive-slug>.jpg
    ```
 
-4. **Verify the image** by reading the file path with the Read tool — it returns the image visually so you can confirm subject matter before committing to it as the hero.
+4. **Verify the image** by reading the file path with the Read tool — confirm the subject matter visually before committing to it.
 
-5. **Update the frontmatter** `image:` field.
+#### Source 2: Pexels (no auth required)
 
-If all candidates 403, pick a different topic query (e.g., "calf stretch" instead of "ankle mobility") and repeat. If you genuinely can't find one, fall back to the closest stock photo and note it in the final report so the user can swap in a better image later.
+Pexels HTML pages are bot-protected (Cloudflare 403), but the CDN at `images.pexels.com` is open and serves predictable URLs built from the photo ID alone. No download endpoint roundtrip needed.
+
+1. **Find a photo page URL** via WebSearch: `site:pexels.com <your topic keywords>` (or `site:pexels.com/photo` for direct photo pages, though search-result pages are also fine). The URL looks like `https://www.pexels.com/photo/<slug>-<id>/` — the photo ID is the trailing number before the slash (all digits, e.g., `14074802`). Collect 3–5 candidate IDs.
+
+2. **Build the CDN URL directly** — no resolution check needed, the pattern is deterministic:
+   ```
+   https://images.pexels.com/photos/<id>/pexels-photo-<id>.jpeg?w=1600
+   ```
+
+3. **Download** to a descriptive filename:
+   ```bash
+   curl -sL -A "Mozilla/5.0" \
+     "https://images.pexels.com/photos/<id>/pexels-photo-<id>.jpeg?w=1600" \
+     -o public/images/blog/<descriptive-slug>.jpg
+   ```
+
+4. **Verify the image** with Read. If subject matter is wrong, try the next candidate ID.
+
+License: Pexels License — free to use, no attribution required, commercial use OK.
+
+#### Source 3: Pixabay (requires free API key)
+
+Pixabay's CDN URLs include date paths and hashes that can't be guessed from a photo ID, so direct CDN scraping doesn't work. The fastest path is the public API, which returns the full CDN URL in a JSON response.
+
+**Setup (one-time)**: Register a free key at https://pixabay.com/api/docs/ (instant, no email verification needed). Set `PIXABAY_API_KEY` in your shell or in a project env file. Free tier is 100 requests / 60 seconds — plenty for finding hero images.
+
+If `PIXABAY_API_KEY` is not set, skip Pixabay and fall back to Unsplash or Pexels. Don't ask the user to set it mid-flow — note it in the completion summary so they can opt in later.
+
+1. **Query the API** with your topic keywords:
+   ```bash
+   KEY="$PIXABAY_API_KEY"
+   curl -s "https://pixabay.com/api/?key=$KEY&q=plank+exercise&image_type=photo&per_page=10&safesearch=true" \
+     | python3 -c "import json, sys; d=json.load(sys.stdin); [print(h['id'],'|',h['largeImageURL'],'|',h['tags']) for h in d['hits']]"
+   ```
+
+2. **Pick a candidate** by tag relevance from the printed list. The `largeImageURL` field is the direct CDN URL (typically 1280px wide, plenty for hero use).
+
+3. **Download** to a descriptive filename:
+   ```bash
+   curl -sL -A "Mozilla/5.0" "<largeImageURL>" -o public/images/blog/<descriptive-slug>.jpg
+   ```
+
+4. **Verify the image** with Read.
+
+License: Pixabay Content License — free to use, no attribution required, commercial use OK.
+
+#### Fallback rules
+
+If your first source comes up empty, switch sources rather than narrowing the topic — Pexels and Pixabay tag photos differently than Unsplash, so the same query often finds different candidates. If all three turn up nothing usable, fall back to an existing stock photo in `public/images/blog/` and note in the completion summary that the user can swap in a better hero later.
 
 ### YouTube embedding
 
