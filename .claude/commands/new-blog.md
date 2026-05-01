@@ -102,12 +102,16 @@ tags: ["primary keyword", "secondary keyword", "desk workers", "San Jose", "mobi
 
 ### Image embedding
 
-Check `public/images/blog/` for the current stock inventory (run `ls public/images/blog/`) — list changes as posts get published. Known stock photos as of April 2026 include desk worker exercises, functional workout, gym strength, kettlebell training, meal prep, personal training sessions, stretching mobility, and an ankle-mobility-stretch photo (woman seated forward fold on yoga mat).
+Check `public/images/blog/` for the current stock inventory (run `ls public/images/blog/`). Filenames give you a hint, but they can lie or be too generic — `stretching-mobility.jpg` is a yoga lunge backbend at sunset, not a generic fitness shot. Before reusing any on-disk image as a hero or inline, **always Read the file with the Read tool and visually confirm the actual subject** matches the section you'd embed it in. Trusting prior alt text or filename alone is how off-topic images sneak in.
 
 Rules:
 - Use one image as the `image:` frontmatter field (the hero, rendered by the post page)
 - Embed 1–2 additional images inline with `![alt](/images/blog/filename.jpg)` at natural section breaks
-- Alt text should be specific and descriptive, not keyword-stuffed
+- Alt text should be specific and descriptive — describe what the image actually shows, not what the post is about (so the alt stays accurate even if the surrounding text changes)
+
+**Subject relevance is a hard requirement.** Each image — hero or inline — must depict either the exact topic of the surrounding section, or a closely related movement pattern. A side plank section gets a side plank, plank, or bird dog photo. A core stability section never gets a hip flexor stretch image just because both involve a yoga mat. If you can't articulate in one sentence why this image matches THIS section, source a different one rather than settling. The fix is cheap: Pexels/Pixabay/Unsplash are right there.
+
+**Avoid recycling the same "fitness vibes" photo across multiple posts.** Generic shots get reused too easily and dilute visual variety. If you're considering an image that's already been used in 2+ posts, source a fresh one instead.
 
 Per memory, never ask the user to source images. If no existing stock photo fits, pull one from Unsplash, Pexels, or Pixabay using the workflows below.
 
