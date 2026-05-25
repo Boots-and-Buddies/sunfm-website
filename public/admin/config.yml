@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: badminton-justin/sunfm-website
+  repo: Badminton-Justin/sunfm-website
   branch: main
   base_url: https://www.sunfm.fitness
   auth_endpoint: api/auth
