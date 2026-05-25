@@ -8,6 +8,7 @@ export interface Post {
   title: string;
   description: string;
   date: string;
+  updated?: string;
   author: string;
   image: string;
   imageAlt?: string;
@@ -47,6 +48,7 @@ export function getAllPosts(): Post[] {
         title: data.title,
         description: data.description,
         date: data.date,
+        updated: data.updated,
         author: data.author,
         image: data.image || "",
         imageAlt: data.imageAlt,

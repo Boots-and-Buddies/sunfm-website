@@ -129,7 +129,7 @@ export default async function ArticlePage({ params }: Props) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated || post.date,
     wordCount,
     mainEntityOfPage: {
       "@type": "WebPage",
